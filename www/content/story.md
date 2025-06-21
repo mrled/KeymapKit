@@ -47,7 +47,7 @@ eleventyNavigation:
   It turned out that while it was true that my shoulders were more square
   when I used it, I had not anticipated a much more significant benefit. I
   could remap every painful key under my pinkies to keys under my thumbs.
-  For instance, I moved <a href="/?keyId=l-t-1-3">the shift key</a> to an
+  For instance, I moved <a href="/KeymapKit/demos/ergodox/?keyId=l-t-1-3">the shift key</a> to an
   easy location under my left thumb.
 </p>
 <p>

@@ -19,5 +19,6 @@ module.exports = (eleventyConfig) => {
       includes: "../_includes",
       output: "_site",
     },
+    pathPrefix: "/KeymapKit",
   };
 };

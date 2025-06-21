@@ -23,7 +23,7 @@ eleventyNavigation:
   allowed me to reduce the intense strain on my pinkies by moving commonly
   used keys out from under weak pinkies to under much stronger thumbs.
 </p>
-<p><a href="/?guide=mrlGuide">the guided tour</a> for specifics.</p>
+<p><a href="/KeymapKit/demos/ergodox/?guide=mrlGuide">the guided tour</a> for specifics.</p>
 
 <h2>Development</h2>
 <p>This is a work in progress.</p>

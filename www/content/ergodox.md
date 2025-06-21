@@ -63,7 +63,7 @@ eleventyNavigation:
 <p>
   Most people are probably familiar with a &ldquo;function&rdquo; key, like
   many laptops have &mdash; layers work like that. I have a similar
-  <a href="/?keyId=l-f-2-9">function layer</a> on my board. When I hold that
+  <a href="/KeymapKit/demos/ergodox/?keyId=l-f-2-9">function layer</a> on my board. When I hold that
   key, QMK transforms the number keys <kbd>1</kbd> through <kbd>0</kbd> to
   function keys <kbd>F1</kbd> through <kbd>F10</kbd> , transforms other keys
   to controls for multimedia playback or screen brightness, and more. When I
@@ -71,7 +71,7 @@ eleventyNavigation:
   instantly.
 </p>
 <p>
-  A more fun one is my <a href="/?keyId=l-f-8-9">arrow layer</a>. When I
+  A more fun one is my <a href="/KeymapKit/demos/ergodox/?keyId=l-f-8-9">arrow layer</a>. When I
   hold that key, QMK transforms <kbd>e</kbd>, <kbd>s</kbd>, <kbd>d</kbd>,
   <kbd>f</kbd>, and <kbd>i</kbd>, <kbd>j</kbd>, <kbd>k</kbd> ,
   <kbd>l</kbd> into arrow keys, taking inspiration from

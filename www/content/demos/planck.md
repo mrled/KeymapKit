@@ -18,7 +18,7 @@ Toggle debug controls on all KeymapUI elements on this page:
 <div id="app"></div>
 
 <script type="module">
-  import { Planck48ExampleLayout } from "/keymaps/planck48-example-layout.js";
+  import { Planck48ExampleLayout } from "/KeymapKit/keymaps/planck48-example-layout.js";
   const app = document.getElementById("app");
   const keymapUi = document.createElement("keymap-ui");
   const availableKeymaps = [Planck48ExampleLayout];

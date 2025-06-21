@@ -2,21 +2,34 @@
 title: KeymapKit
 ---
 
+{% macro renderNav(items) %}
+  <ul>
+    {% for item in items %}
+      <li>
+        <a href="{{ item.url | url }}">{{ item.title }}</a>
+        {% if item.children %}
+          {{ renderNav(item.children) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/KeymapKit/style.css" />
     <link rel="icon" type="image/svg+xml" href="/cmd-c05621.svg" />
 
     <script type="importmap">
       {
         "imports": {
-          "@keymapkit/ui": "/keymapkit/keymapkit.js",
-          "@keymapkit/keyboard.ergodox": "/keymapkit/keyboard.ergodox.js",
-          "@keymapkit/keyboard.planck48": "/keymapkit/keyboard.planck48.js",
-          "@keymapkit/examples": "/keymapkit/examples.js"
+          "@keymapkit/ui": "/KeymapKit/keymapkit/keymapkit.js",
+          "@keymapkit/keyboard.ergodox": "/KeymapKit/keymapkit/keyboard.ergodox.js",
+          "@keymapkit/keyboard.planck48": "/KeymapKit/keymapkit/keyboard.planck48.js",
+          "@keymapkit/examples": "/KeymapKit/keymapkit/examples.js"
         }
       }
     </script>
@@ -26,7 +39,7 @@ title: KeymapKit
       data-site="HDMUSVII"
       defer
     ></script>
-    <script src="/common.js" defer></script>
+    <script src="/KeymapKit/common.js" defer></script>
     <title>
       {% if eleventyNavigation and eleventyNavigation.title %}{{
         eleventyNavigation.title
@@ -39,9 +52,7 @@ title: KeymapKit
     </button>
     <nav id="sidebar">
       <h1><a href="/">KeymapKit</a></h1>
-      {{
-        collections.all | eleventyNavigation | eleventyNavigationToHtml | safe
-      }}
+      {{ renderNav(collections.all | eleventyNavigation) }}
     </nav>
     <main id="content">
       <h1>{{ title | safe }}</h1>

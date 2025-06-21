@@ -17,9 +17,9 @@ Toggle debug controls on all KeymapUI elements on this page:
 <div id="app"></div>
 
 <script type="module">
-  import { KeymapTitleScreenLayoutSimple } from "/keymaps/title-screen-layout-simple.js";
-  import { KeymapTitleScreenLayoutManyLayer } from "/keymaps/title-screen-layout-manylayer.js";
-  import { Planck48ExampleLayout } from "/keymaps/planck48-example-layout.js";
+  import { KeymapTitleScreenLayoutSimple } from "/KeymapKit/keymaps/title-screen-layout-simple.js";
+  import { KeymapTitleScreenLayoutManyLayer } from "/KeymapKit/keymaps/title-screen-layout-manylayer.js";
+  import { Planck48ExampleLayout } from "/KeymapKit/keymaps/planck48-example-layout.js";
   import "@keymapkit/keyboard.ergodox";
   import { MicahErgodoxLayout } from "@keymapkit/examples";
   const app = document.getElementById("app");
