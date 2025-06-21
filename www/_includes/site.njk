@@ -1,35 +1,47 @@
 ---
 title: KeymapKit
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
     <link rel="icon" type="image/svg+xml" href="/cmd-c05621.svg" />
 
     <script type="importmap">
-    {
-      "imports": {
-        "@keymapkit/ui": "/keymapkit/keymapkit.js",
-        "@keymapkit/keyboard.ergodox": "/keymapkit/keyboard.ergodox.js",
-        "@keymapkit/keyboard.planck48": "/keymapkit/keyboard.planck48.js",
-        "@keymapkit/examples": "/keymapkit/examples.js"
+      {
+        "imports": {
+          "@keymapkit/ui": "/keymapkit/keymapkit.js",
+          "@keymapkit/keyboard.ergodox": "/keymapkit/keyboard.ergodox.js",
+          "@keymapkit/keyboard.planck48": "/keymapkit/keyboard.planck48.js",
+          "@keymapkit/examples": "/keymapkit/examples.js"
+        }
       }
-    }
     </script>
 
-    <script src="https://cdn.usefathom.com/script.js" data-site="HDMUSVII" defer></script>
+    <script
+      src="https://cdn.usefathom.com/script.js"
+      data-site="HDMUSVII"
+      defer
+    ></script>
     <script src="/common.js" defer></script>
-    <title>{% if eleventyNavigation and eleventyNavigation.title %}{{ eleventyNavigation.title }}{% else %}{{ title }}{% endif %}</title>
-
+    <title>
+      {% if eleventyNavigation and eleventyNavigation.title %}{{
+        eleventyNavigation.title
+      }}{% else %}{{ title }}{% endif %}
+    </title>
   </head>
   <body>
-    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      ☰
+    </button>
     <nav id="sidebar">
       <h1><a href="/">KeymapKit</a></h1>
-      {{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
+      {{
+        collections.all | eleventyNavigation | eleventyNavigationToHtml | safe
+      }}
     </nav>
     <main id="content">
       <h1>{{ title | safe }}</h1>
@@ -37,3 +49,5 @@ title: KeymapKit
     </main>
   </body>
 </html>
+
+<!-- mode: html -->
