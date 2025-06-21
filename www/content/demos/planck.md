@@ -1,6 +1,5 @@
 ---
 layout: site.njk
-demo: true
 title: Planck Demo
 eleventyNavigation:
   title: Planck

@@ -1,7 +1,6 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
 const draftsPlugin = require("./eleventy.plugin.drafts.js");
-const demosPlugin = require("./eleventy.plugin.demos.js");
 
 module.exports = (eleventyConfig) => {
   // In dev mode, make sure that changes to passthrough directories are reflected immediately.
@@ -12,7 +11,6 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy({ static: "/" });
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(draftsPlugin);
-  eleventyConfig.addPlugin(demosPlugin);
   return {
     dir: {
       input: "content",

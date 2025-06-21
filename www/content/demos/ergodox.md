@@ -1,6 +1,5 @@
 ---
 layout: site.njk
-demo: true
 title: ErgoDox Demo
 eleventyNavigation:
   title: ErgoDox

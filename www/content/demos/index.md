@@ -5,7 +5,6 @@ eleventyNavigation:
   key: demos
   title: Demos
   order: 3
-demo: true
 ---
 
 Here are some demos of the KeymapKit UI

@@ -4,9 +4,9 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
-    "build:dev": "BUILD_DRAFTS=true BUILD_DEMOS=true eleventy",
+    "build:dev": "BUILD_DRAFTS=true eleventy",
     "build:prod": "eleventy",
-    "serve:dev": "BUILD_DRAFTS=true BUILD_DEMOS=true eleventy --serve",
+    "serve:dev": "BUILD_DRAFTS=true eleventy --serve",
     "serve:prod": "eleventy --serve"
   },
   "devDependencies": {

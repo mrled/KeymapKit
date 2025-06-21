@@ -1,6 +1,5 @@
 ---
 layout: site.njk
-demo: true
 title: Multiple Boards Demo
 eleventyNavigation:
   title: Multiple Boards
