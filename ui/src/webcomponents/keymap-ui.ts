@@ -366,9 +366,9 @@ export class KeymapUIElement
       this._keyboard = document.createElement(
         kbElementName,
       ) as KeymapKeyboardElement;
-      this._keyboard.setAttribute("id", "keyboard");
-      this._keyboard.classList.add("keymap-keyboard");
     }
+    this._keyboard.setAttribute("id", "keyboard");
+    this._keyboard.classList.add("keymap-keyboard");
     if (needsCreate) {
       this._keyboard.createChildren(Array.from(this.state.layer.keys.values()));
     }
