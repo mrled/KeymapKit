@@ -113,3 +113,6 @@ www.serve: ## Run the KeymapKit website in development mode with hot reloading
 		npm run serve:dev -w www & \
 		wait
 
+
+.PHONY: all
+all: ui keyboard.ergodox keyboard.planck48 examples www ## Build everything
