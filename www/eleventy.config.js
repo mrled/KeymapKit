@@ -1,4 +1,5 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 // Eleventy already depends on this
 const MarkdownIt = require("markdown-it");
@@ -17,6 +18,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
   // The static dir contains files that should be copied as-is to the output dir that are checked in to git
   eleventyConfig.addPassthroughCopy({ static: "/" });
+  eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(draftsPlugin);
   eleventyConfig.setLibrary("md", md);
