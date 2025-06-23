@@ -185,6 +185,13 @@ export class KeymapUIElement
     this.#resizeCanvas(this.state);
     // Watch for changes in the size of the kidContainer
     this.resizeObserver.observe(this.kidContainer);
+
+    for (const attr of KeymapUIElement.observedAttributes) {
+      const value = this.getAttribute(attr);
+      if (value !== null) {
+        this.attributeChangedCallback(attr, "", value);
+      }
+    }
   }
 
   /* Call attributeChangedCallback when any of these attributes are changed from JavaScript
