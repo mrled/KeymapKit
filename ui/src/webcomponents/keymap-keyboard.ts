@@ -8,13 +8,6 @@ import { KeymapKeyElement } from "./keymap-key";
 import { KeyboardModel } from "~/lib/KeyboardModel";
 
 export abstract class KeymapKeyboardElement extends HTMLElement {
-  /* A ResizeObserver to watch for changes in the board's size
-   * and recalculate the size of the board.
-   */
-  resizeObserver: ResizeObserver = new ResizeObserver(() =>
-    this.calculateSize(),
-  );
-
   constructor() {
     super();
   }
@@ -36,16 +29,6 @@ export abstract class KeymapKeyboardElement extends HTMLElement {
    */
   static readonly elementName: string;
   abstract readonly elementName: string;
-
-  /* Subclasses are welcome to override  connectedCallback(),
-   * but they should call super.connectedCallback() in their implementation.
-   */
-  connectedCallback() {
-    // When the element is connected to the DOM, calculate the size of the board.
-    this.calculateSize();
-    // When the element is resized, recalculate the size of the board.
-    this.resizeObserver.observe(this);
-  }
 
   /* The model for the keyboard, contains information about physical keys etc.
    */
@@ -70,11 +53,4 @@ export abstract class KeymapKeyboardElement extends HTMLElement {
       this.removeChild(this.firstChild);
     }
   }
-
-  /* Implement this method to properly calculate the size of the board.
-   *
-   * It will be called when the board element is connected to the DOM
-   * and when the window is resized.
-   */
-  calculateSize() {}
 }

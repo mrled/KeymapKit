@@ -104,13 +104,6 @@ class KeymapKeyboardPlanck48Element extends KeymapKeyboardElement {
     keyGrid.createKeys(this, keys);
     gridContainer.appendChild(keyGrid);
   }
-
-  calculateSize() {
-    const rootStyle = getComputedStyle(this);
-    const keyboardGridUnit = rootStyle.getPropertyValue("--keyboard-grid-unit");
-    this.style.width = `calc(${this.columns} * ${keyboardGridUnit})`;
-    this.style.height = `calc(${this.rows} * ${keyboardGridUnit})`;
-  }
 }
 
 if (!customElements.get(KeymapKeyboardPlanck48Element.elementName)) {
