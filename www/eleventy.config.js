@@ -1,5 +1,13 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
+// Eleventy already depends on this
+const MarkdownIt = require("markdown-it");
+
+const md = new MarkdownIt({
+  html: true, // Enables HTML tags (the default in 11ty but not markdown-it)
+  typographer: true, // Enables smart quotes and typographic replacements
+});
+
 const draftsPlugin = require("./eleventy.plugin.drafts.js");
 
 module.exports = (eleventyConfig) => {
@@ -11,6 +19,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy({ static: "/" });
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(draftsPlugin);
+  eleventyConfig.setLibrary("md", md);
   return {
     dir: {
       input: "content",
