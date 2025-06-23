@@ -11,7 +11,7 @@ import {
 const KeyboardModelErgodox = new KeyboardModel(
   "keymap-keyboard-ergodox",
   "ErgoDox",
-  new Point(2, 2),
+  new Size(2, 2),
   new Size(4, 3),
   [
     // Left fingers, number row

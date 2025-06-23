@@ -13,7 +13,7 @@ import {
 const KeyboardModelPlanck48 = new KeyboardModel(
   "keymap-keyboard-planck48",
   "Planck 48",
-  new Point(2, 2),
+  new Size(2, 2),
   new Size(4, 3),
   [
     // Top row

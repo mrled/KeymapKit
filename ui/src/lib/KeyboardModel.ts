@@ -9,6 +9,7 @@ import { KeymapLayout, KeymapKey, KeymapLayer } from "~/lib/Layout";
 
 type KeyIdToPhysicalKeymap = { [key: string]: PhysicalKey };
 
+// TODO: simplify this class, don't require defaultBlankKeySize and maxKeySize, which we should be able to infer from the physical keys.
 export class KeyboardModel {
   constructor(
     //The element name for the keyboard that this instance models
@@ -18,7 +19,7 @@ export class KeyboardModel {
     public readonly displayName: string,
 
     // The size of the blank key to display in the title bar when no key is selected.
-    public readonly defaultBlankKeySize: Point = new Point(2, 2),
+    public readonly defaultBlankKeySize: Size = new Point(2, 2),
 
     // The maximum dimensions of any key on the keyboard.
     public readonly maxKeySize: Size = new Size(4, 4),

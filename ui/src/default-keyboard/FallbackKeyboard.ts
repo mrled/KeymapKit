@@ -10,7 +10,7 @@ import { KeymapKeygridElement } from "~/webcomponents/keymap-keygrid";
 const KeyboardModelFallback = new KeyboardModel(
   "fallback-keyboard",
   "KeymapKit Fallback Keyboard",
-  new Point(2, 2),
+  new Size(2, 2),
   new Size(2, 2),
   [
     new PhysicalKey("fallback-keyboard", new Point(1, 1), new Size(2, 2)), // F
