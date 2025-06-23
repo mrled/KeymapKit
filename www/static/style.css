@@ -44,7 +44,6 @@ a {
 }
 
 nav#sidebar {
-  height: 100vh;
   width: 13rem;
   padding: 0.5rem;
   border-right: 1px solid var(--color-primary);
