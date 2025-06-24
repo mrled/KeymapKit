@@ -6,6 +6,12 @@ import {
 } from "@keymapkit/ui";
 import { KeyboardModelErgodox } from "@keymapkit/keyboard.ergodox";
 
+//
+// #region Reused text strings
+// Some description text is used for multuple keys (e.g. all arrow keys),
+// so we define it here once and reuse it.
+//
+
 const normalLayoutInfo = [`Unchanged from normal QWERTY keyboard layout`];
 
 const pageUpDownHomeEndInfo = [
@@ -157,6 +163,12 @@ const arrowKeyInfo = [
   `Each of the arrow keys are easily accessible on this special layer.`,
 ];
 
+// #endregion
+//
+// #region Key selection arrays
+// Define arrays of key IDs to show groups of keys all together
+//
+
 const arrowKeySelection = [
   "l-f-8-3",
   "l-f-6-5",
@@ -252,6 +264,15 @@ const extraFeaturesSelection = [
   "r-f-13-9", // volume keys
 ];
 
+// #endregion
+//
+// #region Helper functions
+//
+
+/* Define a regular QWERTY key
+ *
+ * Define any key in its normal QWERTY position with less boilerplate.
+ */
 function newQwertyKey(
   name: string,
   physicalKeyId: string,
@@ -266,11 +287,20 @@ function newQwertyKey(
   });
 }
 
+// #endregion
+//
+// #region Layout definition
+//
+
 export const MicahErgodoxLayout = new KeymapLayout({
   displayName: "Micah's Keymap",
   uniqueId: "micah-ergodox",
   model: KeyboardModelErgodox,
   layers: [
+    //
+    // #region Main layer
+    //
+
     KeymapLayer.fromKeyList({
       displayName: "Micah Ergodox Main Layer",
       shortName: "Main",
@@ -777,6 +807,12 @@ export const MicahErgodoxLayout = new KeymapLayout({
         }),
       ],
     }),
+
+    // #endregion
+    //
+    // #region Navigation layer
+    //
+
     KeymapLayer.fromKeyList({
       displayName: "Navigation layer",
       shortName: "Nav",
@@ -860,8 +896,14 @@ export const MicahErgodoxLayout = new KeymapLayout({
         }),
       ],
     }),
+
+    // #endregion
   ],
   guides: [
+    //
+    // #region Layout guide
+    //
+
     new KeymapGuide({
       title: "Guide to Micah's ErgoDox layout",
       shortName: "Guide",
@@ -1011,5 +1053,8 @@ export const MicahErgodoxLayout = new KeymapLayout({
         },
       ],
     }),
+    // #endregion
   ],
 });
+
+// #endregion
