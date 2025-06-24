@@ -219,7 +219,11 @@ class KeymapKeyboardPlanck48Element extends KeymapKeyboardElement {
     gridContainer.appendChild(keyGrid);
   }
 }
+```
 
+You also have to register the custom element in order to use it:
+
+```typescript
 // In order for the browser to know how to use the element, it must be defined.
 if (!customElements.get(KeymapKeyboardPlanck48Element.elementName)) {
   customElements.define(
@@ -228,3 +232,7 @@ if (!customElements.get(KeymapKeyboardPlanck48Element.elementName)) {
   );
 }
 ```
+
+More complicated keyboards can have multiple keygrids.
+For instance the ErgoDox has four keygrids:
+left fingers, left thumb, right fingers, and right thumb.

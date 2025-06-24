@@ -67,14 +67,15 @@ import utilityStyleStr from "~/styles/utility.css?inline";
  * layer                The layer number to use.
  * selected-key         The id of the key that is selected.
  * query-prefix         A prefix for query parameters.
- *                      If set, the KeymapUIElement will look for parameters in the URL query string with this prefix.
- *                      This attribute is not set by default,
- *                      so the KeymapUIElement will not read from or write to the query string by default.
+ *                      If set, the KeymapUIElement will look for parameters
+ *                      in the URL query string with this prefix.
  *
  * Query string parameters:
  * map              The name of one of the passed-in keymaps to use.
  * layer            The layer number to use.
- * id               The id of the key to select.
+ * key              The id of the key to select.
+ * guide            The name of the guide to use.
+ * step             The step number in the guide to use in the guide
  *
  * Query string example:
  * 1. The KeymapUIElement is declared in the DOM as:

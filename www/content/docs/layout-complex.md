@@ -45,8 +45,6 @@ A few things to point out:
   You can click around on individual keys,
   or click the "Start Guide" button to be taken on a guided tour of the layout.
 
-## The result
-
 ## The full layout
 
 {% importcode "../examples/MicahErgodoxLayout.ts", "typescript" %}

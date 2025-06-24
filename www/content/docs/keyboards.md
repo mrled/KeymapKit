@@ -1,8 +1,8 @@
 ---
 layout: site.njk
-title: Keyboards
+title: Supported Keyboards
 eleventyNavigation:
-  title: Keyboards
+  title: Supported Keyboards
   parent: docs
   order: 40
 ---
