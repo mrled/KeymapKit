@@ -9,7 +9,7 @@
     "keymapkit.watch": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --external:@keymapkit/ui --external:@keymapkit/keyboard.ergodox --outfile=../www/static/keymapkit/examples.js index.ts --watch=forever"
   },
   "author": "Micah R Ledbetter",
-  "license": "Unlicense",
+  "license": "MIT",
   "dependencies": {
     "@keymapkit/ui": "*",
     "@keymapkit/keyboard.ergodox": "*"

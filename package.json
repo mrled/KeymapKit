@@ -2,6 +2,7 @@
   "name": "keymapkit",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "format": "prettier --write \"./**/*.{ts,js,json,css,html,md}\" --ignore-path .gitignore",
     "lint": "eslint ."

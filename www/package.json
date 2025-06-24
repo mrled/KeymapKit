@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "commonjs",
+  "license": "MIT",
   "scripts": {
     "build:dev": "BUILD_DRAFTS=true eleventy",
     "build:prod": "eleventy",
