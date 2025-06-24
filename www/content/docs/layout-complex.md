@@ -44,6 +44,10 @@ A few things to point out:
 - This layout implements a guide.
   You can click around on individual keys,
   or click the "Start Guide" button to be taken on a guided tour of the layout.
+- It uses `<kbd>` elements for nicely styled key-looking elements in the description.
+- It uses `<keymap-indicator>` elements to draw a line from the reference to a physical key on the board.
+  For instance, `<keymap-indicator id="l-t-1-3"><kbd>shift</kbd></keymap-indicator>`
+  draws a line from that part of the key info to the physical key at `l-t-1-3`.
 
 ## The full layout
 
