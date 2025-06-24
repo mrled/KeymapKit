@@ -8,7 +8,7 @@ eleventyNavigation:
 ---
 
 When writing a new keyboard,
-you may wish to with the [Planck](https://github.com/mrled/KeymapKit/tree/master/keyboard.planck48)
+you may wish to start with the [Planck](https://github.com/mrled/KeymapKit/tree/master/keyboard.planck48)
 for a simple example, and build your board based on that.
 This page walks you through how the Planck board is defined.
 
