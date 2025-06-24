@@ -32,34 +32,18 @@ export const Planck48ExampleLayout = new KeymapLayout({
       // Each key has a name, ID, and info,
       // which in this case is all set to the same thing
       keys: [
-        new KeymapKey({
-          name: "K",
-          id: "planck-1-1",
-          info: ["The first K key"],
-        }),
+        new KeymapKey({ name: "K", id: "planck-1-1", info: ["1st K key"] }),
         new KeymapKey({ name: "E", id: "planck-3-1", info: ["The E key"] }),
         new KeymapKey({ name: "Y", id: "planck-5-1", info: ["The Y key"] }),
         new KeymapKey({ name: "M", id: "planck-7-1", info: ["The M key"] }),
         new KeymapKey({ name: "A", id: "planck-9-1", info: ["The A key"] }),
         new KeymapKey({ name: "P", id: "planck-11-1", info: ["The P key"] }),
         new KeymapKey({ name: ".", id: "planck-13-1", info: ["The . key"] }),
-        new KeymapKey({
-          name: "C",
-          id: "planck-15-1",
-          info: ["The first C key"],
-        }),
+        new KeymapKey({ name: "C", id: "planck-15-1", info: ["1st C key"] }),
         new KeymapKey({ name: "L", id: "planck-17-1", info: ["The L key"] }),
         new KeymapKey({ name: "I", id: "planck-19-1", info: ["The I key"] }),
-        new KeymapKey({
-          name: "C",
-          id: "planck-21-1",
-          info: ["The second C key"],
-        }),
-        new KeymapKey({
-          name: "K",
-          id: "planck-23-1",
-          info: ["The second K key"],
-        }),
+        new KeymapKey({ name: "C", id: "planck-21-1", info: ["2nd C key"] }),
+        new KeymapKey({ name: "K", id: "planck-23-1", info: ["2nd K key"] }),
       ],
     }),
   ],
