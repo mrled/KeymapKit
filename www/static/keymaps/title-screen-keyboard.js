@@ -34,7 +34,6 @@ const KeyboardModelTitleScreen = new KeyboardModel(
  */
 class KeymapKeyboardTitleScreenElement extends KeymapKeyboardElement {
   static elementName = "title-screen-keyboard";
-  elementName = KeymapKeyboardTitleScreenElement.elementName;
 
   constructor() {
     super();

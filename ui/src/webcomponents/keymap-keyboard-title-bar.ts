@@ -12,7 +12,6 @@ import { KeyboardModel } from "~/lib/KeyboardModel";
  */
 export class KeymapKeyboardTitleBarElement extends KeymapKeyboardElement {
   static readonly elementName = "keymap-keyboard-title-bar";
-  readonly elementName = KeymapKeyboardTitleBarElement.elementName;
 
   keymapKey: KeymapKey | null = null;
   keyElement: KeymapKeyElement | null = null;

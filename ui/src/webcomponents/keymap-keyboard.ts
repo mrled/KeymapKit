@@ -15,20 +15,15 @@ export abstract class KeymapKeyboardElement extends HTMLElement {
   /* The element name of the keyboard.
    * This name should be passed to customElements.define() when registering the keyboard.
    *
-   * Note that in addition to this INSTANCE property,
-   * there must also be a STATIC property of the same name.
-   * The KeymapUIElement and state uses the instance property;
-   * the customElements.define() call uses the static property.
-   * TODO: Can we make this nicer?
-   * I think we can't; TypeScript doesn't support abstract static properties or interface static properties.
+   * THIS IS NOT AN ABSTRACT PROPERTY, BUT SUBCLASSES MUST OVERRIDE IT.
    *
-   * The recommended approach is to define the static property
-   * and then have the instance property return the static property.
-   *
-   * Subclasses must implement BOTH properties.
+   * Unfortunately, TypeScript does not support abstract static properties,
+   * so we cannot require this at compile time.
+   * If you forget to implement this property,
+   * your keyboard will be a <missing-keyboard-element-name> element,
+   * and if two keyboards forget to implement it they'll overwrite each other.
    */
-  static readonly elementName: string;
-  abstract readonly elementName: string;
+  static readonly elementName: string = "missing-keyboard-element-name";
 
   /* The model for the keyboard, contains information about physical keys etc.
    */
@@ -46,6 +41,15 @@ export abstract class KeymapKeyboardElement extends HTMLElement {
 
   constructor() {
     super();
+  }
+
+  /* An instance property that returns the element name from the static property.
+   *
+   * The instance property is required by KeymapUIElement and state.
+   * The static property is used by customElements.define() and elsewhere.
+   */
+  get elementName(): string {
+    return (this.constructor as typeof KeymapKeyboardElement)["elementName"];
   }
 
   /* Get all the child <keymap-key> elements.

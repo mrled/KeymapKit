@@ -37,7 +37,6 @@ const KeyboardModelFallback = new KeyboardModel(
  */
 class FallbackKeyboardElement extends KeymapKeyboardElement {
   static elementName = "fallback-keyboard";
-  elementName = FallbackKeyboardElement.elementName;
 
   constructor() {
     super();

@@ -140,18 +140,19 @@ The abstract methods and properties that must be overridded on the base class:
 
 ```javascript
 export abstract class KeymapKeyboardElement extends HTMLElement {
+
   /* The element name of the keyboard.
    * This name should be passed to customElements.define() when registering the keyboard.
    *
-   * Note that in addition to this INSTANCE property,
-   * there must also be a STATIC property of the same name.
-   * The recommended approach is to define the static property
-   * and then have the instance property return the static property.
+   * THIS IS NOT AN ABSTRACT PROPERTY, BUT SUBCLASSES MUST OVERRIDE IT.
    *
-   * Subclasses must implement BOTH properties.
+   * Unfortunately, TypeScript does not support abstract static properties,
+   * so we cannot require this at compile time.
+   * If you forget to implement this property,
+   * your keyboard will be a <missing-keyboard-element-name> element,
+   * and if two keyboards forget to implement it they'll overwrite each other.
    */
-  static readonly elementName: string;
-  abstract readonly elementName: string;
+  static readonly elementName: string = "missing-keyboard-element-name";
 
   /* The model for the keyboard, contains information about physical keys etc.
    */
@@ -165,10 +166,9 @@ export abstract class KeymapKeyboardElement extends HTMLElement {
 }
 ```
 
-Subclasses have to define the element name twice (for annoying TypeScript reasons),
-give it a `KeyboardModel` instance,
-and then write a function to lay out the keys from the model.
-Here's how the Planck does it:
+The first two properties assign an element name and the keyboard model we defined previously.
+All the magic is in the `createChildren()` function.
+Here's how the Planck implements it.
 
 ```javascript
 /* A 48-key Planck keyboard.
@@ -176,7 +176,6 @@ Here's how the Planck does it:
 class KeymapKeyboardPlanck48Element extends KeymapKeyboardElement {
   // Set the element name (twice)
   static readonly elementName: string = "keymap-keyboard-planck48";
-  readonly elementName = KeymapKeyboardPlanck48Element.elementName;
 
   // Set the model
   readonly model = KeyboardModelPlanck48;

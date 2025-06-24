@@ -198,7 +198,6 @@ keymap-keygrid[name="ergodox-right-thumb"] {
  */
 class KeymapKeyboardErgodoxElement extends KeymapKeyboardElement {
   static elementName = "keymap-keyboard-ergodox";
-  elementName = KeymapKeyboardErgodoxElement.elementName;
 
   constructor() {
     super();

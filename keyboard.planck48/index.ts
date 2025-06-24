@@ -75,7 +75,6 @@ const KeyboardModelPlanck48 = new KeyboardModel(
  */
 class KeymapKeyboardPlanck48Element extends KeymapKeyboardElement {
   static readonly elementName: string = "keymap-keyboard-planck48";
-  readonly elementName = KeymapKeyboardPlanck48Element.elementName;
 
   constructor() {
     super();
