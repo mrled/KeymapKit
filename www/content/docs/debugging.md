@@ -4,7 +4,7 @@ title: Debugging Tips
 eleventyNavigation:
   title: Debugging Tips
   parent: docs
-  order: 2
+  order: 90
 ---
 
 ## Diagram debugging

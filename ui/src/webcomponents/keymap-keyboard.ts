@@ -15,10 +15,8 @@ export abstract class KeymapKeyboardElement extends HTMLElement {
   /* The element name of the keyboard.
    * This name should be passed to customElements.define() when registering the keyboard.
    *
-   * Subclasses must implement this property.
-   *
    * Note that in addition to this INSTANCE property,
-   * there will usually also be a STATIC property of the same name.
+   * there must also be a STATIC property of the same name.
    * The KeymapUIElement and state uses the instance property;
    * the customElements.define() call uses the static property.
    * TODO: Can we make this nicer?
@@ -26,6 +24,8 @@ export abstract class KeymapKeyboardElement extends HTMLElement {
    *
    * The recommended approach is to define the static property
    * and then have the instance property return the static property.
+   *
+   * Subclasses must implement this property.
    */
   static readonly elementName: string;
   abstract readonly elementName: string;

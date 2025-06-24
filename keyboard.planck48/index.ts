@@ -98,6 +98,7 @@ class KeymapKeyboardPlanck48Element extends KeymapKeyboardElement {
     const keyGrid = document.createElement(
       KeymapKeygridElement.elementName,
     ) as KeymapKeygridElement;
+    gridContainer.appendChild(keyGrid);
     keyGrid.setAttribute("name", "planck48");
     keyGrid.setAttribute("cols", this.columns.toString());
     keyGrid.setAttribute("rows", this.rows.toString());
