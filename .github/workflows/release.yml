@@ -1,0 +1,112 @@
+name: Release Packages
+
+on:
+  push:
+    tags:
+      - "ui@*"
+      - "keyboard.ergodox@*"
+      - "keyboard.planck48@*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Extract workspace and version from tag
+        id: extract
+        run: |
+          TAG="${{ github.ref_name }}"
+          WORKSPACE=$(echo "$TAG" | cut -d'@' -f1)
+          VERSION=$(echo "$TAG" | cut -d'@' -f2)
+          echo "workspace=$WORKSPACE" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+      - name: Build workspace
+        run: npm run build -w ${{ steps.extract.outputs.workspace }}
+
+      - name: Pack NPM package
+        run: npm pack -w ${{ steps.extract.outputs.workspace }}
+
+      - name: Get package tarball name
+        id: package
+        run: |
+          WORKSPACE="${{ steps.extract.outputs.workspace }}"
+          VERSION="${{ steps.extract.outputs.version }}"
+          # Replace dots with hyphens in workspace name for npm package naming
+          PACKAGE_NAME="keymapkit-${WORKSPACE//./-}-${VERSION}.tgz"
+          echo "tarball=$PACKAGE_NAME" >> $GITHUB_OUTPUT
+
+          # Get the actual package name from package.json
+          PACKAGE_JSON_NAME=$(npm pkg get name -w $WORKSPACE | tr -d '"')
+          echo "package_name=$PACKAGE_JSON_NAME" >> $GITHUB_OUTPUT
+
+      - name: Prepare release assets
+        id: assets
+        run: |
+          WORKSPACE="${{ steps.extract.outputs.workspace }}"
+          TARBALL="${{ steps.package.outputs.tarball }}"
+
+          # Create a temporary directory for release assets
+          mkdir -p release-assets
+
+          # Move the tarball to release assets
+          mv $TARBALL release-assets/
+
+          # Get the files that would be included in the package
+          cd $WORKSPACE
+
+          # Extract files from package.json files field
+          FILES=$(npm pkg get files | jq -r '.[]' 2>/dev/null || echo "dist")
+
+          # Copy distribution files
+          for file in $FILES; do
+            if [[ -e "$file" ]]; then
+              # Create directory structure in release-assets
+              mkdir -p "../release-assets/$(dirname "$file")"
+              cp -r "$file" "../release-assets/$file"
+            fi
+          done
+
+          cd ..
+
+          # List all assets for the release
+          echo "Release assets:"
+          ls -la release-assets/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.extract.outputs.tag }}
+          name: ${{ steps.package.outputs.package_name }} v${{ steps.extract.outputs.version }}
+          body: |
+            ## ${{ steps.package.outputs.package_name }} v${{ steps.extract.outputs.version }}
+
+            ### Installation
+
+            ```bash
+            npm install ${{ steps.package.outputs.package_name }}@${{ steps.extract.outputs.version }}
+            ```
+
+            ### Assets
+
+            - **NPM Package**: `${{ steps.package.outputs.tarball }}` - Complete npm package
+            - **Distribution Files**: Individual built files from the package
+          files: |
+            release-assets/*
+          draft: false
+          prerelease: false
