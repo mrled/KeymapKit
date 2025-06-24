@@ -1,10 +1,21 @@
 {
   "name": "@keymapkit/ui",
-  "version": "2.0.1",
+  "description": "The presentation layer for your keyboard",
+  "author": "Micah R Ledbetter",
+  "license": "MIT",
+  "version": "0.5.0",
   "private": false,
   "type": "module",
-  "main": "dist/keymapkit.js",
+  "module": "dist/keymapkit.js",
   "types": "dist/keymapkit.d.ts",
+  "exports": {
+    "import": "./dist/keymapkit.js"
+  },
+  "files": [
+    "dist/keymapkit.js",
+    "dist/keymapkit.js.map",
+    "dist/keymapkit.d.ts"
+  ],
   "scripts": {
     "build": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --outfile=dist/keymapkit.js src/index.ts",
     "postbuild": "tsc --project tsconfig.json && dts-bundle-generator --config dts-bundle-generator.json",

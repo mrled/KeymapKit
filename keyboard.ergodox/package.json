@@ -1,15 +1,26 @@
 {
   "name": "@keymapkit/keyboard.ergodox",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
+  "description": "The ErgoDox keyboard model for KeymapKit",
+  "author": "Micah R Ledbetter",
+  "license": "MIT",
+  "version": "0.5.0",
+  "private": false,
+  "type": "module",
+  "module": "dist/keyboard.ergodox.js",
+  "types": "dist/keyboard.ergodox.d.ts",
+  "exports": {
+    "import": "./dist/keymapkit.js"
+  },
+  "files": [
+    "dist/keyboard.ergodox.js",
+    "dist/keyboard.ergodox.js.map",
+    "dist/keyboard.ergodox.d.ts"
+  ],
   "scripts": {
     "build": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --external:@keymapkit/ui --outfile=dist/keyboard.ergodox.js index.ts",
     "postbuild": "tsc --project tsconfig.json && dts-bundle-generator --project=tsconfig.json --no-banner --sort --export-referenced-types=false --out-file=dist/keyboard.ergodox.d.ts index.ts",
     "keymapkit.watch": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --external:@keymapkit/ui --outfile=../www/static/keymapkit/keyboard.ergodox.js index.ts --watch=forever"
   },
-  "author": "Micah R Ledbetter",
-  "license": "Unlicense",
   "dependencies": {
     "@keymapkit/ui": "*"
   },
