@@ -7,11 +7,10 @@ eleventyNavigation:
   order: 20
 ---
 
-Start with the [Planck](https://github.com/mrled/KeymapKit/tree/master/keyboard.planck48)
+When writing a new keyboard,
+you may wish to with the [Planck](https://github.com/mrled/KeymapKit/tree/master/keyboard.planck48)
 for a simple example, and build your board based on that.
-
-These examples are in TypeScript,
-but you can do it just as well in vanilla JavaScript.
+This page walks you through how the Planck board is defined.
 
 ## The Model
 
@@ -20,7 +19,7 @@ describes how the board is laid out abstractly,
 but doesn't have anything to do with HTML.
 
 Models are **class instances** of the `KeyboardModel` class.
-It's constructor:
+Its constructor:
 
 ```typescript
 export class KeyboardModel {
@@ -170,7 +169,7 @@ The first two properties assign an element name and the keyboard model we define
 All the magic is in the `createChildren()` function.
 Here's how the Planck implements it.
 
-```javascript
+```typescript
 /* A 48-key Planck keyboard.
  */
 class KeymapKeyboardPlanck48Element extends KeymapKeyboardElement {
