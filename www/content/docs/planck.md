@@ -140,10 +140,7 @@ The abstract methods and properties that must be overridded on the base class:
 
 ```javascript
 export abstract class KeymapKeyboardElement extends HTMLElement {
-  // ... snip ...
-
   /* The element name of the keyboard.
-   *
    * This name should be passed to customElements.define() when registering the keyboard.
    *
    * Note that in addition to this INSTANCE property,
@@ -151,7 +148,7 @@ export abstract class KeymapKeyboardElement extends HTMLElement {
    * The recommended approach is to define the static property
    * and then have the instance property return the static property.
    *
-   * Subclasses must implement these properties.
+   * Subclasses must implement BOTH properties.
    */
   static readonly elementName: string;
   abstract readonly elementName: string;
@@ -159,7 +156,6 @@ export abstract class KeymapKeyboardElement extends HTMLElement {
   /* The model for the keyboard, contains information about physical keys etc.
    */
   abstract model: KeyboardModel;
-
 
   /* Subclasses should implement this method to create child elements.
    */

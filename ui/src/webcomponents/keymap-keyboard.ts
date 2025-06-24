@@ -8,9 +8,9 @@ import { KeymapKeyElement } from "./keymap-key";
 import { KeyboardModel } from "~/lib/KeyboardModel";
 
 export abstract class KeymapKeyboardElement extends HTMLElement {
-  constructor() {
-    super();
-  }
+  //
+  // #region Abstract methods and properties
+  //
 
   /* The element name of the keyboard.
    * This name should be passed to customElements.define() when registering the keyboard.
@@ -25,7 +25,7 @@ export abstract class KeymapKeyboardElement extends HTMLElement {
    * The recommended approach is to define the static property
    * and then have the instance property return the static property.
    *
-   * Subclasses must implement this property.
+   * Subclasses must implement BOTH properties.
    */
   static readonly elementName: string;
   abstract readonly elementName: string;
@@ -33,6 +33,20 @@ export abstract class KeymapKeyboardElement extends HTMLElement {
   /* The model for the keyboard, contains information about physical keys etc.
    */
   abstract model: KeyboardModel;
+
+  /* Subclasses should implement this method to create child elements.
+   */
+  abstract createChildren(keys: KeymapKey[]): void;
+
+  // #endregion
+
+  //
+  // #region Base class methods and properties
+  //
+
+  constructor() {
+    super();
+  }
 
   /* Get all the child <keymap-key> elements.
    */
@@ -42,10 +56,6 @@ export abstract class KeymapKeyboardElement extends HTMLElement {
     ) as KeymapKeyElement[];
   }
 
-  /* Subclasses should implement this method to create child elements.
-   */
-  abstract createChildren(keys: KeymapKey[]): void;
-
   /* A helper to remove all child elements.
    */
   removeAllChildren() {
@@ -53,4 +63,6 @@ export abstract class KeymapKeyboardElement extends HTMLElement {
       this.removeChild(this.firstChild);
     }
   }
+
+  // #endregion
 }
