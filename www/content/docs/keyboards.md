@@ -4,7 +4,7 @@ title: Keyboards
 eleventyNavigation:
   title: Keyboards
   parent: docs
-  order: 20
+  order: 40
 ---
 
 KeymapKit comes with support for the following keyboards:

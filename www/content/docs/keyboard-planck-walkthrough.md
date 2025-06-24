@@ -4,7 +4,7 @@ title: Planck Walkthrough
 eleventyNavigation:
   title: Planck Walkthrough
   parent: docs
-  order: 20
+  order: 50
 ---
 
 When writing a new keyboard,
