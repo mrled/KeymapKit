@@ -15,18 +15,15 @@ const KeyboardModelTitleScreen = new KeyboardModel(
   new Point(2, 2),
   new Size(2, 2),
   [
-    new PhysicalKey("title-screen", new Point(1, 1), new Size(2, 2)), // K
-    new PhysicalKey("title-screen", new Point(3, 1), new Size(2, 2)), // E
-    new PhysicalKey("title-screen", new Point(5, 1), new Size(2, 2)), // Y
-    new PhysicalKey("title-screen", new Point(7, 1), new Size(2, 2)), // M
-    new PhysicalKey("title-screen", new Point(9, 1), new Size(2, 2)), // A
-    new PhysicalKey("title-screen", new Point(11, 1), new Size(2, 2)), // P
-    new PhysicalKey("title-screen", new Point(13, 1), new Size(2, 2)), // .
-    new PhysicalKey("title-screen", new Point(15, 1), new Size(2, 2)), // C
-    new PhysicalKey("title-screen", new Point(17, 1), new Size(2, 2)), // L
-    new PhysicalKey("title-screen", new Point(19, 1), new Size(2, 2)), // I
-    new PhysicalKey("title-screen", new Point(21, 1), new Size(2, 2)), // C
-    new PhysicalKey("title-screen", new Point(23, 1), new Size(2, 2)), // K
+    new PhysicalKey("title", new Point(1, 1), new Size(2, 2)), // K
+    new PhysicalKey("title", new Point(3, 1), new Size(2, 2)), // E
+    new PhysicalKey("title", new Point(5, 1), new Size(2, 2)), // Y
+    new PhysicalKey("title", new Point(7, 1), new Size(2, 2)), // M
+    new PhysicalKey("title", new Point(9, 1), new Size(2, 2)), // A
+    new PhysicalKey("title", new Point(11, 1), new Size(2, 2)), // P
+    new PhysicalKey("title", new Point(13, 1), new Size(2, 2)), // K
+    new PhysicalKey("title", new Point(15, 1), new Size(2, 2)), // I
+    new PhysicalKey("title", new Point(17, 1), new Size(2, 2)), // T
   ],
 );
 

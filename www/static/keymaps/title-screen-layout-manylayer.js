@@ -9,20 +9,17 @@ import {
 /* A dumb function to generate a layer, for testing a board with lots of layers
  */
 function generateLayer(layerIdx) {
-  const keyLegends = "KEYMAP.CLICK";
+  const keyLegends = "KEYMAPKIT";
   const shortName = `layer${layerIdx}`;
   return KeymapLayer.fromKeyList({
     displayName: `Title Screen Layer ${layerIdx}`,
     shortName: shortName,
-    welcome: [
-      "K E Y M A P . C L I C K",
-      `Welcome to <code>${shortName}</code>.`,
-    ],
+    welcome: ["K E Y M A P K I T", `Welcome to <code>${shortName}</code>.`],
     keys: KeyboardModelTitleScreen.physicalKeys.map(
       (key, idx) =>
         new KeymapKey({
           name: keyLegends[idx],
-          id: `title-screen-${key.position.x}-${key.position.y}`,
+          id: `title-${key.position.x}-${key.position.y}`,
           info: [
             `This is the <kbd>${keyLegends[idx]}</kbd> key on <code>${shortName}</code>.`,
           ],
@@ -32,18 +29,15 @@ function generateLayer(layerIdx) {
 }
 
 const allKeySelection = [
-  "title-screen-1-1",
-  "title-screen-3-1",
-  "title-screen-5-1",
-  "title-screen-7-1",
-  "title-screen-9-1",
-  "title-screen-11-1",
-  "title-screen-13-1",
-  "title-screen-15-1",
-  "title-screen-17-1",
-  "title-screen-19-1",
-  "title-screen-21-1",
-  "title-screen-23-1",
+  "title-1-1",
+  "title-3-1",
+  "title-5-1",
+  "title-7-1",
+  "title-9-1",
+  "title-11-1",
+  "title-13-1",
+  "title-15-1",
+  "title-17-1",
 ];
 
 /* A board with lots of layers, for testing purposes.
@@ -77,7 +71,7 @@ export const KeymapTitleScreenLayoutManyLayer = new KeymapLayout({
             Now just one key is highlighted.
             `,
           ],
-          selection: "title-screen-1-1",
+          selection: "title-1-1",
         },
         {
           title: "The end",
@@ -107,7 +101,7 @@ export const KeymapTitleScreenLayoutManyLayer = new KeymapLayout({
             Now just one key is highlighted.
             `,
           ],
-          selection: "title-screen-1-1",
+          selection: "title-1-1",
         },
         {
           title: "The end",
