@@ -116,4 +116,11 @@ jobs:
       - name: Publish to NPM
         run: |
           npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
-          npm publish --access public -w ${{ steps.extract.outputs.workspace }}
+          VERSION="${{ steps.extract.outputs.version }}"
+
+          # Check if version is a prerelease (contains -, like 1.0.0-rc.1)
+          if [[ "$VERSION" == *"-"* ]]; then
+            npm publish --access public --tag next -w ${{ steps.extract.outputs.workspace }}
+          else
+            npm publish --access public -w ${{ steps.extract.outputs.workspace }}
+          fi
