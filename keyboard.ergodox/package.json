@@ -20,7 +20,7 @@
     "build": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --external:@keymapkit/ui --outfile=dist/keyboard.ergodox.js index.ts",
     "postbuild": "tsc --project tsconfig.json && dts-bundle-generator --project=tsconfig.json --no-banner --sort --export-referenced-types=false --out-file=dist/keyboard.ergodox.d.ts index.ts",
     "keymapkit.watch": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --external:@keymapkit/ui --outfile=../www/static/keymapkit/keyboard.ergodox.js index.ts --watch=forever",
-    "postversion": "git add . && git commit -m \"[keyboard.ergodox] Bump version to $npm_package_version\" && git tag keyboard.ergodox@v$npm_package_version && git push origin master --tags"
+    "postversion": "git add . && git commit -m \"[keyboard.ergodox] Bump version to $npm_package_version\" && git tag keyboard.ergodox@v$npm_package_version"
   },
   "dependencies": {
     "@keymapkit/ui": "*"
