@@ -4,7 +4,12 @@ A keyboard module for the [KeymapKit](https://github.com/mrled/KeymapKit) projec
 
 ![Screenshot](screenshot.png?raw=true "Screenshot")
 
-This module defines an ErgoDox keyboard with four keygrids:
+This module defines an ErgoDox keyboard.
+
+- Default key size: 2x2
+- Maximum key size: 4x3
+
+The keyboard has four keygrids:
 
 - `l-f`: Left finger grid
 - `l-t`: Left thumb grid

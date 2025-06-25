@@ -205,6 +205,11 @@ class KeymapKeyboardErgodoxElement extends KeymapKeyboardElement {
 
   model = KeyboardModelErgodox;
 
+  fingerGridCols = "15";
+  fingerGridRows = "10";
+  thumbGridCols = "6";
+  thumbGridRows = "6";
+
   /* Create keygrid and key elements from key data for this board.
    */
   createChildren(keys: KeymapKey[]) {
@@ -230,8 +235,8 @@ class KeymapKeyboardErgodoxElement extends KeymapKeyboardElement {
       KeymapKeygridElement.elementName,
     ) as KeymapKeygridElement;
     leftFingerGrid.setAttribute("name", "ergodox-left-finger");
-    leftFingerGrid.setAttribute("cols", "15");
-    leftFingerGrid.setAttribute("rows", "10");
+    leftFingerGrid.setAttribute("cols", this.fingerGridCols);
+    leftFingerGrid.setAttribute("rows", this.fingerGridRows);
     const leftFingerKeys = keys.filter(
       (key) => this.model.getPhysicalKey(key.id).boardId === "l-f",
     );
@@ -242,8 +247,8 @@ class KeymapKeyboardErgodoxElement extends KeymapKeyboardElement {
       KeymapKeygridElement.elementName,
     ) as KeymapKeygridElement;
     leftThumbGrid.setAttribute("name", "ergodox-left-thumb");
-    leftThumbGrid.setAttribute("cols", "6");
-    leftThumbGrid.setAttribute("rows", "6");
+    leftThumbGrid.setAttribute("cols", this.thumbGridCols);
+    leftThumbGrid.setAttribute("rows", this.thumbGridRows);
     const leftThumbKeys = keys.filter(
       (key) => this.model.getPhysicalKey(key.id).boardId === "l-t",
     );
@@ -266,8 +271,8 @@ class KeymapKeyboardErgodoxElement extends KeymapKeyboardElement {
       KeymapKeygridElement.elementName,
     ) as KeymapKeygridElement;
     rightFingerGrid.setAttribute("name", "ergodox-right-finger");
-    rightFingerGrid.setAttribute("cols", "15");
-    rightFingerGrid.setAttribute("rows", "10");
+    rightFingerGrid.setAttribute("cols", this.fingerGridCols);
+    rightFingerGrid.setAttribute("rows", this.fingerGridRows);
     const rightFingerKeys = keys.filter(
       (key) => this.model.getPhysicalKey(key.id).boardId === "r-f",
     );
@@ -278,8 +283,8 @@ class KeymapKeyboardErgodoxElement extends KeymapKeyboardElement {
       KeymapKeygridElement.elementName,
     ) as KeymapKeygridElement;
     rightThumbGrid.setAttribute("name", "ergodox-right-thumb");
-    rightThumbGrid.setAttribute("cols", "6");
-    rightThumbGrid.setAttribute("rows", "6");
+    rightThumbGrid.setAttribute("cols", this.thumbGridCols);
+    rightThumbGrid.setAttribute("rows", this.thumbGridRows);
     const rightThumbKeys = keys.filter(
       (key) => this.model.getPhysicalKey(key.id).boardId === "r-t",
     );

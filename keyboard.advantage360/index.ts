@@ -129,12 +129,12 @@ const styleSheet = `
  */
 @container (min-width: 540px) {
   .keymap-ui-kid-container {
-    --keyboard-grid-unit: 0.5em;
+    --keyboard-grid-unit: 0.5rem;
   }
 }
 @container (min-width: 785px) {
   .keymap-ui-kid-container {
-    --keyboard-grid-unit: 0.625em;
+    --keyboard-grid-unit: 0.625rem;
   }
 }
 
@@ -175,14 +175,14 @@ div.keyboard-sub-board-right {
   }
 }
 
-/* Left and right thumb clusters of an ErgoDox keyboard */
-keymap-keygrid[name="ergodox-left-thumb"] {
+/* Left and right thumb clusters of an Advantage360 keyboard */
+keymap-keygrid[name="advantage360-left-thumb"] {
   transform: translateX(calc(var(--keyboard-grid-unit) * -6))
     translateY(calc(var(--keyboard-grid-unit) * 14)) rotate(25deg);
   transform-origin: 0 calc(var(--keyboard-grid-unit) * 4);
   padding-bottom: calc(var(--keyboard-grid-unit) * 18);
 }
-keymap-keygrid[name="ergodox-right-thumb"] {
+keymap-keygrid[name="advantage360-right-thumb"] {
   transform: translateX(calc(var(--keyboard-grid-unit) * 6))
     translateY(calc(var(--keyboard-grid-unit) * 14)) rotate(-25deg);
   transform-origin: calc(var(--keyboard-grid-unit) * 12)
@@ -192,7 +192,7 @@ keymap-keygrid[name="ergodox-right-thumb"] {
 
 `;
 
-/* An ErgoDox keyboard.
+/* An Advantage360 keyboard.
  */
 export class KeymapKeyboardAdvantage360Element extends KeymapKeyboardElement {
   static elementName = "keymap-keyboard-advantage360";
@@ -203,10 +203,10 @@ export class KeymapKeyboardAdvantage360Element extends KeymapKeyboardElement {
 
   model = KeyboardModelAdvantage360;
 
-  fingerGridRows = "20";
   fingerGridCols = "30";
-  thumbGridRows = "12";
+  fingerGridRows = "20";
   thumbGridCols = "12";
+  thumbGridRows = "12";
 
   /* Create keygrid and key elements from key data for this board.
    */
@@ -232,7 +232,7 @@ export class KeymapKeyboardAdvantage360Element extends KeymapKeyboardElement {
     const leftFingerGrid = document.createElement(
       KeymapKeygridElement.elementName,
     ) as KeymapKeygridElement;
-    leftFingerGrid.setAttribute("name", "ergodox-left-finger");
+    leftFingerGrid.setAttribute("name", "advantage360-left-finger");
     leftFingerGrid.setAttribute("cols", this.fingerGridCols);
     leftFingerGrid.setAttribute("rows", this.fingerGridRows);
     const leftFingerKeys = keys.filter(
@@ -244,7 +244,7 @@ export class KeymapKeyboardAdvantage360Element extends KeymapKeyboardElement {
     const leftThumbGrid = document.createElement(
       KeymapKeygridElement.elementName,
     ) as KeymapKeygridElement;
-    leftThumbGrid.setAttribute("name", "ergodox-left-thumb");
+    leftThumbGrid.setAttribute("name", "advantage360-left-thumb");
     leftThumbGrid.setAttribute("cols", this.thumbGridCols);
     leftThumbGrid.setAttribute("rows", this.thumbGridRows);
     const leftThumbKeys = keys.filter(
@@ -268,7 +268,7 @@ export class KeymapKeyboardAdvantage360Element extends KeymapKeyboardElement {
     const rightFingerGrid = document.createElement(
       KeymapKeygridElement.elementName,
     ) as KeymapKeygridElement;
-    rightFingerGrid.setAttribute("name", "ergodox-right-finger");
+    rightFingerGrid.setAttribute("name", "advantage360-right-finger");
     rightFingerGrid.setAttribute("cols", this.fingerGridCols);
     rightFingerGrid.setAttribute("rows", this.fingerGridRows);
     const rightFingerKeys = keys.filter(
@@ -280,7 +280,7 @@ export class KeymapKeyboardAdvantage360Element extends KeymapKeyboardElement {
     const rightThumbGrid = document.createElement(
       KeymapKeygridElement.elementName,
     ) as KeymapKeygridElement;
-    rightThumbGrid.setAttribute("name", "ergodox-right-thumb");
+    rightThumbGrid.setAttribute("name", "advantage360-right-thumb");
     rightThumbGrid.setAttribute("cols", this.thumbGridCols);
     rightThumbGrid.setAttribute("rows", this.thumbGridRows);
     const rightThumbKeys = keys.filter(

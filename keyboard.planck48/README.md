@@ -4,8 +4,12 @@ A keyboard module for the [KeymapKit](https://github.com/mrled/KeymapKit) projec
 
 ![Screenshot](screenshot.png?raw=true "Screenshot")
 
-This module defines a Planck 48 keyboard with a single keygrid containing 48 keys,
-arranged in 4 rows of 12 keys.
+This module defines a Planck 48 keyboard.
+
+- Default key size: 2x2
+- Maximum key size: 4x3
+
+The keyboard has a single keygrid containing 48 keys, arranged in 4 rows of 12 keys.
 
 All key IDs follow the pattern `planck48-{x}-{y}` where x and y are the coordinates. Each key is 2x2 grid units in size.
 
