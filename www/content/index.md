@@ -29,6 +29,4 @@ If you also want to talk about specific key placement or provide details about y
 
 To use it, install with npm as <code>npm install @keymapkit/ui</code>, define a layout in JavaScript, instantiate the web component on your page, and pass it your defined layout. If KeymapKit doesn't come with a built-in model for your keyboard, you can define your own model. KeymapKit currently ships models of ErgoDox and Planck boards. If you want to see a model for a different board, please <a href="https://github.com/mrled/KeymapKit/issues">open an issue</a>, or implement it yourself and publish it as a separate package on NPM (and let me know so I can link to it here).
 
-See the demo below for an example of what KeymapKit looks like on a page.
-
 Thanks for all the clicks.
