@@ -112,3 +112,8 @@ jobs:
             release-assets/*
           draft: false
           prerelease: false
+
+      - name: Publish to NPM
+        run: |
+          npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
+          npm publish --access public -w ${{ steps.extract.outputs.workspace }}
