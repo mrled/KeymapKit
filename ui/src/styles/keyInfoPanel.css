@@ -91,6 +91,12 @@ keymap-navbar {
     & > * {
       margin: 0 1em;
     }
+
+    /* Ensure the title bar keyboard has the same font-size context as the main keyboard
+       so that em-based --keyboard-grid-unit values calculate correctly */
+    keymap-keyboard-title-bar {
+      font-size: 1rem;
+    }
   }
 
   .layer-tabs,

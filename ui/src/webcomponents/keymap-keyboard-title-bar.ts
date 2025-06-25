@@ -28,6 +28,7 @@ export class KeymapKeyboardTitleBarElement extends KeymapKeyboardElement {
       new Size(1, 1),
     );
     this._physicalKeys = [this.titleKey];
+    // Initialize with default size, will be updated when referenceModel is set
     this._model = new KeyboardModel(
       KeymapKeyboardTitleBarElement.elementName,
       "TitleBar",
@@ -49,7 +50,7 @@ export class KeymapKeyboardTitleBarElement extends KeymapKeyboardElement {
     this._referenceModel = model;
     if (model) {
       this._model = new KeyboardModel(
-        this.elementName,
+        KeymapKeyboardTitleBarElement.elementName,
         model.displayName,
         model.defaultBlankKeySize,
         model.maxKeySize,
@@ -99,6 +100,11 @@ export class KeymapKeyboardTitleBarElement extends KeymapKeyboardElement {
     referenceModel: KeyboardModel,
     selectedKeyId: string,
   ): KeymapKey {
+    // Update the reference model if it has changed
+    if (this.referenceModel !== referenceModel) {
+      this.referenceModel = referenceModel;
+    }
+
     this.grid.setAttribute("cols", this.model.maxKeySize.x.toString());
     this.grid.setAttribute("rows", this.model.maxKeySize.y.toString());
 
