@@ -571,8 +571,8 @@ export class KeymapUIElement
       }
       keySelection = keyData.selection || [];
       proseTitleElement.innerHTML = keyData.unset
-        ? `Unset key`
-        : `The <kbd>${keyData.name}</kbd> key`;
+        ? `<span>Unset key</span> <span class="key-id">id: ${keyData.id}</span>`
+        : `<span>The <kbd>${keyData.name}</kbd> key</span> <span class="key-id">id: ${keyData.id}</span>`;
       proseTextElements = keyData.info.map((paragraph: string) => {
         const p = document.createElement("p");
         p.innerHTML = paragraph;

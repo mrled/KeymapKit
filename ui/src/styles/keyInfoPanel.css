@@ -1,9 +1,36 @@
 /* The key info panel */
 
-.key-info-panel {
+.key-info-prose {
   p {
     padding: 0;
     margin: 1rem 0;
+  }
+
+  h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    gap: 3em;
+  }
+
+  /* The title should never be cut off */
+  h3 > :first-child {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .key-id {
+    font-size: 0.65em;
+    color: var(--text-muted);
+    font-weight: normal;
+    margin-left: auto;
+    white-space: nowrap;
+    /* Hide if there's any overflow */
+    overflow: hidden;
+    text-overflow: clip;
+    flex-shrink: 1;
+    min-width: 0;
   }
 }
 

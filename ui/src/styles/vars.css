@@ -58,6 +58,7 @@
   /* Other colors
    */
   --link-fg: rgba(49, 130, 206, 1);
+  --text-muted: #9ca3af;
 
   /* The --keyboard-grid-unit variable is used to scale the size of the whole UI.
    *
@@ -144,5 +145,6 @@
 
     /* Other colors */
     --link-fg: #60a5fa;
+    --text-muted: #6b7280;
   }
 }
