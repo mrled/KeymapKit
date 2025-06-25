@@ -37,7 +37,7 @@ jobs:
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
       - name: Build workspace
-        run: npm run build -w ${{ steps.extract.outputs.workspace }}
+        run: make ${{ steps.extract.outputs.workspace }}
 
       - name: Pack NPM package
         run: npm pack -w ${{ steps.extract.outputs.workspace }}

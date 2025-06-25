@@ -1,15 +1,7 @@
 # -*- mode: Makefile -*-
 
-# A portable, self-documenting GNU Makefile for projects
-#
-# Suitable for projects where you write the Makefile by hand.
-#
-# Notes:
-# - ".PHONY" targets do not generate files
-# - Targets without .PHONY are assumed to generate files
-# - See the help comment, after '##', for each target
-# - For targets that do not have a '## comment', they are not shown in the help output
-# - The help target is the first target, so it's also what gets run if you just run 'make' without a target
+# Project notes:
+# - The GItHub Actions workflow expects a .PHONY target named after each NPM workspace.
 
 # Ignore built-in inference rules that determine eg how to build object files from C source code.
 # You might not want this if you're writing a Makefile for a C project.
