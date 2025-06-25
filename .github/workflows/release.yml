@@ -47,13 +47,15 @@ jobs:
         run: |
           WORKSPACE="${{ steps.extract.outputs.workspace }}"
           VERSION="${{ steps.extract.outputs.version }}"
-          # Replace dots with hyphens in workspace name for npm package naming
-          PACKAGE_NAME="keymapkit-${WORKSPACE//./-}-${VERSION}.tgz"
-          echo "tarball=$PACKAGE_NAME" >> $GITHUB_OUTPUT
 
           # Get the actual package name from package.json
           PACKAGE_JSON_NAME=$(npm pkg get name -w $WORKSPACE | tr -d '"')
           echo "package_name=$PACKAGE_JSON_NAME" >> $GITHUB_OUTPUT
+
+          # If the package name is @keymapkit/ui, the tarball name will be keymapkit-ui-VERSION.tgz
+          TARBALL_NAME="${PACKAGE_JSON_NAME//@/}"
+          TARBALL_NAME="${TARBALL_NAME//\//-}-${VERSION}.tgz"
+          echo "tarball=$TARBALL_NAME" >> $GITHUB_OUTPUT
 
       - name: Prepare release assets
         id: assets
@@ -64,8 +66,8 @@ jobs:
           # Create a temporary directory for release assets
           mkdir -p release-assets
 
-          # Move the tarball to release assets
-          mv $TARBALL release-assets/
+          # Find and move the actual tarball created by npm pack
+          mv *.tgz release-assets/
 
           # Get the files that would be included in the package
           cd $WORKSPACE
