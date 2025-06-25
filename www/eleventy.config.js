@@ -14,7 +14,7 @@ const md = new MarkdownIt({
 
 const draftsPlugin = require("./eleventy.plugin.drafts.js");
 
-module.exports = (eleventyConfig) => {
+module.exports = async (eleventyConfig) => {
   // In dev mode, make sure that changes to passthrough directories are reflected immediately.
   // Requires that different passthrough directories also have different destination directories
   // https://www.11ty.dev/docs/copy/#emulate-passthrough-copy-during-serve
@@ -26,6 +26,8 @@ module.exports = (eleventyConfig) => {
   // Plugins from packages
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  const { HtmlBasePlugin } = await import("@11ty/eleventy");
+  eleventyConfig.addPlugin(HtmlBasePlugin);
 
   // My plugins
   eleventyConfig.addPlugin(draftsPlugin);

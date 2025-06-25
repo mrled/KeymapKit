@@ -6,7 +6,7 @@ title: KeymapKit
   <ul>
     {% for item in items %}
       <li>
-        <a href="{{ item.url | url }}">{{ item.title }}</a>
+        <a href="{{ item.url }}">{{ item.title }}</a>
         {% if item.children %}
           {{ renderNav(item.children) }}
         {% endif %}
@@ -20,9 +20,9 @@ title: KeymapKit
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/KeymapKit/cmd-c05621.svg" />
-    <link rel="stylesheet" href="/KeymapKit/prism-one-dark.css" />
-    <link rel="stylesheet" href="/KeymapKit/style.css" />
+    <link rel="icon" type="image/svg+xml" href="/cmd-c05621.svg" />
+    <link rel="stylesheet" href="/prism-one-dark.css" />
+    <link rel="stylesheet" href="/style.css" />
 
     <script type="importmap">
       {
@@ -52,7 +52,7 @@ title: KeymapKit
       ☰
     </button>
     <nav id="sidebar">
-      <h1><a href="/KeymapKit/">KeymapKit</a></h1>
+      <h1><a href="/">KeymapKit</a></h1>
       {{ renderNav(collections.all | eleventyNavigation) }}
       <ul>
         <li><a href="https://github.com/mrled/KeymapKit">GitHub</a></li>
