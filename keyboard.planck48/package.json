@@ -19,8 +19,7 @@
   "scripts": {
     "build": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --external:@keymapkit/ui --outfile=dist/keyboard.planck48.js index.ts",
     "postbuild": "tsc --project tsconfig.json && dts-bundle-generator --project=tsconfig.json --no-banner --sort --export-referenced-types=false --out-file=dist/keyboard.planck48.d.ts index.ts",
-    "keymapkit.watch": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --external:@keymapkit/ui --outfile=../www/static/keymapkit/keyboard.planck48.js index.ts --watch=forever",
-    "postversion": "git add . && git commit -m \"[keyboard.planck48] Bump version to $npm_package_version\" && git tag keyboard.planck48@v$npm_package_version"
+    "keymapkit.watch": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --external:@keymapkit/ui --outfile=../www/static/keymapkit/keyboard.planck48.js index.ts --watch=forever"
   },
   "dependencies": {
     "@keymapkit/ui": "*"
