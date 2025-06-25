@@ -127,6 +127,11 @@ const styleSheet = `
  * This **overrides the same selectors in keymap-ui**,
  * because later rules win, and keyboard elements are added after the UI adds its style element.
  */
+@container (max-width: 539px) {
+  .keymap-ui-kid-container {
+    --keyboard-grid-unit: 0.375rem;
+  }
+}
 @container (min-width: 540px) {
   .keymap-ui-kid-container {
     --keyboard-grid-unit: 0.5rem;
