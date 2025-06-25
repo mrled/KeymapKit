@@ -1,0 +1,30 @@
+{
+  "name": "@keymapkit/keyboard.advantage360",
+  "description": "The Kinesis Advantage360 keyboard model for KeymapKit",
+  "author": "Micah R Ledbetter",
+  "license": "MIT",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "module": "dist/keyboard.advantage360.js",
+  "types": "dist/keyboard.advantage360.d.ts",
+  "exports": {
+    "import": "./dist/keymapkit.js"
+  },
+  "files": [
+    "dist/keyboard.advantage360.js",
+    "dist/keyboard.advantage360.js.map",
+    "dist/keyboard.advantage360.d.ts"
+  ],
+  "scripts": {
+    "build": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --external:@keymapkit/ui --outfile=dist/keyboard.advantage360.js index.ts",
+    "postbuild": "tsc --project tsconfig.json && dts-bundle-generator --project=tsconfig.json --no-banner --sort --export-referenced-types=false --out-file=dist/keyboard.advantage360.d.ts index.ts",
+    "keymapkit.watch": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --external:@keymapkit/ui --outfile=../www/static/keymapkit/keyboard.advantage360.js index.ts --watch=forever"
+  },
+  "dependencies": {
+    "@keymapkit/ui": "*"
+  },
+  "devDependencies": {
+    "dts-bundle-generator": "^9.5.1"
+  }
+}

@@ -84,6 +84,7 @@ just to show how it works.
   import { KeymapTitleScreenLayoutSimple } from "/KeymapKit/keymaps/title-screen-layout-simple.js";
   import { KeymapTitleScreenLayoutManyLayer } from "/KeymapKit/keymaps/title-screen-layout-manylayer.js";
   import { Planck48ExampleLayout } from "/KeymapKit/keymaps/planck48-example-layout.js";
+  import { KeyboardModelAdvantage360 } from "@keymapkit/keyboard.advantage360";
   import "@keymapkit/keyboard.ergodox";
   import { MicahErgodoxLayout } from "@keymapkit/examples";
   const multiContainer = document.getElementById("multi-container");
@@ -97,6 +98,7 @@ just to show how it works.
     KeymapTitleScreenLayoutManyLayer.model.blankKeymap,
     MicahErgodoxLayout,
     MicahErgodoxLayout.model.blankKeymap,
+    KeyboardModelAdvantage360.blankKeymap,
   ];
   keymapUi.setAttribute("id", "keymap-title");
   keymapUi.setAttribute("show-debug", "true");
@@ -114,6 +116,7 @@ That looks like this:
   import { KeymapTitleScreenLayoutSimple } from "/KeymapKit/keymaps/title-screen-layout-simple.js";
   import { KeymapTitleScreenLayoutManyLayer } from "/KeymapKit/keymaps/title-screen-layout-manylayer.js";
   import { Planck48ExampleLayout } from "/KeymapKit/keymaps/planck48-example-layout.js";
+  import { KeyboardModelAdvantage360 } from "@keymapkit/keyboard.advantage360";
   import "@keymapkit/keyboard.ergodox";
   import { MicahErgodoxLayout } from "@keymapkit/examples";
   const multiContainer = document.getElementById("multi-container");
@@ -127,6 +130,7 @@ That looks like this:
     KeymapTitleScreenLayoutManyLayer.model.blankKeymap,
     MicahErgodoxLayout,
     MicahErgodoxLayout.model.blankKeymap,
+    KeyboardModelAdvantage360.blankKeymap
   ];
   keymapUi.setAttribute("id", "keymap-title");
   keymapUi.setAttribute("show-debug", "true");

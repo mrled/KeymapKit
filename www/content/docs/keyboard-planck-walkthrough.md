@@ -12,6 +12,19 @@ you may wish to start with the [Planck](https://github.com/mrled/KeymapKit/tree/
 for a simple example, and build your board based on that.
 This page walks you through how the Planck board is defined.
 
+Here's what it looks like:
+
+<div id="planck-container"></div>
+
+<script type="module">
+  import { KeyboardModelPlanck48 } from "@keymapkit/keyboard.planck48";
+  const container = document.getElementById("planck-container");
+  const keymapUi = document.createElement("keymap-ui");
+  keymapUi.setAttribute("query-prefix", "planck");
+  keymapUi.setModelsAndMaps([KeyboardModelPlanck48.blankKeymap]);
+  container.appendChild(keymapUi);
+</script>
+
 ## The Model
 
 A [KeyboardModel](https://github.com/mrled/KeymapKit/blob/master/ui/src/lib/KeyboardModel.ts)

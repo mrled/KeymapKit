@@ -9,6 +9,7 @@
   },
   "workspaces": [
     "ui",
+    "keyboard.advantage360",
     "keyboard.ergodox",
     "keyboard.planck48",
     "examples",
