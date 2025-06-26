@@ -41,6 +41,7 @@ clean: ## Clean up
 	rm -rf examples/dist
 	rm -rf www/_site
 	rm -rf www/static/keymapkit/*
+	rm -rf cli/dist
 
 
 # @keymapkit/ui
