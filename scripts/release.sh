@@ -40,6 +40,11 @@ while test $# -gt 0; do
     esac
 done
 
+if test -z "$workspace" || test -z "$version"; then
+    usage
+    exit 1
+fi
+
 branch=$(git rev-parse --abbrev-ref HEAD)
 if test "$branch" != "master"; then
     echo "Error: You must be on the master branch to release."
