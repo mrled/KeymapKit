@@ -83,6 +83,14 @@ examples/dist/examples.js: node_modules/.installed ui/dist/keymapkit.js keyboard
 examples: examples/dist/examples.js ## Build the @keymapkit/examples
 
 
+# @keymapkit/cli
+CLI_SOURCES = $(shell find cli/src -type f)
+cli/dist/cli.js: node_modules/.installed ui/dist/keymapkit.js $(CLI_SOURCES)
+	npm run build -w cli
+.PHONY: cli
+cli: cli/dist/cli.js ## Build @keymapkit/cli
+
+
 # @keymapkit/www
 WWW_SOURCES = $(shell find www -type f -maxdepth 1)
 www/static/keymapkit/keymapkit.js: ui/dist/keymapkit.js
@@ -119,4 +127,4 @@ www.serve: ## Run the KeymapKit website in development mode with hot reloading
 
 
 .PHONY: all
-all: ui keyboard.advantage360 keyboard.ergodox keyboard.planck48 examples www ## Build everything
+all: ui keyboard.advantage360 keyboard.ergodox keyboard.planck48 examples cli www ## Build everything
