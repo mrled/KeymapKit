@@ -11,6 +11,7 @@ To use KeymapKit, you'll need to install it to your web site.
 
 - The core package is called `@keymapkit/ui`.
 - KeymapKit also ships keyboard models in separate packages:
+  - `@keymapkit/advantage360`
   - `@keymapkit/ergodox`
   - `@keymapki/planck48`
 
@@ -23,7 +24,7 @@ You can also write your own keyboard, see the Planck Walkthrough for example cod
 ### NPM installation for bundlers
 
 ```sh
-npm install @keymapkit/ui @keymapkit/keyboard.planck48 @keymapkit/keyboard.ergodox
+npm install @keymapkit/ui @keymapkit/keyboard.advantage360 @keymapkit/keyboard.ergodox @keymapkit/keyboard.planck48
 ```
 
 ### Use via CDN
@@ -36,6 +37,7 @@ For instance, here's unpkg:
   {
     "imports": {
       "@keymapkit/ui": "https://unpkg.com/@keymapkit/ui@1.0.0/dist/keymapkit.js",
+      "@keymapkit/keyboard.advantage360": "https://unpkg.com/@keymapkit/keyboard.advantage360@1.0.0/dist/keyboard.ergodox.js",
       "@keymapkit/keyboard.ergodox": "https://unpkg.com/@keymapkit/keyboard.ergodox@1.0.0/dist/keyboard.ergodox.js",
       "@keymapkit/keyboard.planck48": "https://unpkg.com/@keymapkit/keyboard.planck48@1.0.0/dist/keyboard.planck48.js"
     }
@@ -60,6 +62,7 @@ Then include this on any page that you want to show a keymap:
   {
     "imports": {
       "@keymapkit/ui": "/keymapkit/keymapkit.js",
+      "@keymapkit/keyboard.advantage360": "/keymapkit/keyboard.advantage360.js",
       "@keymapkit/keyboard.ergodox": "/keymapkit/keyboard.ergodox.js",
       "@keymapkit/keyboard.planck48": "/keymapkit/keyboard.planck48.js"
     }
