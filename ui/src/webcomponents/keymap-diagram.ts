@@ -38,6 +38,11 @@ export class KeymapDiagramElement
     this.draw();
   }
 
+  disconnectedCallback() {
+    // Detach state observer
+    this._state.detach(this);
+  }
+
   update(stateChanges: KeymapUIStateChangeMap) {
     if (stateChanges.has("connectionPairs") || stateChanges.has("debug")) {
       this.draw();

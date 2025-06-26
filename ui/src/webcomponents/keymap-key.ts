@@ -36,6 +36,7 @@ export class KeymapKeyElement extends HTMLElement {
   legendTextNode: Text | null;
   legendImageElement: Element | null;
   keyHandleElement: Element | null;
+  private keydownHandler: ((e: KeyboardEvent) => void) | null = null;
 
   static get observedAttributes() {
     return [
@@ -57,16 +58,26 @@ export class KeymapKeyElement extends HTMLElement {
     this.legendImageElement = null;
     this.keyHandleElement = null;
 
-    // Listen for keyboard events so that it works like a button
-    this.addEventListener("keydown", (e) => {
+    // Store the handler so we can remove it later
+    this.keydownHandler = (e: KeyboardEvent) => {
       if (e.key === "Enter" || e.key === " ") {
         this.click();
       }
-    });
+    };
+
+    // Listen for keyboard events so that it works like a button
+    this.addEventListener("keydown", this.keydownHandler);
   }
 
   connectedCallback() {
     this.updateComponent();
+  }
+
+  disconnectedCallback() {
+    // Remove event listener
+    if (this.keydownHandler) {
+      this.removeEventListener("keydown", this.keydownHandler);
+    }
   }
 
   attributeChangedCallback(

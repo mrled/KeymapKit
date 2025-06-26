@@ -78,6 +78,11 @@ export class KeymapNavbarElement
     this.layoutIdempotently();
   }
 
+  disconnectedCallback() {
+    // Detach state observer
+    this._state.detach(this);
+  }
+
   // #endregion
 
   // #region Public methods

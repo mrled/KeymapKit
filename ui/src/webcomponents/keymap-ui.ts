@@ -740,4 +740,16 @@ export class KeymapUIElement
   }
 
   // #endregion
+
+  disconnectedCallback() {
+    // Detach state observer
+    this.state.detach(this);
+
+    // Disconnect ResizeObserver
+    this.resizeObserver.disconnect();
+
+    // Remove event listeners
+    this.removeEventListener("resize", () => this.#resizeCanvas);
+    this.removeEventListener("key-selected", this.#handleKeySelected);
+  }
 }
