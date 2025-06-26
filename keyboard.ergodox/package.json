@@ -9,7 +9,7 @@
   "module": "dist/keyboard.ergodox.js",
   "types": "dist/keyboard.ergodox.d.ts",
   "exports": {
-    "import": "./dist/keymapkit.js"
+    "import": "./dist/keyboard.ergodox.js"
   },
   "files": [
     "dist/keyboard.ergodox.js",

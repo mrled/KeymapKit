@@ -14,7 +14,8 @@
     "keyboard.ergodox",
     "keyboard.planck48",
     "examples",
-    "www"
+    "www",
+    "cli"
   ],
   "devDependencies": {
     "@eslint/css": "^0.9.0",

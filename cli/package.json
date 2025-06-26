@@ -1,0 +1,30 @@
+{
+  "name": "@keymapkit/cli",
+  "description": "CLI tools for KeymapKit",
+  "author": "Micah R Ledbetter",
+  "license": "MIT",
+  "version": "0.1.0",
+  "private": false,
+  "type": "commonjs",
+  "bin": {
+    "keymapkit-cli": "./dist/cli.js"
+  },
+  "exports": {
+    ".": "./dist/cli.js"
+  },
+  "files": [
+    "dist/cli.js"
+  ],
+  "scripts": {
+    "build": "esbuild --bundle --sourcemap --format=cjs --platform=node --outfile=dist/cli.js --banner:js='#!/usr/bin/env node' --external:@keymapkit/ui --external:jsdom src/cli.ts && chmod +x dist/cli.js",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "@keymapkit/ui": "*",
+    "commander": "^12.0.0",
+    "jsdom": "^25.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0"
+  }
+}

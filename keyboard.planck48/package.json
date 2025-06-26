@@ -9,7 +9,7 @@
   "module": "dist/keyboard.planck48.js",
   "types": "dist/keyboard.planck48.d.ts",
   "exports": {
-    "import": "./dist/keymapkit.js"
+    "import": "./dist/keyboard.planck48.js"
   },
   "files": [
     "dist/keyboard.planck48.js",
