@@ -122,24 +122,6 @@ const KeyboardModelErgodox = new KeyboardModel(
 /* Custom stylesheet for the ErgoDox keyboard.
  */
 const ergodoxStyleSheet = `
-/* ErgoDox keyboard styles
- */
-
-/* Make sure the keyboard fits in its container.
- * This **overrides the same selectors in keymap-ui**,
- * because later rules win, and keyboard elements are added after the UI adds its style element.
- */
-@container (min-width: 540px) {
-  .keymap-ui-kid-container {
-    --keyboard-grid-unit: 1rem;
-  }
-}
-@container (min-width: 785px) {
-  .keymap-ui-kid-container {
-    --keyboard-grid-unit: 1.25rem;
-  }
-}
-
 /* A sub-keyboard is a contiguous set of keys
  *
  * Each sub-board contains one or more keygrids.

@@ -70,5 +70,6 @@ Important differences:
   so we need to set the small keys as 4x4 and the 1.25x-width keys as 5x4.
 - This also means that the `--keyboard-grid-unit` variable
   is set to half the size on the Advantage360,
-  and various math constants in CSS are set to double the size,
+  which requires changing the value at a few different breakpoints.
+  Additionally, we change various math constants to double the size,
   so that the keys look to be the same size when displayed on the page.
