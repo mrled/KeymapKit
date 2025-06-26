@@ -2,8 +2,8 @@ import { KeyboardModel } from "./KeyboardModel";
 
 /* A key in a layout.
  *
- * name:              The name of the key; must be unique within the key map
- * id:                The ID of the physical key this key corresponds to
+ * name:              The name of the key (displayed in the title bar)
+ * id:                The ID of the physical key this key corresponds to (must be unique)
  * description:       An array of paragraphs describing the key; may contain HTML
  * selection:         An array of key IDs that are part of the same selection group,
  *                    which should be highlighted together when the key is selected,
