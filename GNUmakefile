@@ -53,7 +53,7 @@ ui: ui/dist/keymapkit.js ## Build @keymapkit/ui
 
 # @keymapkit/keyboard.advantage360
 KEYBOARD_ADV360_SOURCES = $(shell find keyboard.advantage360/ -type f -maxdepth 1)
-keyboard.advantage360/dist/keyboard.ergodox.js: node_modules/.installed ui/dist/keymapkit.js $(KEYBOARD_ADV360_SOURCES)
+keyboard.advantage360/dist/keyboard.advantage360.js: node_modules/.installed ui/dist/keymapkit.js $(KEYBOARD_ADV360_SOURCES)
 	npm run build -w keyboard.advantage360
 .PHONY: keyboard.advantage360
 keyboard.advantage360: keyboard.advantage360/dist/keyboard.advantage360.js ## Build @keymapkit/keyboard.advantage360
@@ -100,7 +100,7 @@ www/static/keymapkit/keyboard.planck48.js: keyboard.planck48/dist/keyboard.planc
 www/static/keymapkit/examples.js: examples/dist/examples.js
 	mkdir -p www/static/keymapkit
 	cp examples/dist/examples.js www/static/keymapkit/examples.js
-WWW_BUILT_DEPS = www/static/keymapkit/keymapkit.js www/static/keymapkit/keyboard.ergodox.js www/static/keymapkit/keyboard.planck48.js www/static/keymapkit/examples.js
+WWW_BUILT_DEPS = www/static/keymapkit/keyboard.advantage360.js www/static/keymapkit/keymapkit.js www/static/keymapkit/keyboard.ergodox.js www/static/keymapkit/keyboard.planck48.js www/static/keymapkit/examples.js
 www/_site/.build: www/package.json $(WWW_BUILT_DEPS) $(WWW_SOURCES)
 	npm run build:prod -w www
 	touch www/_site/.build
@@ -119,4 +119,4 @@ www.serve: ## Run the KeymapKit website in development mode with hot reloading
 
 
 .PHONY: all
-all: ui keyboard.ergodox keyboard.planck48 examples www ## Build everything
+all: ui keyboard.advantage360 keyboard.ergodox keyboard.planck48 examples www ## Build everything
