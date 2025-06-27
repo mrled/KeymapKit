@@ -538,7 +538,8 @@ export class KeymapUIState {
     if (specifiedSelectedKey) {
       newSelectedKeyId = selectedKey as string;
       // If a guide (or step) is selected, selecting a key exits the guide
-      if (newGuide) {
+      // But only if we're actually selecting a key (not clearing the selection)
+      if (newGuide && newSelectedKeyId) {
         newGuide = null;
         newGuideStep = null;
         changedGuide = true;

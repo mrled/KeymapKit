@@ -760,8 +760,10 @@ export class KeymapUIElement
   private handlePopState = (_event: PopStateEvent) => {
     // Re-read the query string and update state
     // Don't mark this as user-initiated since it's from browser navigation
+    // Set explicitDefaults to true to properly handle history navigation
     setStateFromQsAndAttrib({
       state: this.state,
+      explicitDefaults: true,
     });
   };
 

@@ -9,13 +9,17 @@ import { IKeymapUIStateIdArgs, KeymapUIState } from "./KeymapUIState";
  * Arguments:
  * - state: the KeymapUIState object
  * - keymapUi: the KeymapUIElement object, which is used to get the current attribute values
+ * - explicitDefaults: when true, explicitly sets default values for missing query params;
+ *   otherwise, only sets values that are present in the query string
  */
 export function setStateFromQsAndAttrib({
   state,
   keymapUi,
+  explicitDefaults = false,
 }: {
   state: KeymapUIState;
   keymapUi?: KeymapUIElement;
+  explicitDefaults?: boolean;
 }): (keyof KeymapUIState)[] {
   // If the query prefi is already set in the state, use it as a default value.
   // That should not be the case if keymapUi is passed (see below), though we don't enforce that.
@@ -58,23 +62,35 @@ export function setStateFromQsAndAttrib({
     const qKey = currentParams.get(`${queryPrefix}-key`);
     const qGuide = currentParams.get(`${queryPrefix}-guide`);
     const qStep = currentParams.get(`${queryPrefix}-step`);
+
     if (qDebug) {
       qsArgs.debug = qDebug === "true" ? 1 : 0;
     }
     if (qMap) {
       qsArgs.keymapId = qMap;
     }
-    if (qLayer) {
-      qsArgs.layerIdx = parseInt(qLayer, 10);
-    }
-    if (qKey) {
-      qsArgs.selectedKey = qKey;
-    }
-    if (qGuide) {
-      qsArgs.guideId = qGuide;
-    }
-    if (qStep) {
-      qsArgs.guideStepIdx = parseInt(qStep, 10);
+
+    // When explicitDefaults is true, we need to explicitly handle missing query params
+    if (explicitDefaults) {
+      // Always set these values to sync with URL, even if empty/default
+      qsArgs.selectedKey = qKey || "";
+      qsArgs.layerIdx = qLayer ? parseInt(qLayer, 10) : 0;
+      qsArgs.guideId = qGuide || null;
+      qsArgs.guideStepIdx = qStep ? parseInt(qStep, 10) : 0;
+    } else {
+      // For initial load, only set if present in query string
+      if (qKey) {
+        qsArgs.selectedKey = qKey;
+      }
+      if (qLayer) {
+        qsArgs.layerIdx = parseInt(qLayer, 10);
+      }
+      if (qGuide) {
+        qsArgs.guideId = qGuide;
+      }
+      if (qStep) {
+        qsArgs.guideStepIdx = parseInt(qStep, 10);
+      }
     }
   }
 
@@ -138,7 +154,7 @@ export function setQueryStringFromState(
     newParams.delete(`${queryPrefix}-map`);
   }
 
-  if (tLayer && aLayer !== tLayerIdx) {
+  if (tLayerIdx !== undefined && aLayer !== tLayerIdx) {
     newParams.set(`${queryPrefix}-layer`, tLayerIdx.toString());
   } else {
     newParams.delete(`${queryPrefix}-layer`);
@@ -156,7 +172,7 @@ export function setQueryStringFromState(
     newParams.delete(`${queryPrefix}-guide`);
   }
 
-  if (tStep && aGuideStep !== tStep) {
+  if (tStep !== undefined && aGuideStep !== tStep) {
     newParams.set(`${queryPrefix}-step`, tStep.toString());
   } else {
     newParams.delete(`${queryPrefix}-step`);
