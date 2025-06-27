@@ -156,16 +156,24 @@ export class KeymapUIState {
     }
   }
 
+  /* Keep tracvk of the depth of notify() calls
+   *
+   * This is used to prevent cascading updates when notify() is called from within an observer.
+   */
+  private notifyDepth = 0;
+
   /* Notify all observers of a set of changes
    */
   notify(stateChanges: StateChange<KeymapUIState>[]): void {
     if (stateChanges.length === 0) return;
+    this.notifyDepth++;
     const stateChangeMap = new KeymapUIStateChangeMap(
       stateChanges.map((change) => [change.key, change]),
     );
     for (const observer of this.observers) {
       observer.update(stateChangeMap as StateChangeMap<KeymapUIState>);
     }
+    this.notifyDepth--;
   }
 
   // #region State data
@@ -240,7 +248,8 @@ export class KeymapUIState {
   public get keymaps(): LayoutMap {
     if (this._keymaps.size === 0) {
       this._keymaps.set(FallbackLayout.uniqueId, FallbackLayout);
-      this.notify([new KeymapUIStateChange("keymaps", [], this._keymaps)]);
+      // Don't notify during lazy initialization - this causes cascading updates
+      // this.notify([new KeymapUIStateChange("keymaps", [], this._keymaps)]);
     }
     return this._keymaps;
   }
@@ -270,7 +279,8 @@ export class KeymapUIState {
   get keymap(): KeymapLayout {
     if (this._keymap === null) {
       this._keymap = this.defaultKeymap;
-      this.notify([new KeymapUIStateChange("keymap", null, this._keymap)]);
+      // Don't notify during lazy initialization - this causes cascading updates
+      // this.notify([new KeymapUIStateChange("keymap", null, this._keymap)]);
     }
     return this._keymap;
   }
@@ -281,7 +291,8 @@ export class KeymapUIState {
   public get layer(): KeymapLayer {
     if (this._layer === null) {
       this._layer = this.keymap.layers[0];
-      this.notify([new KeymapUIStateChange("layer", null, this._layer)]);
+      // Don't notify during lazy initialization - this causes cascading updates
+      // this.notify([new KeymapUIStateChange("layer", null, this._layer)]);
     }
     return this._layer;
   }
@@ -317,7 +328,13 @@ export class KeymapUIState {
     if (this._connectionPairs === value) return;
     const oldValue = this._connectionPairs;
     this._connectionPairs = value;
-    this.notify([new KeymapUIStateChange("connectionPairs", oldValue, value)]);
+    // Don't notify during nested updates - connectionPairs changes are a side effect
+    // of other state changes and shouldn't trigger their own update cycle
+    if (this.notifyDepth === 0) {
+      this.notify([
+        new KeymapUIStateChange("connectionPairs", oldValue, value),
+      ]);
+    }
   }
 
   // #region Public helpers

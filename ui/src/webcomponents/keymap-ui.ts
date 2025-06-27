@@ -141,7 +141,7 @@ export class KeymapUIElement
 
     /* Listen for browser back/forward navigation
      */
-    window.addEventListener("popstate", this.#handlePopState);
+    window.addEventListener("popstate", this.handlePopState);
   }
 
   //
@@ -752,14 +752,18 @@ export class KeymapUIElement
   }
 
   /* Handle browser back/forward navigation
+   *
+   * This must be an arrow function to maintain the 'this' context.
+   * When calling removeEventListener, we need to use the same function reference,
+   * which arrow functions provide (and regular functions do not).
    */
-  #handlePopState(_event: PopStateEvent) {
+  private handlePopState = (_event: PopStateEvent) => {
     // Re-read the query string and update state
     // Don't mark this as user-initiated since it's from browser navigation
     setStateFromQsAndAttrib({
       state: this.state,
     });
-  }
+  };
 
   // #endregion
 
@@ -773,6 +777,6 @@ export class KeymapUIElement
     // Remove event listeners
     this.removeEventListener("resize", () => this.#resizeCanvas);
     this.removeEventListener("key-selected", this.#handleKeySelected);
-    window.removeEventListener("popstate", this.#handlePopState);
+    window.removeEventListener("popstate", this.handlePopState);
   }
 }
