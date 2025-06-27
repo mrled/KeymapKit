@@ -138,6 +138,10 @@ export class KeymapUIElement
      * (Make sure the child element emits it with bubbles: true so that we can catch it from any depth.)
      */
     this.addEventListener("key-selected", this.#handleKeySelected);
+
+    /* Listen for browser back/forward navigation
+     */
+    window.addEventListener("popstate", this.#handlePopState);
   }
 
   //
@@ -530,7 +534,15 @@ export class KeymapUIElement
       this.#updateInfoProsePanelFromState();
     }
 
-    setQueryStringFromState(this.state, this);
+    // Track if any of the updates are user initiated,
+    // because we want to push the state to history only for user-initiated changes.
+    const isUserInitiated = Array.from(stateChanges.values()).some(
+      (change) => change.metadata.isUserInitiated === true,
+    );
+
+    setQueryStringFromState(this.state, this, {
+      pushToHistory: isUserInitiated,
+    });
   }
 
   /* Update the info prose panel based on active key, guide step, etc.
@@ -733,10 +745,20 @@ export class KeymapUIElement
     const keyId = e.detail;
     // TODO: should we have the key set the state directly instead of doing it here?
     if (keyId === this.state.selectedKey) {
-      this.state.setStatesByIds({ selectedKey: "" });
+      this.state.setStatesByIds({ selectedKey: "", isUserInitiated: true });
     } else {
-      this.state.setStatesByIds({ selectedKey: keyId });
+      this.state.setStatesByIds({ selectedKey: keyId, isUserInitiated: true });
     }
+  }
+
+  /* Handle browser back/forward navigation
+   */
+  #handlePopState(_event: PopStateEvent) {
+    // Re-read the query string and update state
+    // Don't mark this as user-initiated since it's from browser navigation
+    setStateFromQsAndAttrib({
+      state: this.state,
+    });
   }
 
   // #endregion
@@ -751,5 +773,6 @@ export class KeymapUIElement
     // Remove event listeners
     this.removeEventListener("resize", () => this.#resizeCanvas);
     this.removeEventListener("key-selected", this.#handleKeySelected);
+    window.removeEventListener("popstate", this.#handlePopState);
   }
 }

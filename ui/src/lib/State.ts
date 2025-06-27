@@ -1,6 +1,12 @@
 /* State interfaces
  */
 
+/* Metadata that can be attached to a state change
+ */
+export interface StateChangeMetadata {
+  isUserInitiated?: boolean;
+}
+
 /* A single state change
  */
 export class StateChange<T> {
@@ -8,6 +14,7 @@ export class StateChange<T> {
     public key: keyof T,
     public oldValue: T[keyof T] | null,
     public newValue: T[keyof T],
+    public metadata: StateChangeMetadata = {},
   ) {}
 
   toString() {

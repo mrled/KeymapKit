@@ -110,6 +110,7 @@ export function setStateFromQsAndAttrib({
 export function setQueryStringFromState(
   state: KeymapUIState,
   keymapUi: KeymapUIElement,
+  options: { pushToHistory?: boolean } = {},
 ) {
   const queryPrefix = state.queryPrefix;
 
@@ -166,7 +167,14 @@ export function setQueryStringFromState(
       ? `${window.location.pathname}?${newParams.toString()}`
       : `${window.location.pathname}`;
 
-  if (window.location.search !== `?${newUrl}`) {
-    window.history.replaceState({}, "", newUrl);
+  const currentUrl = `${window.location.pathname}${window.location.search}`;
+  if (currentUrl !== newUrl) {
+    // Use pushState for user-initiated navigation to create browser history
+    // Use replaceState for programmatic updates to avoid cluttering history
+    if (options.pushToHistory) {
+      window.history.pushState({}, "", newUrl);
+    } else {
+      window.history.replaceState({}, "", newUrl);
+    }
   }
 }

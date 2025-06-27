@@ -59,7 +59,12 @@
  */
 
 import { KeyboardModel } from "./KeyboardModel";
-import { IStateObserver, StateChange, StateChangeMap } from "./State";
+import {
+  IStateObserver,
+  StateChange,
+  StateChangeMap,
+  StateChangeMetadata,
+} from "./State";
 import { ConnectionPair } from "./DiagramConnections";
 import { GuideStep, KeymapLayout, KeymapGuide, KeymapLayer } from "./Layout";
 import { FallbackLayout } from "~/default-keyboard/FallbackLayout";
@@ -86,6 +91,7 @@ export interface IKeymapUIStateIdArgs {
   guideId?: string | null;
   guideStepIdx?: number;
   selectedKey?: string;
+  isUserInitiated?: boolean;
 }
 
 /* An object representing the state of the entire KeymapUIElement.
@@ -403,7 +409,11 @@ export class KeymapUIState {
     guideId,
     guideStepIdx,
     selectedKey,
+    isUserInitiated = false,
   }: IKeymapUIStateIdArgs) {
+    // Create metadata for all changes in this batch
+    const metadata: StateChangeMetadata = { isUserInitiated };
+
     //
 
     // Validate the new state properties.
@@ -532,35 +542,53 @@ export class KeymapUIState {
     const changes: KeymapUIStateChange[] = [];
 
     if (debug !== undefined) {
-      changes.push(new KeymapUIStateChange("debug", this.debug, debug));
+      changes.push(
+        new KeymapUIStateChange("debug", this.debug, debug, metadata),
+      );
       this._debug = debug;
     }
 
     if (queryPrefix !== undefined) {
       changes.push(
-        new KeymapUIStateChange("queryPrefix", this.queryPrefix, queryPrefix),
+        new KeymapUIStateChange(
+          "queryPrefix",
+          this.queryPrefix,
+          queryPrefix,
+          metadata,
+        ),
       );
       this._queryPrefix = queryPrefix;
     }
 
     if (changedKeymap) {
-      changes.push(new KeymapUIStateChange("keymap", oldKeymap, newKeymap));
+      changes.push(
+        new KeymapUIStateChange("keymap", oldKeymap, newKeymap, metadata),
+      );
       this._keymap = newKeymap;
     }
 
     if (changedLayer) {
-      changes.push(new KeymapUIStateChange("layer", oldLayer, newLayer));
+      changes.push(
+        new KeymapUIStateChange("layer", oldLayer, newLayer, metadata),
+      );
       this._layer = newLayer;
     }
 
     if (changedGuide) {
-      changes.push(new KeymapUIStateChange("guide", oldGuide, newGuide));
+      changes.push(
+        new KeymapUIStateChange("guide", oldGuide, newGuide, metadata),
+      );
       this._guide = newGuide;
     }
 
     if (changedGuideStep) {
       changes.push(
-        new KeymapUIStateChange("guideStep", oldGuideStep, newGuideStep),
+        new KeymapUIStateChange(
+          "guideStep",
+          oldGuideStep,
+          newGuideStep,
+          metadata,
+        ),
       );
       this._guideStep = newGuideStep;
     }
@@ -571,6 +599,7 @@ export class KeymapUIState {
           "selectedKey",
           oldSelectedKey,
           newSelectedKeyId,
+          metadata,
         ),
       );
       this._selectedKey = newSelectedKeyId;

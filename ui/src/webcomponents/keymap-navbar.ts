@@ -171,6 +171,7 @@ export class KeymapNavbarElement
   private chooseKeymap: ChangeListenerFunction = (e, id, result) => {
     this.state.setStatesByIds({
       keymapId: result.value,
+      isUserInitiated: true,
     });
   };
 
@@ -210,6 +211,7 @@ export class KeymapNavbarElement
         if (this.state.guideStep && !this.state.guideStep.isFirstStep) {
           this.state.setStatesByIds({
             guideStepIdx: this.state.guideStep.index - 1,
+            isUserInitiated: true,
           });
         }
       });
@@ -229,6 +231,7 @@ export class KeymapNavbarElement
         if (this.state.guideStep && !this.state.guideStep.isLastStep) {
           this.state.setStatesByIds({
             guideStepIdx: this.state.guideStep.index + 1,
+            isUserInitiated: true,
           });
         }
       });
@@ -254,7 +257,11 @@ export class KeymapNavbarElement
         }
         const li = document.createElement("li");
         tabButton.addEventListener("click", () => {
-          this.state.setStatesByIds({ layerIdx: idx, selectedKey: "" });
+          this.state.setStatesByIds({
+            layerIdx: idx,
+            selectedKey: "",
+            isUserInitiated: true,
+          });
         });
         li.classList.add("layer-tab");
         li.appendChild(tabButton);
@@ -350,6 +357,7 @@ export class KeymapNavbarElement
           actionButton.addEventListener("click", () => {
             this.state.setStatesByIds({
               guideId: null,
+              isUserInitiated: true,
             });
           });
         } else {
@@ -358,6 +366,7 @@ export class KeymapNavbarElement
             this.state.setStatesByIds({
               guideId: guide.id,
               guideStepIdx: 0,
+              isUserInitiated: true,
             });
           });
         }
