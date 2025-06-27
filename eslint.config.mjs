@@ -7,6 +7,9 @@ import css from "@eslint/css";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig([
+  // ESLint configuration
+
+  // Ignores
   {
     ignores: [
       "*/dist",
@@ -17,7 +20,11 @@ export default defineConfig([
       "www/static/keymapkit",
     ],
   },
+
+  // Use the recommended rules from ESLint, TypeScript, and other plugins
   ...tseslint.configs.recommended,
+
+  // TypeScript rules
   {
     files: ["**/*.{ts,mts,cts}"],
     rules: {
@@ -27,6 +34,8 @@ export default defineConfig([
       ],
     },
   },
+
+  // JavaScript rules
   {
     files: ["**/*.{js,mjs,cjs}"],
     languageOptions: { globals: globals.browser },
@@ -41,6 +50,8 @@ export default defineConfig([
       ],
     },
   },
+
+  // Eleventy config rules
   {
     files: ["www/eleventy.*.js"],
     languageOptions: { globals: globals.node },
@@ -48,12 +59,16 @@ export default defineConfig([
       "@typescript-eslint/no-require-imports": "off",
     },
   },
+
+  // JSON rules
   {
     files: ["**/*.json"],
     plugins: { json },
     language: "json/json",
     extends: ["json/recommended"],
   },
+
+  // Markdown rules
   {
     files: ["**/*.md"],
     plugins: { markdown },
@@ -63,6 +78,8 @@ export default defineConfig([
       "markdown/no-missing-label-refs": "off", // It can't understand eleventy's inputPathToUrl
     },
   },
+
+  // CSS rules
   {
     files: ["**/*.css"],
     plugins: { css },
