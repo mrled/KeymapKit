@@ -9,9 +9,7 @@
   "bin": {
     "keymapkit-cli": "./dist/cli.js"
   },
-  "exports": {
-    ".": "./dist/cli.js"
-  },
+  "main": "./dist/cli.js",
   "files": [
     "dist/cli.js"
   ],
