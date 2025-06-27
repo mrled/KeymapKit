@@ -4,7 +4,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "format": "prettier --write \"./**/*.{ts,js,json,css,html,md}\" --ignore-path .gitignore",
+    "format": "prettier --write \"./**/*.{ts,js,json,css,html,md}\" --ignore-path .gitignore --ignore-path .prettierignore",
     "lint": "eslint ."
   },
   "workspaces": [
