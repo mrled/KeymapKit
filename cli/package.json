@@ -15,6 +15,7 @@
   ],
   "scripts": {
     "build": "esbuild --bundle --sourcemap --format=cjs --platform=node --outfile=dist/cli.js --banner:js='#!/usr/bin/env node' --external:@keymapkit/ui --external:jsdom src/cli.ts && chmod +x dist/cli.js",
+    "test": "node --test src/test/*.test.js",
     "prepack": "npm run build"
   },
   "dependencies": {

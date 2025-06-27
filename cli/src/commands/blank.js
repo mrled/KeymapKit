@@ -1,3 +1,5 @@
+/* global global, module */
+
 async function generateBlankKeymap(packageName, modelName) {
   try {
     // Setup DOM environment for Node.js

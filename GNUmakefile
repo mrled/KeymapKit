@@ -91,6 +91,10 @@ cli/dist/cli.js: node_modules/.installed ui/dist/keymapkit.js $(CLI_SOURCES)
 .PHONY: cli
 cli: cli/dist/cli.js ## Build @keymapkit/cli
 
+.PHONY: cli.test
+cli.test: cli/dist/cli.js ## Test @keymapkit/cli
+	npm run test -w cli
+
 
 # @keymapkit/www
 WWW_SOURCES = $(shell find www -type f -maxdepth 1)
