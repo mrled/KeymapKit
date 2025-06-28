@@ -14,6 +14,15 @@ you need to create a new `KeymapLayout`.
 
 You can generate a blank keymap for any valid keyboard model,
 so long as both `@keymapkit/cli` and the keyboard model are available in the current NPM workspace.
+To do this, you'll need both the package name and the exported class name of the keyboard.
+All of the official KeymapKit boards:
+
+| Package                            | Class                       |
+| ---------------------------------- | --------------------------- |
+| `@keymapkit/keyboard.planck48`     | `KeyboardModelPlanck48`     |
+| `@keymapkit/keyboard.advantage360` | `KeyboardModelAdvantage360` |
+| `@keymapkit/keyboard.ergodox`      | `KeyboardModelErgodox`      |
+
 For instance, to generate a blank ErgoDox keymap:
 
 ```sh
