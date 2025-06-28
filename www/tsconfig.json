@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es2023",
     "module": "esnext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "lib": ["ES2016", "DOM", "DOM.Iterable"],
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "allowJs": true,
     "noEmit": true,
     "incremental": true,
