@@ -3,7 +3,7 @@
   "description": "The Planck48 keyboard model for KeymapKit",
   "author": "Micah R Ledbetter",
   "license": "MIT",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "type": "module",
   "module": "dist/keyboard.planck48.js",
