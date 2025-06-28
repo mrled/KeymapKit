@@ -3,11 +3,7 @@ name: Release Packages
 on:
   push:
     tags:
-      - "ui@*"
-      - "cli@*"
-      - "keyboard.advantage360@*"
-      - "keyboard.ergodox@*"
-      - "keyboard.planck48@*"
+      - "*"
 
 jobs:
   get-tags:
@@ -23,14 +19,11 @@ jobs:
       - name: Get all tags for current commit
         id: get-tags
         run: |
-          # Get all tags pointing to the current commit
           TAGS=$(git tag --points-at HEAD | grep -E '^(ui|cli|keyboard\.[^@]+)@' || true)
-
           if [ -z "$TAGS" ]; then
             echo "No matching tags found for current commit"
             echo "tags=[]" >> $GITHUB_OUTPUT
           else
-            # Convert to JSON array
             TAGS_JSON=$(echo "$TAGS" | jq -R -s -c 'split("\n") | map(select(length > 0))')
             echo "Found tags: $TAGS_JSON"
             echo "tags=$TAGS_JSON" >> $GITHUB_OUTPUT
@@ -38,7 +31,7 @@ jobs:
 
   release:
     needs: get-tags
-    if: needs.get-tags.outputs.tags != '[]'
+    if: ${{ fromJson(needs.get-tags.outputs.tags) != null && fromJson(needs.get-tags.outputs.tags) != [] }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -79,12 +72,8 @@ jobs:
         run: |
           WORKSPACE="${{ steps.extract.outputs.workspace }}"
           VERSION="${{ steps.extract.outputs.version }}"
-
-          # Get the actual package name from package.json
-          PACKAGE_JSON_NAME=$(version=$(node -p "require('./$WORKSPACE/package.json').name"))
+          PACKAGE_JSON_NAME=$(node -p "require('./$WORKSPACE/package.json').name")
           echo "package_name=$PACKAGE_JSON_NAME" >> $GITHUB_OUTPUT
-
-          # If the package name is @keymapkit/ui, the tarball name will be keymapkit-ui-VERSION.tgz
           TARBALL_NAME="${PACKAGE_JSON_NAME//@/}"
           TARBALL_NAME="${TARBALL_NAME//\//-}-${VERSION}.tgz"
           echo "tarball=$TARBALL_NAME" >> $GITHUB_OUTPUT
@@ -109,8 +98,7 @@ jobs:
 
           # Copy distribution files
           for file in $FILES; do
-            if [[ -e "$file" ]]; then
-              # Create directory structure in release-assets
+            if [ -e "$file" ]; then
               mkdir -p "../release-assets/$(dirname "$file")"
               cp -r "$file" "../release-assets/$file"
             fi
@@ -137,17 +125,16 @@ jobs:
             ```
 
             ### Assets
-
-            - **NPM Package**: `${{ steps.package.outputs.tarball }}` - Complete npm package
-            - **Distribution Files**: Individual built files from the package
-          files: |
-            release-assets/*
+            - **NPM Package**: `${{ steps.package.outputs.tarball }}`
+            - **Built Files**: From `files` field in package.json
+          files: release-assets/*
           draft: false
           prerelease: false
 
       - name: Publish to NPM
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
           VERSION="${{ steps.extract.outputs.version }}"
 
           # Check if version is a prerelease (contains -, like 1.0.0-rc.1)
