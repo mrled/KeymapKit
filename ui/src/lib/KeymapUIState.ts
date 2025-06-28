@@ -161,24 +161,16 @@ export class KeymapUIState {
     }
   }
 
-  /* Keep tracvk of the depth of notify() calls
-   *
-   * This is used to prevent cascading updates when notify() is called from within an observer.
-   */
-  private notifyDepth = 0;
-
   /* Notify all observers of a set of changes
    */
   notify(stateChanges: StateChange<KeymapUIState>[]): void {
     if (stateChanges.length === 0) return;
-    this.notifyDepth++;
     const stateChangeMap = new KeymapUIStateChangeMap(
       stateChanges.map((change) => [change.key, change]),
     );
     for (const observer of this.observers) {
       observer.update(stateChangeMap as StateChangeMap<KeymapUIState>);
     }
-    this.notifyDepth--;
   }
 
   // #region State data
@@ -333,13 +325,7 @@ export class KeymapUIState {
     if (this._connectionPairs === value) return;
     const oldValue = this._connectionPairs;
     this._connectionPairs = value;
-    // Don't notify during nested updates - connectionPairs changes are a side effect
-    // of other state changes and shouldn't trigger their own update cycle
-    if (this.notifyDepth === 0) {
-      this.notify([
-        new KeymapUIStateChange("connectionPairs", oldValue, value),
-      ]);
-    }
+    this.notify([new KeymapUIStateChange("connectionPairs", oldValue, value)]);
   }
 
   // #region Public helpers

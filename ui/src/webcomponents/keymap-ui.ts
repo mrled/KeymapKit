@@ -534,15 +534,33 @@ export class KeymapUIElement
       this.#updateInfoProsePanelFromState();
     }
 
-    // Track if any of the updates are user initiated,
-    // because we want to push the state to history only for user-initiated changes.
-    const isUserInitiated = Array.from(stateChanges.values()).some(
-      (change) => change.metadata.isUserInitiated === true,
-    );
+    // Check if any of the changes affect URL properties
+    const urlProperties = [
+      "selectedKey",
+      "keymap",
+      "layer",
+      "guide",
+      "guideStep",
+    ];
+    let hasUrlPropertyChange = false;
+    let shouldPushToHistory = false;
 
-    setQueryStringFromState(this.state, this, {
-      pushToHistory: isUserInitiated,
-    });
+    // Check each state change
+    for (const [key, change] of stateChanges.entries()) {
+      if (urlProperties.includes(key)) {
+        hasUrlPropertyChange = true;
+        if (change.metadata.isUserInitiated === true) {
+          shouldPushToHistory = true;
+        }
+      }
+    }
+
+    // Only update the query string if URL properties changed
+    if (hasUrlPropertyChange) {
+      setQueryStringFromState(this.state, this, {
+        pushToHistory: shouldPushToHistory,
+      });
+    }
   }
 
   /* Update the info prose panel based on active key, guide step, etc.
