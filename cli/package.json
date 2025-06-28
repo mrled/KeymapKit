@@ -3,7 +3,7 @@
   "description": "CLI tools for KeymapKit",
   "author": "Micah R Ledbetter",
   "license": "MIT",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "type": "commonjs",
   "bin": {
