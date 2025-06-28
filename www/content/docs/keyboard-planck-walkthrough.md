@@ -132,7 +132,7 @@ const KeyboardModelPlanck48 = new KeyboardModel(
 ```
 
 That long list of physical keys controls the layout.
-The [PhysicalKey class](https://github.com/mrled/KeymapKit/blob/master/ui/src/lib/PhysicalKey.ts)
+The [PhysicalKey class](https://github.com/mrled/KeymapKit/blob/master/models/src/lib/PhysicalKey.ts)
 takes a board ID (all of which are `planck` for this keyboard),
 a position on the board (1-indexed grid units),
 and a size (all of which are 2x2 on the Planck).

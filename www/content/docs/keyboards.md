@@ -16,7 +16,7 @@ KeymapKit comes with support for the following keyboards:
 ## Writing your own keyboard
 
 You can write your own keyboard model by instantiating a
-[KeyboardModel](https://github.com/mrled/KeymapKit/blob/master/ui/src/lib/KeyboardModel.ts)
+[KeyboardModel](https://github.com/mrled/KeymapKit/blob/master/models/src/lib/KeyboardModel.ts)
 and subclassing [KeymapKeyboardElement](https://github.com/mrled/KeymapKit/blob/master/ui/src/webcomponents/keymap-keyboard.ts).
 
 Take a look at the
