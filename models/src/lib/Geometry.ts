@@ -7,10 +7,8 @@ export class Point {
     this.x = x || 0;
     this.y = y || 0;
   }
-
 }
 
 /* A simple size
  */
 export class Size extends Point {}
-

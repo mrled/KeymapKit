@@ -19,17 +19,20 @@ npx @keymapkit/cli blank <package> <model>
 ```
 
 **Arguments:**
+
 - `package`: NPM package name (e.g., `@keymapkit/keyboard.ergodox`)
 - `model`: Keyboard model name exported by the package (e.g., `KeyboardModelErgodox`)
 
 **Examples:**
 
 Generate a blank ErgoDox layout:
+
 ```bash
 npx @keymapkit/cli blank @keymapkit/keyboard.ergodox KeyboardModelErgodox
 ```
 
 Generate a blank Planck 48 layout:
+
 ```bash
 npx @keymapkit/cli blank @keymapkit/keyboard.planck48 KeyboardModelPlanck48
 ```
@@ -43,6 +46,7 @@ npx @keymapkit/cli blank @keymapkit/keyboard.planck48 KeyboardModelPlanck48 > my
 ## Output
 
 The generated layout includes:
+
 - All physical keys from the keyboard model
 - Empty key names and info fields
 - A basic guide with welcome text
