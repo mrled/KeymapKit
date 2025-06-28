@@ -9,7 +9,7 @@
   "module": "dist/keyboard.advantage360.js",
   "types": "dist/keyboard.advantage360.d.ts",
   "exports": {
-    "import": "./dist/keymapkit.js"
+    "import": "./dist/advantage360.js"
   },
   "files": [
     "dist/keyboard.advantage360.js",
