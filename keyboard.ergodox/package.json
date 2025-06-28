@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "build": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --external:@keymapkit/ui --outfile=dist/keyboard.ergodox.js index.ts",
-    "postbuild": "tsc --project tsconfig.json && dts-bundle-generator --project=tsconfig.json --no-banner --sort --export-referenced-types=false --out-file=dist/keyboard.ergodox.d.ts index.ts",
+    "postbuild": "tsc --project tsconfig.json && dts-bundle-generator --project=tsconfig.json --no-banner --sort --export-referenced-types=false --disable-symlinks-following --out-file=dist/keyboard.ergodox.d.ts index.ts",
     "keymapkit.watch": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --external:@keymapkit/ui --outfile=../www/static/keymapkit/keyboard.ergodox.js index.ts --watch=forever"
   },
   "dependencies": {
