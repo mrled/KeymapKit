@@ -143,6 +143,20 @@ const styleSheet = `
   }
 }
 
+/* Override font size for key elements.
+ *
+ * Double the font sizes from the default 2x scaled used by the Planck and the ErgoDox,
+ * since we are using a 4x scaled grid.
+ */
+keymap-key {
+  &.legend-type-glyph {
+    font-size: calc(var(--keyboard-grid-unit) * 0.9 * 2);
+  }
+  &.legend-type-text {
+    font-size: calc(var(--keyboard-grid-unit) * 0.667 * 2);
+  }
+}
+
 /* A sub-keyboard is a contiguous set of keys
  *
  * Each sub-board contains one or more keygrids.
