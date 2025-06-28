@@ -22,7 +22,7 @@
     "keymapkit.watch": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --outfile=../www/static/keymapkit/keymapkit.js src/index.ts --watch=forever"
   },
   "dependencies": {
-    "@keymapkit/models": "^1.0.0"
+    "@keymapkit/models": "*"
   },
   "devDependencies": {
     "@types/node": "^24.0.3",
