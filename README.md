@@ -15,6 +15,15 @@ It looks like this:
 - See the [examples package](./examples)
 - Read the [documentation](https://pages.micahrl.com/KeymapKit)
 
+You can generate a blank keymap for any valid keyboard model,
+so long as both `@keymapkit/cli` and the keyboard model are available in the current NPM workspace.
+For instance, to generate a blank ErgoDox keymap:
+
+```sh
+npm install @keymapkit/cli @keymapkit/keyboard.ergodox
+npx @keymapkit/cli blank @keymapkit/keyboard.ergodox KeyboardModelErgodox
+```
+
 ## Development
 
 Use the make file
