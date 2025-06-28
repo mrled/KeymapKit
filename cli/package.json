@@ -16,7 +16,7 @@
   "scripts": {
     "build": "esbuild --bundle --sourcemap --format=esm --platform=node --outfile=dist/cli.js --banner:js='#!/usr/bin/env node' --external:@keymapkit/models --external:commander --external:\"node:*\" --external:jsdom src/cli.ts && chmod +x dist/cli.js",
     "postbuild": "tsc --project tsconfig.json",
-    "test": "node --test src/test/*.test.js",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
     "prepack": "npm run build"
   },
   "dependencies": {
@@ -24,8 +24,12 @@
     "jsdom": "^26.1.0"
   },
   "devDependencies": {
+    "@jest/globals": "^30.0.3",
     "@keymapkit/models": "*",
+    "@types/jest": "^30.0.0",
     "@types/jsdom": "^21.1.7",
-    "@types/node": "^22.0.0"
+    "@types/node": "^22.0.0",
+    "jest": "^30.0.3",
+    "ts-jest": "^29.4.0"
   }
 }
