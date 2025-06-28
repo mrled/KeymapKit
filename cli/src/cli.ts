@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const { Command } = require("commander");
+import { Command } from "commander";
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const { generateBlankKeymap } = require("./commands/blank.js");
+import { generateBlankKeymap } from "./commands/blank.js";
 
 const program = new Command();
 

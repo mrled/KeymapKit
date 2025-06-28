@@ -1,24 +1,39 @@
 import { KeyboardModel } from "@keymapkit/models";
-import { isNodeError } from "../util/nodeError";
+import { isNodeError } from "../util/nodeError.js";
+import { JSDOM } from "jsdom";
 
-async function generateBlankKeymap(packageName: string, modelName: string) {
+export async function generateBlankKeymap(
+  packageName: string,
+  modelName: string,
+) {
   try {
-    // Dynamically import @keymapkit/ui (ESM package)
-    const { KeyboardModel } = await import("@keymapkit/models");
+    // Set up JSDOM environment for browser APIs
+    const dom = new JSDOM("<!DOCTYPE html><html><body></body></html>", {
+      url: "http://localhost",
+      pretendToBeVisual: true,
+      resources: "usable",
+    });
 
-    // Dynamically import the specified package
+    // Set up global browser APIs
+    global.window = dom.window as unknown as Window & typeof globalThis;
+    global.document = dom.window.document;
+    global.HTMLElement = dom.window.HTMLElement;
+    global.CustomEvent = dom.window.CustomEvent;
+    global.customElements = dom.window.customElements;
+    global.Element = dom.window.Element;
+    global.Node = dom.window.Node;
+    global.NodeList = dom.window.NodeList;
+    global.HTMLCollection = dom.window.HTMLCollection;
+
+    // Dynamically import the specified package (needs browser environment)
     const moduleExports = await import(packageName);
 
     // Get the keyboard model from the module exports
-    const model = moduleExports[modelName];
+    const model = moduleExports[modelName] as KeyboardModel;
     if (!model) {
       throw new Error(
         `Model '${modelName}' not found in package '${packageName}'`,
       );
-    }
-
-    if (!(model instanceof KeyboardModel)) {
-      throw new Error(`'${modelName}' is not a valid KeyboardModel instance`);
     }
 
     // Generate the blank keymap JavaScript code
@@ -109,5 +124,3 @@ ${keySections.join(",\n")}
 
   return jsCode;
 }
-
-module.exports = { generateBlankKeymap, generateJavaScriptCode };

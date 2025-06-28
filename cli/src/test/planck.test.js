@@ -1,9 +1,6 @@
-/* global require */
-/* eslint-disable @typescript-eslint/no-require-imports */
-
-const test = require("node:test");
-const assert = require("node:assert");
-const { generateBlankKeymap } = require("../commands/blank.js");
+import test from "node:test";
+import { ok, strictEqual, rejects } from "node:assert";
+import { generateBlankKeymap } from "../commands/blank.ts";
 
 test("Planck48 keyboard generates correct blank layout", async () => {
   const packageName = "@keymapkit/keyboard.planck48";
@@ -12,62 +9,44 @@ test("Planck48 keyboard generates correct blank layout", async () => {
   const result = await generateBlankKeymap(packageName, modelName);
 
   // Basic structure checks
-  assert.ok(result.includes("import {"), "Should include import statement");
-  assert.ok(result.includes("KeymapLayout"), "Should import KeymapLayout");
-  assert.ok(result.includes("KeymapGuide"), "Should import KeymapGuide");
-  assert.ok(result.includes("KeymapKey"), "Should import KeymapKey");
-  assert.ok(result.includes("KeymapLayer"), "Should import KeymapLayer");
-  assert.ok(
+  ok(result.includes("import {"), "Should include import statement");
+  ok(result.includes("KeymapLayout"), "Should import KeymapLayout");
+  ok(result.includes("KeymapGuide"), "Should import KeymapGuide");
+  ok(result.includes("KeymapKey"), "Should import KeymapKey");
+  ok(result.includes("KeymapLayer"), "Should import KeymapLayer");
+  ok(
     result.includes(`import { ${modelName} }`),
     "Should import the keyboard model",
   );
-  assert.ok(
+  ok(
     result.includes(`from "${packageName}"`),
     "Should import from correct package",
   );
 
   // Layout structure checks
-  assert.ok(
-    result.includes("export const BlankLayout"),
-    "Should export BlankLayout",
-  );
-  assert.ok(
+  ok(result.includes("export const BlankLayout"), "Should export BlankLayout");
+  ok(
     result.includes(`displayName: "Blank ${modelName} Layout"`),
     "Should have correct display name",
   );
-  assert.ok(
-    result.includes('uniqueId: "blank-layout"'),
-    "Should have unique ID",
-  );
-  assert.ok(
-    result.includes(`model: ${modelName}`),
-    "Should reference the model",
-  );
+  ok(result.includes('uniqueId: "blank-layout"'), "Should have unique ID");
+  ok(result.includes(`model: ${modelName}`), "Should reference the model");
 
   // Layer checks
-  assert.ok(
-    result.includes('displayName: "Main Layer"'),
-    "Should have Main Layer",
-  );
-  assert.ok(result.includes('shortName: "Main"'), "Should have Main shortname");
-  assert.ok(
-    result.includes("Welcome to my keymap"),
-    "Should have welcome message",
-  );
+  ok(result.includes('displayName: "Main Layer"'), "Should have Main Layer");
+  ok(result.includes('shortName: "Main"'), "Should have Main shortname");
+  ok(result.includes("Welcome to my keymap"), "Should have welcome message");
 
   // Key count check - Planck48 should have 48 keys
   const keyMatches = result.match(/new KeymapKey\(/g);
-  assert.strictEqual(
+  strictEqual(
     keyMatches.length,
     48,
     "Should generate exactly 48 keys for Planck48",
   );
 
   // Check that all keys have the expected planck grid comment
-  assert.ok(
-    result.includes("// The planck grid"),
-    "Should have planck grid comment",
-  );
+  ok(result.includes("// The planck grid"), "Should have planck grid comment");
 
   // Check specific key IDs that should be present for Planck48
   const expectedKeyIds = [
@@ -122,35 +101,26 @@ test("Planck48 keyboard generates correct blank layout", async () => {
   ];
 
   expectedKeyIds.forEach((keyId) => {
-    assert.ok(
-      result.includes(`id:"${keyId}"`),
-      `Should include key with ID ${keyId}`,
-    );
+    ok(result.includes(`id:"${keyId}"`), `Should include key with ID ${keyId}`);
   });
 
   // Guide checks
-  assert.ok(result.includes("new KeymapGuide"), "Should include a KeymapGuide");
-  assert.ok(
-    result.includes('title: "Layout Guide"'),
-    "Should have guide title",
-  );
-  assert.ok(
-    result.includes('shortName: "Guide"'),
-    "Should have guide shortname",
-  );
-  assert.ok(result.includes('id: "example-guide"'), "Should have guide ID");
-  assert.ok(
+  ok(result.includes("new KeymapGuide"), "Should include a KeymapGuide");
+  ok(result.includes('title: "Layout Guide"'), "Should have guide title");
+  ok(result.includes('shortName: "Guide"'), "Should have guide shortname");
+  ok(result.includes('id: "example-guide"'), "Should have guide ID");
+  ok(
     result.includes('keyId: "planck-1-1"'),
     "Should reference first key in guide",
   );
 
   // Check that keys have empty names and info arrays ready for customization
-  assert.ok(result.includes('name:""'), "Keys should have empty names");
-  assert.ok(result.includes('info:[""]'), "Keys should have empty info arrays");
+  ok(result.includes('name:""'), "Keys should have empty names");
+  ok(result.includes('info:[""]'), "Keys should have empty info arrays");
 });
 
 test("generateBlankKeymap handles invalid package", async () => {
-  await assert.rejects(
+  await rejects(
     async () => {
       await generateBlankKeymap("@nonexistent/package", "NonexistentModel");
     },
@@ -160,7 +130,7 @@ test("generateBlankKeymap handles invalid package", async () => {
 });
 
 test("generateBlankKeymap handles invalid model", async () => {
-  await assert.rejects(
+  await rejects(
     async () => {
       await generateBlankKeymap(
         "@keymapkit/keyboard.planck48",

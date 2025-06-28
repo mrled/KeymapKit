@@ -1,4 +1,4 @@
-import { Point, Size } from "./Geometry";
+import { Point, Size } from "./Geometry.js";
 
 /* A physical key on a keyboard.
  *

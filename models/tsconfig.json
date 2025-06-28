@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2023",
-    "module": "esnext",
+    "module": "nodenext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -9,7 +9,7 @@
     "lib": ["ES2023"],
     "allowJs": true,
     "incremental": false,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",

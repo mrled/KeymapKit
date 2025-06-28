@@ -1,4 +1,4 @@
-import { KeyboardModel } from "./KeyboardModel";
+import { KeyboardModel } from "./KeyboardModel.js";
 
 /* A key in a layout.
  *
@@ -257,7 +257,7 @@ export class KeymapLayout {
 
     this.layers.forEach((layer, layerIdx) => {
       // Add any unset keys to the layer
-      model.physicalKeys.forEach((key) => {
+      model.physicalKeys.forEach((key: any) => {
         if (!layer.keys.has(key.id)) {
           layer.keys.set(
             key.id,

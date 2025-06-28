@@ -3,9 +3,9 @@
  * Specific boards should extend this class.
  */
 
-import { PhysicalKey } from "./PhysicalKey";
-import { Point, Size } from "./Geometry";
-import { KeymapLayout, KeymapKey, KeymapLayer } from "./Layout";
+import { PhysicalKey } from "./PhysicalKey.js";
+import { Point, Size } from "./Geometry.js";
+import { KeymapLayout, KeymapKey, KeymapLayer } from "./Layout.js";
 
 type KeyIdToPhysicalKeymap = { [key: string]: PhysicalKey };
 

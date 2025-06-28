@@ -5,24 +5,27 @@
   "license": "MIT",
   "version": "1.0.6",
   "private": false,
-  "type": "commonjs",
+  "type": "module",
   "bin": {
-    "keymapkit-cli": "./dist/cli.js"
+    "keymapkit": "./dist/cli.js"
   },
   "main": "./dist/cli.js",
   "files": [
     "dist/cli.js"
   ],
   "scripts": {
-    "build": "esbuild --bundle --sourcemap --format=cjs --platform=node --outfile=dist/cli.js --banner:js='#!/usr/bin/env node' --external:@keymapkit/ui --external:jsdom src/cli.ts && chmod +x dist/cli.js",
+    "build": "esbuild --bundle --sourcemap --format=esm --platform=node --outfile=dist/cli.js --banner:js='#!/usr/bin/env node' --external:@keymapkit/models --external:commander --external:\"node:*\" --external:jsdom src/cli.ts && chmod +x dist/cli.js",
+    "postbuild": "tsc --project tsconfig.json",
     "test": "node --test src/test/*.test.js",
     "prepack": "npm run build"
   },
   "dependencies": {
-    "commander": "^12.0.0"
+    "commander": "^12.0.0",
+    "jsdom": "^26.1.0"
   },
   "devDependencies": {
     "@keymapkit/models": "*",
+    "@types/jsdom": "^21.1.7",
     "@types/node": "^22.0.0"
   }
 }
