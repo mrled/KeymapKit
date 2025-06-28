@@ -19,11 +19,10 @@
     "prepack": "npm run build"
   },
   "dependencies": {
-    "@keymapkit/ui": "*",
-    "commander": "^12.0.0",
-    "jsdom": "^25.0.0"
+    "commander": "^12.0.0"
   },
   "devDependencies": {
+    "@keymapkit/models": "*",
     "@types/node": "^22.0.0"
   }
 }

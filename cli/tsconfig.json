@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es2023",
     "module": "nodenext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "nodenext",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "allowJs": true,
