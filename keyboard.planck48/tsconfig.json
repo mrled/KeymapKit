@@ -20,6 +20,7 @@
     "noEmit": false,
     "emitDeclarationOnly": true,
     "declaration": true,
+    "types": [],
     "outDir": "./dist/types"
   },
   "include": ["*.ts"],
