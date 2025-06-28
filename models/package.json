@@ -12,6 +12,6 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json --listEmittedFiles",
-    "keymapkit.watch": "tsc -p tsconfig.json --watch"
+    "keymapkit.watch": "tsc -p tsconfig.json --watch --preserveWatchOutput"
   }
 }
