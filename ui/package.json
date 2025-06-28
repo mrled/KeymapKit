@@ -21,7 +21,7 @@
     "postbuild": "tsc --project tsconfig.json && dts-bundle-generator --config dts-bundle-generator.json",
     "keymapkit.watch": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --outfile=../www/static/keymapkit/keymapkit.js src/index.ts --watch=forever"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@keymapkit/models": "*"
   },
   "devDependencies": {
