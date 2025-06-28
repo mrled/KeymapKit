@@ -1,15 +1,10 @@
-async function generateBlankKeymap(packageName, modelName) {
-  try {
-    // Setup DOM environment for Node.js
-    const { JSDOM } = await import("jsdom");
-    const { window } = new JSDOM("<!DOCTYPE html><html><body></body></html>");
-    global.document = window.document;
-    global.window = window;
-    global.HTMLElement = window.HTMLElement;
-    global.customElements = window.customElements;
+import { KeyboardModel } from "@keymapkit/models";
+import { isNodeError } from "../util/nodeError";
 
+async function generateBlankKeymap(packageName: string, modelName: string) {
+  try {
     // Dynamically import @keymapkit/ui (ESM package)
-    const { KeyboardModel } = await import("@keymapkit/ui");
+    const { KeyboardModel } = await import("@keymapkit/models");
 
     // Dynamically import the specified package
     const moduleExports = await import(packageName);
@@ -29,7 +24,7 @@ async function generateBlankKeymap(packageName, modelName) {
     // Generate the blank keymap JavaScript code
     return generateJavaScriptCode(packageName, modelName, model);
   } catch (error) {
-    if (error.code === "ERR_MODULE_NOT_FOUND") {
+    if (isNodeError(error)) {
       throw new Error(
         `Package '${packageName}' not found. Make sure it's installed.`,
       );
@@ -38,7 +33,11 @@ async function generateBlankKeymap(packageName, modelName) {
   }
 }
 
-function generateJavaScriptCode(packageName, modelName, model) {
+function generateJavaScriptCode(
+  packageName: string,
+  modelName: string,
+  model: KeyboardModel,
+) {
   // Group keys by boardId for the comment structure
   const keysByBoard = new Map();
   model.physicalKeys.forEach((physicalKey) => {

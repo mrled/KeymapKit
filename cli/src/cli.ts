@@ -15,12 +15,16 @@ program
   .description("Generate a blank keymap layout for a given keyboard model")
   .argument("<package>", "NPM package name (e.g., @keymapkit/keyboard.ergodox)")
   .argument("<model>", "Keyboard model name (e.g., KeyboardModelErgodx)")
-  .action(async (packageName, modelName) => {
+  .action(async (packageName: string, modelName: string) => {
     try {
       const result = await generateBlankKeymap(packageName, modelName);
       console.log(result);
     } catch (error) {
-      console.error("Error generating blank keymap:", error.message);
+      if (error instanceof Error) {
+        console.error("Error generating blank keymap:", error.message);
+      } else {
+        console.error("Error generating blank keymap:", error);
+      }
       process.exit(1);
     }
   });
