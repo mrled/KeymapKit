@@ -13,7 +13,7 @@ To use KeymapKit, you'll need to install it to your web site.
 - KeymapKit also ships keyboard models in separate packages:
   - `@keymapkit/advantage360`
   - `@keymapkit/ergodox`
-  - `@keymapki/planck48`
+  - `@keymapkit/planck48`
 
 You'll need to install at least the core package and a keyboard.
 
