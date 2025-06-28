@@ -58,15 +58,20 @@
  * This keeps each child from having to check if its state object is null and makes typing simpler.)
  */
 
-import { KeyboardModel } from "./KeyboardModel";
+import { KeyboardModel } from "@keymapkit/models";
 import {
   IStateObserver,
   StateChange,
   StateChangeMap,
   StateChangeMetadata,
-} from "./State";
+} from "@keymapkit/models";
 import { ConnectionPair } from "./DiagramConnections";
-import { GuideStep, KeymapLayout, KeymapGuide, KeymapLayer } from "./Layout";
+import {
+  GuideStep,
+  KeymapLayout,
+  KeymapGuide,
+  KeymapLayer,
+} from "@keymapkit/models";
 import { FallbackLayout } from "~/default-keyboard/FallbackLayout";
 
 /* A map of uniqueID strings to Keymap objects

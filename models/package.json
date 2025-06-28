@@ -1,0 +1,17 @@
+{
+  "name": "@keymapkit/models",
+  "author": "Micah R Ledbetter",
+  "license": "MIT",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json --listEmittedFiles",
+    "keymapkit.watch": "tsc -p tsconfig.json --watch"
+  }
+}

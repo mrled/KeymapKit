@@ -1,10 +1,10 @@
-import { PhysicalKey } from "~/lib/PhysicalKey";
+import { PhysicalKey } from "@keymapkit/models";
 import { KeymapKeyboardElement } from "~/webcomponents/keymap-keyboard";
-import { KeymapKey, KeymapLayer } from "~/lib/Layout";
+import { KeymapKey, KeymapLayer } from "@keymapkit/models";
 import { KeymapKeygridElement } from "~/webcomponents/keymap-keygrid";
 import { KeymapKeyElement } from "./keymap-key";
-import { Point, Size } from "~/lib/Geometry";
-import { KeyboardModel } from "~/lib/KeyboardModel";
+import { Point, Size } from "@keymapkit/models";
+import { KeyboardModel } from "@keymapkit/models";
 
 /* The faux keyboard in the title bar.
  *

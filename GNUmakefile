@@ -36,16 +36,22 @@ format: node_modules/.installed ## Run prettier
 
 .PHONY: clean
 clean: ## Clean up
-	rm -rf ui/dist
-	rm -rf keyboard.ergodox/dist
-	rm -rf examples/dist
+	rm -rf */dist
 	rm -rf www/_site
 	rm -rf www/static/keymapkit/*
 
 
+# @keymapkit/models
+MODELS_SOURCES = $(shell find models/src -type f)
+models/dist/index.js: node_modules/.installed $(MODELS_SOURCES)
+	npm run build -w models
+.PHONY: models
+models: models/dist/index.js ## Build @keymapkit/models
+
+
 # @keymapkit/ui
 UI_SOURCES = $(shell find ui/src -type f)
-ui/dist/keymapkit.js: node_modules/.installed $(UI_SOURCES)
+ui/dist/keymapkit.js: node_modules/.installed $(UI_SOURCES) models/dist/index.js
 	npm run build -w ui
 .PHONY: ui
 ui: ui/dist/keymapkit.js ## Build @keymapkit/ui
@@ -109,6 +115,7 @@ www: www/_site/.build ## Build the KeymapKit website in production mode
 .PHONY: www.serve
 www.serve: ## Run the KeymapKit website in development mode with hot reloading
 	@\
+		npm run keymapkit.watch -w models & \
 		npm run keymapkit.watch -w ui & \
 		npm run keymapkit.watch -w keyboard.advantage360 & \
 		npm run keymapkit.watch -w keyboard.ergodox & \
@@ -119,4 +126,4 @@ www.serve: ## Run the KeymapKit website in development mode with hot reloading
 
 
 .PHONY: all
-all: ui keyboard.advantage360 keyboard.ergodox keyboard.planck48 examples www ## Build everything
+all: models ui keyboard.advantage360 keyboard.ergodox keyboard.planck48 examples www ## Build everything

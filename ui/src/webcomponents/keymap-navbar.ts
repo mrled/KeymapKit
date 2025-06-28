@@ -1,7 +1,7 @@
 import { KeymapUIState, KeymapUIStateChangeMap } from "~/lib/KeymapUIState";
-import { KeyboardModel } from "~/lib/KeyboardModel";
-import { KeymapLayer } from "~/lib/Layout";
-import { IStateObserver } from "~/lib/State";
+import { KeyboardModel } from "@keymapkit/models";
+import { KeymapLayer } from "@keymapkit/models";
+import { IStateObserver } from "@keymapkit/models";
 import { KeymapKeyboardTitleBarElement } from "~/webcomponents/keymap-keyboard-title-bar";
 
 // #region Helper types

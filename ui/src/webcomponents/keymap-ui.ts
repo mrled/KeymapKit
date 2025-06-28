@@ -11,7 +11,7 @@
 
 import { KeymapUIOptions } from "~/lib/KeymapUIOptions";
 import { ConnectionPair, KeyInfoConnectType } from "~/lib/DiagramConnections";
-import { KeymapLayout } from "~/lib/Layout";
+import { KeymapLayout } from "@keymapkit/models";
 
 import { KeymapKeyHandleElement } from "~/webcomponents/keymap-key-handle";
 import { KeymapIndicatorElement } from "~/webcomponents/keymap-indicator";
@@ -23,7 +23,7 @@ import {
   KeymapUIStateChange,
   KeymapUIStateChangeMap,
 } from "~/lib/KeymapUIState";
-import { IStateObserver } from "~/lib/State";
+import { IStateObserver } from "@keymapkit/models";
 import {
   setQueryStringFromState,
   setStateFromQsAndAttrib,

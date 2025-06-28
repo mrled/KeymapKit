@@ -1,20 +1,4 @@
-/* A simple point
- */
-export class Point {
-  x: number;
-  y: number;
-  constructor(x: number, y: number) {
-    this.x = x || 0;
-    this.y = y || 0;
-  }
-  static fromRect(rect: DOMRect) {
-    return new Point(rect.x, rect.y);
-  }
-}
-
-/* A simple size
- */
-export class Size extends Point {}
+import { Point } from "@keymapkit/models";
 
 /* Return a new rect inside the input rect
  */
@@ -38,3 +22,7 @@ export const traceRect = (rect: DOMRect, context: CanvasRenderingContext2D) => {
   context.lineTo(rect.right, rect.top);
   context.lineTo(rect.left, rect.top);
 };
+
+export function pointFromDOMRect(rect: DOMRect): Point {
+  return new Point(rect.x, rect.y);
+}

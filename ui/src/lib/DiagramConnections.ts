@@ -1,4 +1,4 @@
-import { Point } from "~/lib/Geometry.js";
+import { Point } from "@keymapkit/models";
 
 /* A key connection
  * sourceCoords:    Coordinates for a source element in the key info panel.

@@ -2,7 +2,7 @@
  */
 
 import { KeymapUIState, KeymapUIStateChangeMap } from "~/lib/KeymapUIState";
-import { IStateObserver } from "~/lib/State";
+import { IStateObserver } from "@keymapkit/models";
 import { DiagramLineColors, drawDiagram } from "~/lib/DiagramDrawing";
 
 export class KeymapDiagramElement

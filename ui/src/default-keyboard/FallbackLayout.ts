@@ -1,4 +1,4 @@
-import { KeymapKey, KeymapLayer, KeymapLayout } from "~/lib/Layout";
+import { KeymapKey, KeymapLayer, KeymapLayout } from "@keymapkit/models";
 import { KeyboardModelFallback } from "./FallbackKeyboard";
 
 const message = [

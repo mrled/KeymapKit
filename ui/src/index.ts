@@ -10,13 +10,19 @@
 import { KeymapUIElement } from "~/webcomponents/keymap-ui";
 import { registerAllKeymapClickWebComponents } from "~/webcomponents/registerall";
 
-import { PhysicalKey } from "~/lib/PhysicalKey";
-import { KeymapLayout, KeymapGuide, KeymapLayer } from "~/lib/Layout";
 import { KeymapKeyboardElement } from "~/webcomponents/keymap-keyboard";
-import { KeymapKey } from "~/lib/Layout";
-import { Point, Size } from "~/lib/Geometry";
 import { KeymapKeygridElement } from "~/webcomponents/keymap-keygrid";
-import { KeyboardModel } from "~/lib/KeyboardModel";
+
+import {
+  PhysicalKey,
+  KeyboardModel,
+  KeymapLayout,
+  KeymapGuide,
+  KeymapLayer,
+  KeymapKey,
+  Point,
+  Size,
+} from "@keymapkit/models";
 
 registerAllKeymapClickWebComponents();
 
@@ -24,14 +30,15 @@ export {
   // Used by consumers
   KeymapUIElement,
   // Used by authors of keyboard models and layouts
-  PhysicalKey,
   KeymapKeyboardElement,
+  KeymapKeygridElement,
+  // Re-exports used by authors of keyboard models and layouts
+  PhysicalKey,
   KeymapLayout,
   KeymapGuide,
   KeymapLayer,
   KeymapKey,
   Point,
   Size,
-  KeymapKeygridElement,
   KeyboardModel,
 };

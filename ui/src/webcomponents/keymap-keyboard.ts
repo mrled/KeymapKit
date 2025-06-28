@@ -3,9 +3,9 @@
  * Specific boards should extend this class.
  */
 
-import { KeymapKey } from "~/lib/Layout";
+import { KeymapKey } from "@keymapkit/models";
 import { KeymapKeyElement } from "./keymap-key";
-import { KeyboardModel } from "~/lib/KeyboardModel";
+import { KeyboardModel } from "@keymapkit/models";
 
 export abstract class KeymapKeyboardElement extends HTMLElement {
   //

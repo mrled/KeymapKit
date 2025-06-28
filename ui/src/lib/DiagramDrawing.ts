@@ -1,4 +1,4 @@
-import { smallerRect, traceRect } from "~/lib/Geometry";
+import { smallerRect, traceRect } from "~/lib/GeometryDOM";
 import { Connection, KeyInfoConnectType } from "~/lib/DiagramConnections";
 
 /* Colors when drawing diagram lines

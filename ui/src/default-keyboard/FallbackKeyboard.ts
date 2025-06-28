@@ -1,7 +1,7 @@
-import { Point, Size } from "~/lib/Geometry";
-import { KeyboardModel } from "~/lib/KeyboardModel";
-import { KeymapKey } from "~/lib/Layout";
-import { PhysicalKey } from "~/lib/PhysicalKey";
+import { Point, Size } from "@keymapkit/models";
+import { KeyboardModel } from "@keymapkit/models";
+import { KeymapKey } from "@keymapkit/models";
+import { PhysicalKey } from "@keymapkit/models";
 import { KeymapKeyboardElement } from "~/webcomponents/keymap-keyboard";
 import { KeymapKeygridElement } from "~/webcomponents/keymap-keygrid";
 

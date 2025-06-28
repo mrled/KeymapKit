@@ -25,7 +25,9 @@ help                 Show this help
 lint                 Run eslint
 format               Run prettier
 clean                Clean up
+models               Build @keymapkit/models
 ui                   Build @keymapkit/ui
+keyboard.advantage360 Build @keymapkit/keyboard.advantage360
 keyboard.ergodox     Build @keymapkit/keyboard.ergodox
 keyboard.planck48    Build @keymapkit/keyboard.planck48
 examples             Build the @keymapkit/examples

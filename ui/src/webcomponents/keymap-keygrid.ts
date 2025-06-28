@@ -1,4 +1,4 @@
-import { KeymapKey } from "~/lib/Layout";
+import { KeymapKey } from "@keymapkit/models";
 import { KeymapKeyboardElement } from "./keymap-keyboard";
 import { KeymapKeyElement } from "./keymap-key";
 
