@@ -7,8 +7,8 @@
   "scripts": {
     "build:dev": "BUILD_DRAFTS=true eleventy",
     "build:prod": "eleventy",
-    "serve:dev": "BUILD_DRAFTS=true eleventy --serve",
-    "serve:prod": "eleventy --serve"
+    "serve:dev": "BUILD_DRAFTS=true eleventy --serve --port ${ELEVENTYPORT:-8081}",
+    "serve:prod": "eleventy --serve --port ${ELEVENTYPORT:-8081}"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.1",
