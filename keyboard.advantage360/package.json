@@ -3,7 +3,7 @@
   "description": "The Kinesis Advantage360 keyboard model for KeymapKit",
   "author": "Micah R Ledbetter",
   "license": "MIT",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "type": "module",
   "module": "dist/keyboard.advantage360.js",
