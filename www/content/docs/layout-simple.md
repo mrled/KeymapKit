@@ -27,7 +27,7 @@ For instance, to generate a blank ErgoDox keymap:
 
 ```sh
 npm install @keymapkit/cli @keymapkit/keyboard.planck48
-npx @keymapkit/cli blank @keymapkit/keyboard.planck48 KeyboardModelPlanck48
+npx keymapkit blank @keymapkit/keyboard.planck48 KeyboardModelPlanck48
 ```
 
 That will return:
