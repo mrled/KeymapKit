@@ -245,8 +245,7 @@ export class KeymapUIState {
   public get keymaps(): LayoutMap {
     if (this._keymaps.size === 0) {
       this._keymaps.set(FallbackLayout.uniqueId, FallbackLayout);
-      // Don't notify during lazy initialization - this causes cascading updates
-      // this.notify([new KeymapUIStateChange("keymaps", [], this._keymaps)]);
+      this.notify([new KeymapUIStateChange("keymaps", [], this._keymaps)]);
     }
     return this._keymaps;
   }
@@ -276,8 +275,7 @@ export class KeymapUIState {
   get keymap(): KeymapLayout {
     if (this._keymap === null) {
       this._keymap = this.defaultKeymap;
-      // Don't notify during lazy initialization - this causes cascading updates
-      // this.notify([new KeymapUIStateChange("keymap", null, this._keymap)]);
+      this.notify([new KeymapUIStateChange("keymap", null, this._keymap)]);
     }
     return this._keymap;
   }
@@ -288,8 +286,7 @@ export class KeymapUIState {
   public get layer(): KeymapLayer {
     if (this._layer === null) {
       this._layer = this.keymap.layers[0];
-      // Don't notify during lazy initialization - this causes cascading updates
-      // this.notify([new KeymapUIStateChange("layer", null, this._layer)]);
+      this.notify([new KeymapUIStateChange("layer", null, this._layer)]);
     }
     return this._layer;
   }
