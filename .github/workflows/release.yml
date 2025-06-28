@@ -10,11 +10,41 @@ on:
       - "keyboard.planck48@*"
 
 jobs:
+  get-tags:
+    runs-on: ubuntu-latest
+    outputs:
+      tags: ${{ steps.get-tags.outputs.tags }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get all tags for current commit
+        id: get-tags
+        run: |
+          # Get all tags pointing to the current commit
+          TAGS=$(git tag --points-at HEAD | grep -E '^(ui|cli|keyboard\.[^@]+)@' || true)
+
+          if [ -z "$TAGS" ]; then
+            echo "No matching tags found for current commit"
+            echo "tags=[]" >> $GITHUB_OUTPUT
+          else
+            # Convert to JSON array
+            TAGS_JSON=$(echo "$TAGS" | jq -R -s -c 'split("\n") | map(select(length > 0))')
+            echo "Found tags: $TAGS_JSON"
+            echo "tags=$TAGS_JSON" >> $GITHUB_OUTPUT
+          fi
+
   release:
+    needs: get-tags
+    if: needs.get-tags.outputs.tags != '[]'
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
+    strategy:
+      matrix:
+        tag: ${{ fromJson(needs.get-tags.outputs.tags) }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -31,7 +61,7 @@ jobs:
       - name: Extract workspace and version from tag
         id: extract
         run: |
-          TAG="${{ github.ref_name }}"
+          TAG="${{ matrix.tag }}"
           WORKSPACE=$(echo "$TAG" | cut -d'@' -f1)
           VERSION=$(echo "$TAG" | cut -d'@' -f2)
           echo "workspace=$WORKSPACE" >> $GITHUB_OUTPUT
