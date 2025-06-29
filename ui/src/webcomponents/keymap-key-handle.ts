@@ -77,8 +77,18 @@ export class KeymapKeyHandleElement extends HTMLElement {
    * It's not perfect, but it should be pretty good for non-pathological keymaps.
    */
   calculateYOffset(colStart: number, handleTop: boolean) {
+    // Make half the keys above the center line and half below it.
     const yOffsetMultiplier = handleTop ? -1 : 1;
-    const yOffset = colStart * yOffsetMultiplier;
+    // On the original ErgoDox keymap, which has right most keys starting at columns 13/14,
+    // everything fit with a colSTartMultiplier of 1.
+    // But the Planck has only one grid, so the right most keys start at 23,
+    // and the Advantage360 uses a higher resolution grid so the right most keys start at 25/26,
+    // and on those boards the rightmost indicators were actually outside the key.
+    // For those keyboards we introduce a multiplier of 3,
+    // and it works ok on the original ErgoDox too.
+    const colStartMultiplier = 1 / 3;
+    // The total Y offset in pixels.
+    const yOffset = colStart * colStartMultiplier * yOffsetMultiplier;
     return yOffset;
   }
 }
