@@ -4,13 +4,14 @@ import { KeyboardModel } from "./KeyboardModel.js";
  *
  * name:              The name of the key (displayed in the title bar)
  * id:                The ID of the physical key this key corresponds to (must be unique)
- * description:       An array of paragraphs describing the key; may contain HTML
+ * info:              An array of paragraphs describing the key; may contain HTML
  * selection:         An array of key IDs that are part of the same selection group,
  *                    which should be highlighted together when the key is selected,
  *                    e.g. all the QWERTY keys or both shift keys etc
  * textLegend:        Text legend for the key; optional
- * imageLegendPath:   The path on the server to an image to display; optional
- * imageLegendAttr:   The attribution for the image; optional
+ * imagePath:         The path on the server to an image to display; optional
+ * imageAttribution:  The attribution for the image; optional
+ * unset:             The key has no function attached to it; can still contain name/info/selection.
  *
  * For the legend, an image is used if provided, otherwise text legend if provided, otherwise the name.
  */
