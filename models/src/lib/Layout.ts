@@ -257,7 +257,7 @@ export class KeymapLayout {
 
     this.layers.forEach((layer, layerIdx) => {
       // Add any unset keys to the layer
-      model.physicalKeys.forEach((key: any) => {
+      model.physicalKeys.forEach((key) => {
         if (!layer.keys.has(key.id)) {
           layer.keys.set(
             key.id,
