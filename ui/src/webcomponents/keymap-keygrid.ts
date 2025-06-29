@@ -91,9 +91,8 @@ export class KeymapKeygridElement extends HTMLElement {
   /* Create a single <keymap-key> element from key data
    */
   #createKey(keyboard: KeymapKeyboardElement, key: KeymapKey, idx: number) {
-    // TODO: handle image legends
     const legendText = key.textLegend || key.name;
-    const legendImage = "";
+    const legendImage = key.imagePath || "";
 
     const keyElement = document.createElement(KeymapKeyElement.elementName);
 
