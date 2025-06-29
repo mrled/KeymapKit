@@ -44,6 +44,23 @@ let keymapContainer = document.querySelector("#keymap-container")
 keymapContainer.appendChild(keymapUi);
 </script>
 
+## Legend suggestions
+
+When looking for symbols for your key legends, consider:
+
+- [Xah Lee on computing symbols in Unicode](http://xahlee.info/comp/unicode_computing_symbols.html)
+
+For image legends:
+
+- Convert font glyphs to SVGs: https://danmarshall.github.io/google-font-to-svg-path/
+- [Material Design icons](https://material.io/resources/icons)
+- [IcoMoon](https://icomoon.io/)
+- [Phosphor Icons](https://phosphoricons.com/)
+- [Feather Icons](https://feathericons.com/)
+- [Atlas Icons](https://atlasicons.vectopus.com/)
+- [FreeSVG](https://freesvg.org)
+- [OpenClipArt](https://openclipart.org/)
+
 ## Demo layout code
 
 This is the code for the layout in the above demo.
