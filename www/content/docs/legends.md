@@ -1,8 +1,6 @@
 ---
 layout: site.njk
 title: Key Legends
-# Legends are not implemented yet
-draft: true
 eleventyNavigation:
   title: Key Legends
   parent: docs
@@ -52,7 +50,9 @@ When looking for symbols for your key legends, consider:
 
 For image legends:
 
-- Convert font glyphs to SVGs: https://danmarshall.github.io/google-font-to-svg-path/
+- [Google Font to SVG Path](https://danmarshall.github.io/google-font-to-svg-path/):
+  Convert a glyph from any font to an SVG
+  (not limited to Google Fonts despite the name)
 - [Material Design icons](https://material.io/resources/icons)
 - [IcoMoon](https://icomoon.io/)
 - [Phosphor Icons](https://phosphoricons.com/)
