@@ -11,6 +11,7 @@
   --color-foreground: black;
   --color-background: white;
   --color-primary: #c05621;
+  --color-hover-bg: rgba(192, 86, 33, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,6 +19,7 @@
     --color-foreground: white;
     --color-background: black;
     --color-primary: #f6ad55;
+    --color-hover-bg: rgba(246, 173, 85, 0.25);
   }
 }
 
@@ -53,7 +55,17 @@ nav#sidebar {
     padding: 0;
     margin: 0;
     li {
-      padding-left: 1rem;
+      padding-left: 0.35rem;
+      margin-bottom: 0.125rem;
+      a {
+        display: block;
+        padding: 0.25rem 0.5rem;
+        text-decoration: none;
+        line-height: 1.4;
+        &:hover {
+          background-color: var(--color-hover-bg);
+        }
+      }
     }
   }
 }
