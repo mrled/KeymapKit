@@ -44,7 +44,7 @@ export class KeymapKey {
     imageAttribution?: string;
     unset?: boolean;
   }) {
-    this.name = name;
+    this.name = name || "";
     this.id = id;
     this.info = info;
     this.selection = selection;
