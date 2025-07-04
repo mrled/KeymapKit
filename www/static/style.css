@@ -12,6 +12,7 @@
   --color-background: white;
   --color-primary: #c05621;
   --color-hover-bg: rgba(192, 86, 33, 0.1);
+  --color-code-bg: rgba(192, 86, 33, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,6 +21,7 @@
     --color-background: black;
     --color-primary: #f6ad55;
     --color-hover-bg: rgba(246, 173, 85, 0.25);
+    --color-code-bg: rgba(251, 172, 75, 0.31);
   }
 }
 
@@ -128,6 +130,16 @@ keymap-ui {
   padding: 1rem 0;
   border: 1px solid var(--color-primary);
   border-radius: 0.3em;
+}
+
+/* Inline code background for non-syntax-highlighted code blocks
+ */
+code:not([class*="language-"]) {
+  font-family: monospace;
+  font-weight: bold;
+  background-color: var(--color-code-bg);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.125rem;
 }
 
 /* Override some prism styles
