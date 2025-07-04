@@ -3,7 +3,7 @@
   "description": "The presentation layer for your keyboard",
   "author": "Micah R Ledbetter",
   "license": "MIT",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "private": false,
   "type": "module",
   "module": "dist/keymapkit.js",
