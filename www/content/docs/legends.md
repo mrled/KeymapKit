@@ -22,10 +22,12 @@ different from the key name like `cmd`.
   or using Unicode symbols (`command` vs `⌘`).
 - If `htmlLegend` is passed, render HTML for the legend.
   This might be something simple like an HTML entity such as `&pi;`,
-  or it might be an entire embedded `<svg>`.
-  It can be any raw HTML, including a `<style>` tag for custom styling.
-  You could also embed a bitmap with a
+  it might be an entire embedded `<svg>`,
+  or it could be any other valid HTML.
+  You could even embed a bitmap with a
   [data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/data).
+  When using an HTML legend, you are responsible for making sure the result fits properly in the key area,
+  and you can use `<style>` tags and/or `style=` attributes to constrain the size if necessary.
 - If `imagePath` is passed, use an image on the webserver instead of text.
   With this option, you can also set `imageAttribution`,
   although at this time this is not displayed in the UI.
