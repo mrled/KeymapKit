@@ -58,13 +58,11 @@ export const KeymapTitleScreenLayoutLegends = new KeymapLayout({
               </svg>
             </div>
           `,
-          // Currently imageAttribution is not used
           imageAttribution:
-            "CC BY 4.0, published by IcoMoon, https://icomoon.io/",
+            "CC BY 4.0, published by <a href='https://icomoon.io/'>IcoMoon</a>",
           info: [
             "An HTML legend, using an embedded SVG.",
-            "This legend is a <code>&lt;div&gt;</code> element with a <code>style</code> attribute to set the size and an <code>&lt;svg&gt;</code> inside it.",
-            "Image credit to <a href='https://icomoon.io/'>IcoMoon</a>, used under <a href='https://github.com/Keyamoon/IcoMoon-Free/blob/master/License.txt'>CC BY 4.0</a>.",
+            "This legend is a <code>&lt;div&gt;</code> element with a <code>style=</code> attribute to set the size and an <code>&lt;svg&gt;</code> inside it.",
           ],
         }),
         new KeymapKey({
@@ -81,14 +79,12 @@ export const KeymapTitleScreenLayoutLegends = new KeymapLayout({
           name: "menu",
           id: "title-15-1",
           imagePath: "/KeymapKit/legends/menu-key.svg",
-          // Currently imageAttribution is not used
           imageAttribution:
-            "Public domain, published by OpenClipart, https://freesvg.org/menu-key-icon-vector-illustration",
+            "Public Domain, by <a href='https://freesvg.org/menu-key-icon-vector-illustration'>OpenClipart</a>.",
           info: [
             "An image legend.",
             "The image is loaded from a separate file on the webserver.",
             "Images are constrained to be 1rem x 1rem so that they fit inside the key. For more control than this, you have to use an HTML legend.",
-            "Image credit to <a href='https://freesvg.org/menu-key-icon-vector-illustration'>OpenClipart</a>.",
           ],
         }),
         new KeymapKey({ name: "", id: "title-17-1", unset: true }),

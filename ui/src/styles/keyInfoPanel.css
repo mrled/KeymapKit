@@ -32,6 +32,14 @@
     flex-shrink: 1;
     min-width: 0;
   }
+
+  .key-info-attribution {
+    font-size: 0.7em;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--button-border-color);
+  }
 }
 
 .legend-attribution {

@@ -32,6 +32,11 @@ different from the key name like `cmd`.
   With this option, you can also set `imageAttribution`,
   although at this time this is not displayed in the UI.
 
+A key with any type of legend can add an optional property called `imageAttribution`,
+which is displayed after the key info in the UI.
+(This is designed for use with `imagePath` and `htmlLegend` keys,
+but technically works on the other tyeps too.)
+
 ## Demo
 
 Here's a demo of all of these different ways to show a legend.

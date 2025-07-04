@@ -634,6 +634,17 @@ export class KeymapUIElement
     this.infoProse.appendChild(proseTitleElement);
     this.infoProse.append(...proseTextElements);
 
+    // Add image attribution if it exists
+    if (activeKeyId) {
+      const keyData = this.state.layer.keys.get(activeKeyId);
+      if (keyData && keyData.imageAttribution) {
+        const attributionElement = document.createElement("div");
+        attributionElement.className = "key-info-attribution";
+        attributionElement.innerHTML = `Legend attribution: ` + keyData.imageAttribution;
+        this.infoProse.appendChild(attributionElement);
+      }
+    }
+
     proseKeyIndicators = Array.from(
       this.infoProse.querySelectorAll(KeymapIndicatorElement.elementName),
     );
