@@ -9,11 +9,12 @@ import { KeyboardModel } from "./KeyboardModel.js";
  *                    which should be highlighted together when the key is selected,
  *                    e.g. all the QWERTY keys or both shift keys etc
  * textLegend:        Text legend for the key; optional
+ * htmlLegend:        HTML legend for the key; optional
  * imagePath:         The path on the server to an image to display; optional
  * imageAttribution:  The attribution for the image; optional
  * unset:             The key has no function attached to it; can still contain name/info/selection.
  *
- * For the legend, an image is used if provided, otherwise text legend if provided, otherwise the name.
+ * For the legend, an image is used if provided, otherwise HTML legend if provided, otherwise text legend if provided, otherwise the name.
  */
 export class KeymapKey {
   readonly name: string;
@@ -21,6 +22,7 @@ export class KeymapKey {
   readonly info: string[];
   readonly selection?: string[];
   readonly textLegend?: string;
+  readonly htmlLegend?: string;
   readonly imagePath?: string;
   readonly imageAttribution?: string;
   readonly unset?: boolean = false;
@@ -31,6 +33,7 @@ export class KeymapKey {
     info,
     selection,
     textLegend,
+    htmlLegend,
     imagePath,
     imageAttribution,
     unset,
@@ -40,6 +43,7 @@ export class KeymapKey {
     info: string[] | string | null;
     selection?: string[];
     textLegend?: string;
+    htmlLegend?: string;
     imagePath?: string;
     imageAttribution?: string;
     unset?: boolean;
@@ -55,6 +59,7 @@ export class KeymapKey {
     }
     this.selection = selection;
     this.textLegend = textLegend;
+    this.htmlLegend = htmlLegend;
     this.imagePath = imagePath;
     this.imageAttribution = imageAttribution;
     this.unset = unset || false;

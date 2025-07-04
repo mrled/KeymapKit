@@ -92,6 +92,7 @@ export class KeymapKeygridElement extends HTMLElement {
    */
   #createKey(keyboard: KeymapKeyboardElement, key: KeymapKey, idx: number) {
     const legendText = key.textLegend || key.name;
+    const legendHtml = key.htmlLegend || "";
     const legendImage = key.imagePath || "";
 
     const keyElement = document.createElement(KeymapKeyElement.elementName);
@@ -100,6 +101,7 @@ export class KeymapKeygridElement extends HTMLElement {
 
     keyElement.setAttribute("position", physicalKey.positionAttribute);
     keyElement.setAttribute("legend-text", legendText);
+    keyElement.setAttribute("legend-html", legendHtml);
     keyElement.setAttribute("legend-image", legendImage);
     keyElement.setAttribute("id", key.id);
 

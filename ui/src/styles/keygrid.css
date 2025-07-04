@@ -116,6 +116,15 @@ keymap-key {
     width: 1rem;
     height: 1rem;
   }
+
+  /* HTML legend container (for SVG and other HTML content) */
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1rem;
+    height: 1rem;
+  }
 }
 
 /* A key that's not part of a keygrid */

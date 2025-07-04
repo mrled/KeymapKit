@@ -13,8 +13,10 @@ import { KeymapKeyHandleElement } from "./keymap-key-handle";
  *   legend-text:               A string to use for the legend.
  *                              If it's a single character, it will be sized larger.
  *                              Four characters is the most that will fit on a 2x2 key.
- *   legend-image:              A file path to an image to use for the legend.
+ *   legend-html:               HTML content to use for the legend.
  *                              If this is set, it will override legend-text.
+ *   legend-image:              A file path to an image to use for the legend.
+ *                              If this is set, it will override legend-html and legend-text.
  *   standalone:                Return with classes for standalone rendering,
  *                              rather than the default which returns with classes for rendering in a grid
  *   id:                        Key id, for drawing diagram lines
@@ -34,6 +36,7 @@ export class KeymapKeyElement extends HTMLElement {
   static readonly elementName = "keymap-key";
 
   legendTextNode: Text | null;
+  legendHtmlElement: Element | null;
   legendImageElement: Element | null;
   keyHandleElement: Element | null;
   private keydownHandler: ((e: KeyboardEvent) => void) | null = null;
@@ -42,6 +45,7 @@ export class KeymapKeyElement extends HTMLElement {
     return [
       "position",
       "legend-text",
+      "legend-html",
       "legend-image",
       "standalone",
       "id",
@@ -55,6 +59,7 @@ export class KeymapKeyElement extends HTMLElement {
   constructor() {
     super();
     this.legendTextNode = null;
+    this.legendHtmlElement = null;
     this.legendImageElement = null;
     this.keyHandleElement = null;
 
@@ -92,6 +97,7 @@ export class KeymapKeyElement extends HTMLElement {
     const position = this.getAttribute("position") || "";
     const standalone = this.getAttribute("standalone") !== null;
     const legendText = this.getAttribute("legend-text") || "";
+    const legendHtml = this.getAttribute("legend-html") || "";
     const legendImage = this.getAttribute("legend-image") || "";
     const id = this.getAttribute("id") || "";
     const keyHandleTop = this.getAttribute("key-handle-top") === "true";
@@ -132,15 +138,40 @@ export class KeymapKeyElement extends HTMLElement {
         this.removeChild(this.legendTextNode);
         this.legendTextNode = null;
       }
+      if (this.legendHtmlElement) {
+        this.removeChild(this.legendHtmlElement);
+        this.legendHtmlElement = null;
+      }
       if (!this.legendImageElement) {
         this.legendImageElement = document.createElement("img");
         this.appendChild(this.legendImageElement);
       }
       this.legendImageElement.setAttribute("src", legendImage);
+    } else if (legendHtml) {
+      if (this.legendTextNode) {
+        this.removeChild(this.legendTextNode);
+        this.legendTextNode = null;
+      }
+      if (this.legendImageElement) {
+        this.removeChild(this.legendImageElement);
+        this.legendImageElement = null;
+      }
+      if (!this.legendHtmlElement) {
+        this.legendHtmlElement = document.createElement("div");
+        this.appendChild(this.legendHtmlElement);
+      }
+      this.legendHtmlElement.innerHTML = legendHtml;
+      // Apply HTML legend styling
+      if (!this.className.includes("legend-type-html"))
+        this.className += ` legend-type-html`;
     } else {
       if (this.legendImageElement) {
         this.removeChild(this.legendImageElement);
         this.legendImageElement = null;
+      }
+      if (this.legendHtmlElement) {
+        this.removeChild(this.legendHtmlElement);
+        this.legendHtmlElement = null;
       }
       if (!this.legendTextNode) {
         this.legendTextNode = document.createTextNode(legendText);
