@@ -37,7 +37,7 @@ export class KeymapKey {
   }: {
     name: string;
     id: string;
-    info: string[];
+    info: string[] | string | null;
     selection?: string[];
     textLegend?: string;
     imagePath?: string;
@@ -46,7 +46,13 @@ export class KeymapKey {
   }) {
     this.name = name || "";
     this.id = id;
-    this.info = info;
+    if (info && typeof info === "string") {
+      this.info = [info];
+    } else if (info && Array.isArray(info)) {
+      this.info = info;
+    } else {
+      this.info = [];
+    }
     this.selection = selection;
     this.textLegend = textLegend;
     this.imagePath = imagePath;
