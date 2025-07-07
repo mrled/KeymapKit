@@ -117,6 +117,13 @@ keymap-key {
     height: 1rem;
   }
 
+  /* Invert image colors in dark mode for keys with legend-image attribute */
+  @media (prefers-color-scheme: dark) {
+    &[legend-image]:not([legend-image=""]) > img {
+      filter: invert(1);
+    }
+  }
+
   /* HTML legend container (for SVG and other HTML content) */
   & > div {
     display: flex;

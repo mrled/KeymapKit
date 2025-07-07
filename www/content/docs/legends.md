@@ -28,9 +28,10 @@ different from the key name like `cmd`.
   [data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/data).
   When using an HTML legend, you are responsible for making sure the result fits properly in the key area,
   and you can use `<style>` tags and/or `style=` attributes to constrain the size if necessary.
+  - Note that unlike passing an image with `imagePath` (below),
+    colors are not automatically inverted in dark mode.
 - If `imagePath` is passed, use an image on the webserver instead of text.
-  With this option, you can also set `imageAttribution`,
-  although at this time this is not displayed in the UI.
+  Images passed this way automatically have their colors inverted when in dark mode.
 
 A key with any type of legend can add an optional property called `imageAttribution`,
 which is displayed after the key info in the UI.
