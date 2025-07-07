@@ -136,6 +136,7 @@ export class KeymapKeyboardTitleBarElement extends KeymapKeyboardElement {
         info: selectedKey.info.map((s) => s),
         selection: [],
         textLegend: selectedKey.textLegend,
+        htmlLegend: selectedKey.htmlLegend,
         imagePath: selectedKey.imagePath,
         imageAttribution: selectedKey.imageAttribution,
         unset: selectedKey.unset,
