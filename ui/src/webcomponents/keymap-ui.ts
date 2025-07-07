@@ -640,7 +640,8 @@ export class KeymapUIElement
       if (keyData && keyData.imageAttribution) {
         const attributionElement = document.createElement("div");
         attributionElement.className = "key-info-attribution";
-        attributionElement.innerHTML = `Legend attribution: ` + keyData.imageAttribution;
+        attributionElement.innerHTML =
+          `Legend attribution: ` + keyData.imageAttribution;
         this.infoProse.appendChild(attributionElement);
       }
     }
