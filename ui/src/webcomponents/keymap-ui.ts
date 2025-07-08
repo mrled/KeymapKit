@@ -681,6 +681,7 @@ export class KeymapUIElement
       const inKeySelection = !active && keySelection.indexOf(keyId) > -1;
       const indicatorTarget = indicatedKeyIds.indexOf(keyId) > -1;
       key.setAttribute("active", active.toString());
+      key.setAttribute("selected", active.toString());
       key.setAttribute("related-to-active", inKeySelection.toString());
       key.setAttribute("target-of-indicator", indicatorTarget.toString());
 

@@ -38,7 +38,10 @@
   --key-diagram-target-focus-bg: #a9e3ba;
   --key-layer-bg: #f3e8ff;
   --key-layer-border: #a855f7;
-  --key-layer-hover-bg: #e9d5ff;
+  --key-layer-hover-bg: #e1c5ff;
+  --key-layer-selected-bg: #d0a1ff;
+  --key-layer-selected-border: #7c3aed;
+  --key-layer-selected-hover-bg: #b66dff99;
   --key-legend-font: monospace;
 
   /* Colors that apply to kbd elements
@@ -133,6 +136,9 @@
     --key-layer-bg: #581c87;
     --key-layer-border: #a855f7;
     --key-layer-hover-bg: #6b21a8;
+    --key-layer-selected-bg: #7c3aed;
+    --key-layer-selected-border: #a855f7;
+    --key-layer-selected-hover-bg: #8b5cf6;
 
     /* Kbd element colors */
     --kbd-fg: #f3f4f6;

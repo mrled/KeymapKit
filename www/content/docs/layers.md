@@ -42,3 +42,8 @@ Here's an example layout that demonstrates layer entry key functionality:
 </script>
 
 {% importcode "static/keymaps/title-screen-layout-layertest.js", "javascript" %}
+
+## Layer Entry Colors Override Others
+
+Note that the layer entry color overrides other colors,
+including orange key selection groups and green key indicators.

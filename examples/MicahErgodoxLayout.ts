@@ -822,6 +822,7 @@ export const MicahErgodoxLayout = new KeymapLayout({
         which places arrow keys right under my fingers,
         without having to move my hands.`,
       ],
+      layerEntryKeys: ["l-f-8-9", "r-f-7-9"],
       keys: [
         new KeymapKey({
           textLegend: "↑",

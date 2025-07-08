@@ -50,9 +50,11 @@ export class KeymapKeyElement extends HTMLElement {
       "standalone",
       "id",
       "active",
+      "selected",
       "related-to-active",
       "target-of-indicator",
       "key-handle-top",
+      "layer-entry-key",
     ];
   }
 

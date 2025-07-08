@@ -85,7 +85,36 @@ keymap-navbar {
     li.layer-tab,
     li.guide-tab {
       padding: 0;
-      button.layer-tab-button,
+      button.layer-tab-button {
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.125rem;
+        font-family: var(--key-legend-font);
+        color: var(--key-fg);
+        background-color: var(--key-layer-bg);
+        border: 1px solid var(--key-layer-border);
+        cursor: pointer;
+        outline: none;
+        &:hover {
+          background-color: var(--key-layer-hover-bg);
+        }
+        &:focus {
+          background-color: var(--key-layer-hover-bg);
+        }
+        &:active {
+          background-color: var(--key-layer-selected-bg);
+        }
+      }
+      button.layer-tab-button.active {
+        background-color: var(--key-layer-selected-bg);
+        border-color: var(--key-layer-selected-border);
+        &:hover {
+          background-color: var(--key-layer-selected-hover-bg);
+        }
+        &:focus {
+          background-color: var(--key-layer-selected-hover-bg);
+        }
+      }
+
       button.guide-tab-button {
         /* Style like keys */
         padding: 0.25rem 0.5rem;
@@ -105,17 +134,6 @@ keymap-navbar {
         }
         &:active {
           background-color: var(--key-active-bg);
-        }
-      }
-      button.layer-tab-button.active {
-        background-color: var(--key-active-bg);
-        border-color: var(--key-active-border);
-
-        &:hover {
-          background-color: var(--key-active-hover-bg);
-        }
-        &:focus {
-          background-color: var(--key-active-focus-bg);
         }
       }
     }

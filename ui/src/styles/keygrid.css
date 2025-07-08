@@ -107,6 +107,16 @@ keymap-key {
       background-color: var(--key-layer-hover-bg);
     }
   }
+  &[layer-entry-key="true"][selected="true"] {
+    background-color: var(--key-layer-selected-bg);
+    border: 1px solid var(--key-layer-selected-border);
+    &:hover {
+      background-color: var(--key-layer-selected-hover-bg);
+    }
+    &:focus {
+      background-color: var(--key-layer-selected-hover-bg);
+    }
+  }
 
   /* Glyph legends contain one character like `A` or two characters like `;:`,
    * and are shown in a larger font.
