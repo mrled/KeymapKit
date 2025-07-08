@@ -727,6 +727,27 @@ export class KeymapUIElement
 
     // This causes the diagram to redraw
     this.state.connectionPairs = connectionPairs;
+
+    // Update layer entry keys after all other key attributes are set
+    this.#updateLayerEntryKeys();
+  }
+
+  /* Update layer entry key attributes on all rendered key elements
+   *
+   * Mark keys that enter the layer.
+   */
+  #updateLayerEntryKeys() {
+    if (!this.state.keymap || !this.state.layer) return;
+    const keyElements = this.keyboard.keyElements;
+
+    keyElements.forEach((keyElement) => {
+      const keyId = keyElement.getAttribute("id");
+      if (!keyId) return;
+      const isLayerEntryKey =
+        this.state.layer.layerEntryKeys &&
+        this.state.layer.layerEntryKeys.includes(keyId);
+      keyElement.setAttribute("layer-entry-key", isLayerEntryKey.toString());
+    });
   }
 
   /* Update the query prefix and any query parameters that use it.

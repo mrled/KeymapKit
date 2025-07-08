@@ -188,6 +188,7 @@ export class KeymapLayer {
     public readonly shortName: string,
     public readonly welcome: string[],
     public readonly keys: Map<string, KeymapKey>,
+    public readonly layerEntryKeys: string[] = [],
   ) {}
 
   /* Create a new layer from a list of keys.
@@ -200,11 +201,13 @@ export class KeymapLayer {
     shortName,
     welcome,
     keys,
+    layerEntryKeys,
   }: {
     displayName: string;
     shortName: string;
     welcome: string[];
     keys: KeymapKey[];
+    layerEntryKeys?: string[];
   }) {
     const duplicateKeys: KeymapKey[] = [];
     const keysById = keys.reduce((map, key) => {
@@ -222,7 +225,13 @@ export class KeymapLayer {
       );
     }
 
-    const newLayer = new KeymapLayer(displayName, shortName, welcome, keysById);
+    const newLayer = new KeymapLayer(
+      displayName,
+      shortName,
+      welcome,
+      keysById,
+      layerEntryKeys || [],
+    );
     return newLayer;
   }
 }
