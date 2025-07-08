@@ -10,47 +10,47 @@
 :host {
   /* Colors that apply to all buttons except keyboard keys
    */
-  --button-border-color: #d1d5db;
+  --button-border-color: oklch(87.2% 0.009 258.3);
 
   /* Colors that apply to keymap-key buttons
    */
   --key-fg: black;
-  --key-bg: #edf2f7;
-  --key-border: #a0aec0;
-  --key-hover-bg: #cbd5e0;
-  --key-active-bg: #f6ad55;
-  --key-active-border: #c05621;
-  --key-active-hover-bg: #dd6b20;
-  --key-related-active-bg: #feebc8;
-  --key-related-active-border: #ed8936;
-  --key-related-active-hover-bg: #f6ad55;
-  --key-diagram-target-bg: #c6f6d5;
-  --key-diagram-target-border: #48bb78;
-  --key-diagram-target-hover-bg: #68d391;
-  --key-focus-bg: #e2e8f0;
-  --key-active-focus-bg: #e8a34f;
-  --key-related-active-focus-bg: #f0d7a9;
-  --key-diagram-target-focus-bg: #a9e3ba;
-  --key-layer-bg: #f3e8ff;
-  --key-layer-border: #a855f7;
-  --key-layer-hover-bg: #e1c5ff;
-  --key-layer-selected-bg: #d0a1ff;
-  --key-layer-selected-border: #7c3aed;
-  --key-layer-selected-hover-bg: #b66dff99;
+  --key-bg: oklch(95.9% 0.009 247.9);
+  --key-border: oklch(74.6% 0.03 254.7);
+  --key-hover-bg: oklch(86.9% 0.019 250.6);
+  --key-active-bg: oklch(80.1% 0.134 68.8);
+  --key-active-border: oklch(57.9% 0.15 43.8);
+  --key-active-hover-bg: oklch(65.3% 0.164 48.4);
+  --key-related-active-bg: oklch(94.6% 0.05 82.8);
+  --key-related-active-border: oklch(72.4% 0.153 56.1);
+  --key-related-active-hover-bg: oklch(80.1% 0.134 68.8);
+  --key-diagram-target-bg: oklch(93.1% 0.066 154.9);
+  --key-diagram-target-border: oklch(71% 0.143 154.5);
+  --key-diagram-target-hover-bg: oklch(78.6% 0.138 154.5);
+  --key-focus-bg: oklch(92.9% 0.013 255.5);
+  --key-active-focus-bg: oklch(76.7% 0.129 69);
+  --key-related-active-focus-bg: oklch(88.9% 0.066 82.6);
+  --key-diagram-target-focus-bg: oklch(86.5% 0.082 153.7);
+  --key-layer-bg: oklch(94.6% 0.033 307.2);
+  --key-layer-border: oklch(62.7% 0.233 303.9);
+  --key-layer-hover-bg: oklch(86.6% 0.084 306.6);
+  --key-layer-selected-bg: oklch(78.7% 0.138 306.4);
+  --key-layer-selected-border: oklch(54.1% 0.247 293);
+  --key-layer-selected-hover-bg: oklch(67.9% 0.212 304.4 / 0.6);
   --key-legend-font: monospace;
 
   /* Colors that apply to kbd elements
    */
   --kbd-fg: black;
-  --kbd-border-color: #aaa;
-  --kbd-background: linear-gradient(180deg, #fff, #fff, #fff, #ddd);
+  --kbd-border-color: oklch(73.8% 0 NaN);
+  --kbd-background: linear-gradient(180deg, oklch(100% 0 NaN), oklch(100% 0 NaN), oklch(100% 0 NaN), oklch(89.8% 0 NaN));
 
   /* These variables are not used in CSS,
    * but the JavaScript code that draws the diagram reads them from here and uses them.
    * We just want to set all the colors in the same place.
    */
-  --diagram-line-textref-color: #68d391ff; /* Opaque, because this green is pretty light */
-  --diagram-line-selected-color: #fbd38d99; /* Slightly transparent, because this orange is pretty dark */
+  --diagram-line-textref-color: oklch(78.6% 0.138 154.5); /* Opaque, because this green is pretty light */
+  --diagram-line-selected-color: oklch(88.6% 0.099 80.9 / 0.6); /* Slightly transparent, because this orange is pretty dark */
   --diagram-debug-center-line-color: cornflowerblue;
   --diagram-debug-keyboard-color: khaki;
   --diagram-debug-left-color: lawngreen;
@@ -58,8 +58,8 @@
 
   /* Other colors
    */
-  --link-fg: rgba(49, 130, 206, 1);
-  --text-muted: #9ca3af;
+  --link-fg: oklch(59.5% 0.14 250.3);
+  --text-muted: oklch(71.4% 0.019 261.3);
 
   /* The --keyboard-grid-unit variable is used to scale the size of the whole UI.
    *
@@ -103,50 +103,50 @@
   :root,
   :host {
     /* Button colors */
-    --button-border-color: #4b5563;
+    --button-border-color: oklch(44.6% 0.026 256.8);
 
     /* Key colors */
-    --key-fg: #f3f4f6;
-    --key-bg: #374151;
-    --key-border: #6b7280;
-    --key-hover-bg: #4b5563;
-    --key-active-bg: #dc7d1f;
-    --key-active-border: #b45309;
-    --key-active-hover-bg: #c2691e;
-    --key-related-active-bg: #7c3f0f;
-    --key-related-active-border: #dc7d1f;
-    --key-related-active-hover-bg: #92622c;
-    --key-diagram-target-bg: #1e4e31;
-    --key-diagram-target-border: #34d399;
-    --key-diagram-target-hover-bg: #15803d;
-    --key-focus-bg: #4b5563;
-    --key-active-focus-bg: #c2691e;
-    --key-related-active-focus-bg: #92622c;
-    --key-diagram-target-focus-bg: #22754a;
-    --key-layer-bg: #581c87;
-    --key-layer-border: #a855f7;
-    --key-layer-hover-bg: #6b21a8;
-    --key-layer-selected-bg: #7c3aed;
-    --key-layer-selected-border: #a855f7;
-    --key-layer-selected-hover-bg: #8b5cf6;
+    --key-fg: oklch(96.7% 0.003 264.5);
+    --key-bg: oklch(37.3% 0.031 259.7);
+    --key-border: oklch(55.1% 0.023 264.4);
+    --key-hover-bg: oklch(44.6% 0.026 256.8);
+    --key-active-bg: oklch(68.1% 0.152 58.4);
+    --key-active-border: oklch(55.5% 0.146 49);
+    --key-active-hover-bg: oklch(61.2% 0.14 54.8);
+    --key-related-active-bg: oklch(43.7% 0.102 53);
+    --key-related-active-border: oklch(68.1% 0.152 58.4);
+    --key-related-active-hover-bg: oklch(53.7% 0.093 66.5);
+    --key-diagram-target-bg: oklch(38.2% 0.072 154.4);
+    --key-diagram-target-border: oklch(77.3% 0.153 163.2);
+    --key-diagram-target-hover-bg: oklch(52.7% 0.137 150.1);
+    --key-focus-bg: oklch(44.6% 0.026 256.8);
+    --key-active-focus-bg: oklch(61.2% 0.14 54.8);
+    --key-related-active-focus-bg: oklch(53.7% 0.093 66.5);
+    --key-diagram-target-focus-bg: oklch(50.2% 0.105 156.3);
+    --key-layer-bg: oklch(38.1% 0.166 305);
+    --key-layer-border: oklch(62.7% 0.233 303.9);
+    --key-layer-hover-bg: oklch(43.8% 0.198 303.7);
+    --key-layer-selected-bg: oklch(54.1% 0.247 293);
+    --key-layer-selected-border: oklch(62.7% 0.233 303.9);
+    --key-layer-selected-hover-bg: oklch(60.6% 0.219 292.7);
 
     /* Kbd element colors */
-    --kbd-fg: #f3f4f6;
-    --kbd-border-color: #6b7280;
+    --kbd-fg: oklch(96.7% 0.003 264.5);
+    --kbd-border-color: oklch(55.1% 0.023 264.4);
     --kbd-background: linear-gradient(
       180deg,
-      #374151,
-      #374151,
-      #374151,
-      #1f2937
+      oklch(37.3% 0.031 259.7),
+      oklch(37.3% 0.031 259.7),
+      oklch(37.3% 0.031 259.7),
+      oklch(27.8% 0.03 256.8)
     );
 
     /* Diagram colors */
-    --diagram-line-textref-color: #34d399ff;
-    --diagram-line-selected-color: #f59e0bcc;
+    --diagram-line-textref-color: oklch(77.3% 0.153 163.2);
+    --diagram-line-selected-color: oklch(76.9% 0.165 70.1 / 0.8);
 
     /* Other colors */
-    --link-fg: #60a5fa;
-    --text-muted: #6b7280;
+    --link-fg: oklch(71.4% 0.143 254.6);
+    --text-muted: oklch(55.1% 0.023 264.4);
   }
 }
