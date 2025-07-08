@@ -1,6 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 import { Command } from "commander";
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 import { generateBlankKeymap } from "./commands/blank.js";
 
 const program = new Command();
