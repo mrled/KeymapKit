@@ -4,14 +4,13 @@ import { KeymapLayout, KeymapKey, KeymapLayer } from "@keymapkit/ui";
 const welcome = [
   `Welcome to the Layer Entry Key Test!`,
   `This layout demonstrates layer entry key functionality.`,
-  `The purple key (P) is a layer entry key that switches to the second layer.`,
   `Click on any key above to see information about it.`,
 ];
 
 const secondLayerWelcome = [
   `You're now on the second layer!`,
   `This layer was accessed via the layer entry key from the main layer.`,
-  `The purple key (K) will take you back to the main layer.`,
+  `The first key (K) is the key used to enter this layer. It's highlighted in purple to indicate this.`,
   `Click on any key above to see information about it.`,
 ];
 
@@ -20,8 +19,7 @@ const keyInfo = [
 ];
 
 const layerEntryKeyInfo = [
-  "This is a layer entry key - it allows you to switch between layers.",
-  "Layer entry keys are highlighted in purple to show their special function.",
+  "This is a layer entry key. Layer entry keys are highlighted in purple to show their special function.",
   "Click this key to switch to the corresponding layer.",
 ];
 
