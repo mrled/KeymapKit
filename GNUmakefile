@@ -17,7 +17,7 @@ SHELL := /bin/bash
 # Show a nice table of Make targets.
 .PHONY: help
 help: ## Show this help
-	@egrep -h '\s##\s' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
+	@grep -E -h '\s##\s' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 package-lock.json: package.json
 	npm install --package-lock-only
@@ -59,7 +59,7 @@ ui: ui/dist/keymapkit.js ## Build @keymapkit/ui
 
 
 # @keymapkit/keyboard.advantage360
-KEYBOARD_ADV360_SOURCES = $(shell find keyboard.advantage360/ -type f -maxdepth 1)
+KEYBOARD_ADV360_SOURCES = $(shell find keyboard.advantage360/ -maxdepth 1 -type f)
 keyboard.advantage360/dist/keyboard.advantage360.js: node_modules/.installed ui/dist/keymapkit.js $(KEYBOARD_ADV360_SOURCES)
 	npm run build -w keyboard.advantage360
 .PHONY: keyboard.advantage360
@@ -67,7 +67,7 @@ keyboard.advantage360: keyboard.advantage360/dist/keyboard.advantage360.js ## Bu
 
 
 # @keymapkit/keyboard.ergodox
-KEYBOARD_ERGODOX_SOURCES = $(shell find keyboard.ergodox/ -type f -maxdepth 1)
+KEYBOARD_ERGODOX_SOURCES = $(shell find keyboard.ergodox/ -maxdepth 1 -type f)
 keyboard.ergodox/dist/keyboard.ergodox.js: node_modules/.installed ui/dist/keymapkit.js $(KEYBOARD_ERGODOX_SOURCES)
 	npm run build -w keyboard.ergodox
 .PHONY: keyboard.ergodox
@@ -75,7 +75,7 @@ keyboard.ergodox: keyboard.ergodox/dist/keyboard.ergodox.js ## Build @keymapkit/
 
 
 # @keymapkit/keyboard.planck48
-KEYBOARD_PLANCK48_SOURCES = $(shell find keyboard.planck48/ -type f -maxdepth 1)
+KEYBOARD_PLANCK48_SOURCES = $(shell find keyboard.planck48/ -maxdepth 1 -type f)
 keyboard.planck48/dist/keyboard.planck48.js: node_modules/.installed ui/dist/keymapkit.js $(KEYBOARD_PLANCK48_SOURCES)
 	npm run build -w keyboard.planck48
 .PHONY: keyboard.planck48
@@ -83,7 +83,7 @@ keyboard.planck48: keyboard.planck48/dist/keyboard.planck48.js ## Build @keymapk
 
 
 ## @keymapkit/examples
-EXAMPLES_SOURCES = $(shell find examples/ -type f -maxdepth 1)
+EXAMPLES_SOURCES = $(shell find examples/ -maxdepth 1 -type f)
 examples/dist/examples.js: node_modules/.installed ui/dist/keymapkit.js keyboard.ergodox/dist/keyboard.ergodox.js $(EXAMPLES_SOURCES)
 	npm run build -w examples
 .PHONY: examples
@@ -103,7 +103,7 @@ cli.test: cli/dist/cli.js ## Test @keymapkit/cli
 
 
 # @keymapkit/www
-WWW_SOURCES = $(shell find www -type f -maxdepth 1)
+WWW_SOURCES = $(shell find www -maxdepth 1 -type f)
 www/static/keymapkit/keymapkit.js: ui/dist/keymapkit.js
 	mkdir -p www/static/keymapkit
 	cp ui/dist/keymapkit.js www/static/keymapkit/keymapkit.js
