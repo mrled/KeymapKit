@@ -36,6 +36,9 @@
   --key-active-focus-bg: #e8a34f;
   --key-related-active-focus-bg: #f0d7a9;
   --key-diagram-target-focus-bg: #a9e3ba;
+  --key-layer-bg: #f3e8ff;
+  --key-layer-border: #a855f7;
+  --key-layer-hover-bg: #e9d5ff;
   --key-legend-font: monospace;
 
   /* Colors that apply to kbd elements
@@ -127,6 +130,9 @@
     --key-active-focus-bg: #c2691e;
     --key-related-active-focus-bg: #92622c;
     --key-diagram-target-focus-bg: #22754a;
+    --key-layer-bg: #581c87;
+    --key-layer-border: #a855f7;
+    --key-layer-hover-bg: #6b21a8;
 
     /* Kbd element colors */
     --kbd-fg: #f3f4f6;
