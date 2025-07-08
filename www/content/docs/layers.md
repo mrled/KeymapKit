@@ -24,7 +24,7 @@ KeymapLayer.fromKeyList({
   keys: [
     // ... key definitions
   ],
-})
+});
 ```
 
 ## Example: Layer Entry Keys

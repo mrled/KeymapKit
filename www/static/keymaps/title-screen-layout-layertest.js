@@ -45,7 +45,7 @@ export const KeymapTitleScreenLayoutLayerTest = new KeymapLayout({
         new KeymapKey({ name: "K", id: "title-13-1", info: keyInfo }),
         new KeymapKey({ name: "I", id: "title-15-1", info: keyInfo }),
         new KeymapKey({ name: "T", id: "title-17-1", info: keyInfo }),
-      ]
+      ],
     }),
     KeymapLayer.fromKeyList({
       displayName: "Second Layer",
