@@ -1,7 +1,6 @@
 /* Root styles: should be imported before other styles
  */
 
-:root,
 :host {
   container-type: inline-size;
 }

@@ -4,9 +4,8 @@
  *    grep -o -e "--[a-zA-Z0-9-]\+"  ui/src/styles/vars.css | while read v; do if ! rg -g '!ui/src/styles/vars.css' -q -- "$v" .; then echo $v; fi; done
  */
 
-/* The :root is the top level of the light DOM, and the :host is the top level of the shadow DOM.
- */
-:root,
+/* Main variables, including for light mode and the default screen size
+*/
 :host {
   /* Colors that apply to all buttons except keyboard keys
    */
@@ -100,7 +99,6 @@
 
 /* Dark mode colors */
 @media (prefers-color-scheme: dark) {
-  :root,
   :host {
     /* Button colors */
     --button-border-color: oklch(44.6% 0.026 256.8);
