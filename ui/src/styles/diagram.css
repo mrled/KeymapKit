@@ -15,5 +15,5 @@ canvas.keyboard-diagram {
  */
 keymap-indicator {
   text-overflow: truncate;
-  background-color: var(--key-diagram-target-bg);
+  background-color: var(--_key-diagram-target-bg);
 }

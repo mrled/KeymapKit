@@ -20,12 +20,12 @@ export class DiagramLineColors {
   static fromContextRootVars(contextRoot: Element): DiagramLineColors {
     const rootStyle = getComputedStyle(contextRoot);
     return new DiagramLineColors(
-      rootStyle.getPropertyValue("--diagram-line-textref-color"),
-      rootStyle.getPropertyValue("--diagram-line-selected-color"),
-      rootStyle.getPropertyValue("--diagram-debug-center-line-color"),
-      rootStyle.getPropertyValue("--diagram-debug-keyboard-color"),
-      rootStyle.getPropertyValue("--diagram-debug-left-color"),
-      rootStyle.getPropertyValue("--diagram-debug-right-color"),
+      rootStyle.getPropertyValue("--_diagram-line-textref-color"),
+      rootStyle.getPropertyValue("--_diagram-line-selected-color"),
+      rootStyle.getPropertyValue("--_diagram-debug-center-line-color"),
+      rootStyle.getPropertyValue("--_diagram-debug-keyboard-color"),
+      rootStyle.getPropertyValue("--_diagram-debug-left-color"),
+      rootStyle.getPropertyValue("--_diagram-debug-right-color"),
     );
   }
 }

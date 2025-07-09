@@ -63,7 +63,7 @@ p {
 }
 
 a {
-  color: var(--link-fg);
+  color: var(--_link-fg);
   cursor: pointer;
 }
 
@@ -73,12 +73,12 @@ ul {
 }
 
 kbd {
-  border: 0.1em solid var(--kbd-border-color);
+  border: 0.1em solid var(--_kbd-border-color);
   border-radius: 0.2em;
   display: inline-block;
   padding: 0em 0.5em;
-  background: var(--kbd-background);
-  color: var(--kbd-fg);
+  background: var(--_kbd-background);
+  color: var(--_kbd-fg);
   font-weight: bold;
 }
 

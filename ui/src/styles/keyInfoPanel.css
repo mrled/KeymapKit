@@ -22,7 +22,7 @@
 
   .key-id {
     font-size: 0.65em;
-    color: var(--text-muted);
+    color: var(--_text-muted);
     font-weight: normal;
     margin-left: auto;
     white-space: nowrap;
@@ -35,10 +35,10 @@
 
   .key-info-attribution {
     font-size: 0.7em;
-    color: var(--text-muted);
+    color: var(--_text-muted);
     margin-top: 1rem;
     padding-top: 0.5rem;
-    border-top: 1px solid var(--button-border-color);
+    border-top: 1px solid var(--_button-border-color);
 
     a {
       color: inherit;
@@ -61,7 +61,7 @@ keymap-navbar {
   font-size: 0.75rem;
   line-height: 1rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--button-border-color);
+  border-bottom: 1px solid var(--_button-border-color);
   display: flex;
   flex-direction: column;
 
@@ -88,30 +88,30 @@ keymap-navbar {
       button.layer-tab-button {
         padding: 0.25rem 0.5rem;
         border-radius: 0.125rem;
-        font-family: var(--key-legend-font);
-        color: var(--key-fg);
-        background-color: var(--key-layer-bg);
-        border: 1px solid var(--key-layer-border);
+        font-family: var(--_key-legend-font);
+        color: var(--_key-fg);
+        background-color: var(--_key-layer-bg);
+        border: 1px solid var(--_key-layer-border);
         cursor: pointer;
         outline: none;
         &:hover {
-          background-color: var(--key-layer-hover-bg);
+          background-color: var(--_key-layer-hover-bg);
         }
         &:focus {
-          background-color: var(--key-layer-hover-bg);
+          background-color: var(--_key-layer-hover-bg);
         }
         &:active {
-          background-color: var(--key-layer-selected-bg);
+          background-color: var(--_key-layer-selected-bg);
         }
       }
       button.layer-tab-button.active {
-        background-color: var(--key-layer-selected-bg);
-        border-color: var(--key-layer-selected-border);
+        background-color: var(--_key-layer-selected-bg);
+        border-color: var(--_key-layer-selected-border);
         &:hover {
-          background-color: var(--key-layer-selected-hover-bg);
+          background-color: var(--_key-layer-selected-hover-bg);
         }
         &:focus {
-          background-color: var(--key-layer-selected-hover-bg);
+          background-color: var(--_key-layer-selected-hover-bg);
         }
       }
 
@@ -119,21 +119,21 @@ keymap-navbar {
         /* Style like keys */
         padding: 0.25rem 0.5rem;
         border-radius: 0.125rem;
-        font-family: var(--key-legend-font);
-        color: var(--key-fg);
-        background-color: var(--key-bg);
-        border: 1px solid var(--key-border);
+        font-family: var(--_key-legend-font);
+        color: var(--_key-fg);
+        background-color: var(--_key-bg);
+        border: 1px solid var(--_key-border);
         cursor: pointer;
         outline: none;
 
         &:hover {
-          background-color: var(--key-hover-bg);
+          background-color: var(--_key-hover-bg);
         }
         &:focus {
-          background-color: var(--key-focus-bg);
+          background-color: var(--_key-focus-bg);
         }
         &:active {
-          background-color: var(--key-active-bg);
+          background-color: var(--_key-active-bg);
         }
       }
     }
@@ -193,24 +193,24 @@ button.control-button {
   /* Style like keys */
   padding: 0.25rem 0.5rem;
   margin: 0 0.25rem;
-  font-family: var(--key-legend-font);
+  font-family: var(--_key-legend-font);
   font-size: 85%;
-  color: var(--key-fg);
-  background-color: var(--key-bg);
-  border: 1px solid var(--key-border);
+  color: var(--_key-fg);
+  background-color: var(--_key-bg);
+  border: 1px solid var(--_key-border);
   border-radius: 0.125rem;
   cursor: pointer;
   outline: none;
 
   &:hover {
-    background-color: var(--key-hover-bg);
+    background-color: var(--_key-hover-bg);
   }
   &:focus {
-    background-color: var(--key-focus-bg);
+    background-color: var(--_key-focus-bg);
   }
   &:active {
-    background-color: var(--key-active-bg);
-    border-color: var(--key-active-border);
+    background-color: var(--_key-active-bg);
+    border-color: var(--_key-active-border);
   }
   &:disabled {
     opacity: 0.5;
