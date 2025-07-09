@@ -39,213 +39,223 @@
     Noto Color Emoji
   );
 
-  /* Colors
-   */
-  --_foreground-color: var(--foreground-color, black);
+  /* Light mode color definitions */
+  --_light-foreground-color: var(--light-foreground-color, black);
+  --_light-button-border-color: var(--light-button-border-color, oklch(87.2% 0.009 258.3));
+  --_light-key-fg: var(--light-key-fg, black);
+  --_light-key-bg: var(--light-key-bg, oklch(95.9% 0.009 247.9));
+  --_light-key-border: var(--light-key-border, oklch(74.6% 0.03 254.7));
+  --_light-key-hover-bg: var(--light-key-hover-bg, oklch(86.9% 0.019 250.6));
+  --_light-key-active-bg: var(--light-key-active-bg, oklch(80.1% 0.134 68.8));
+  --_light-key-active-border: var(--light-key-active-border, oklch(57.9% 0.15 43.8));
+  --_light-key-active-hover-bg: var(--light-key-active-hover-bg, oklch(65.3% 0.164 48.4));
+  --_light-key-related-active-bg: var(--light-key-related-active-bg, oklch(94.6% 0.05 82.8));
+  --_light-key-related-active-border: var(--light-key-related-active-border, oklch(72.4% 0.153 56.1));
+  --_light-key-related-active-hover-bg: var(--light-key-related-active-hover-bg, oklch(80.1% 0.134 68.8));
+  --_light-key-diagram-target-bg: var(--light-key-diagram-target-bg, oklch(93.1% 0.066 154.9));
+  --_light-key-diagram-target-border: var(--light-key-diagram-target-border, oklch(71% 0.143 154.5));
+  --_light-key-diagram-target-hover-bg: var(--light-key-diagram-target-hover-bg, oklch(78.6% 0.138 154.5));
+  --_light-key-focus-bg: var(--light-key-focus-bg, oklch(92.9% 0.013 255.5));
+  --_light-key-active-focus-bg: var(--light-key-active-focus-bg, oklch(76.7% 0.129 69));
+  --_light-key-related-active-focus-bg: var(--light-key-related-active-focus-bg, oklch(88.9% 0.066 82.6));
+  --_light-key-diagram-target-focus-bg: var(--light-key-diagram-target-focus-bg, oklch(86.5% 0.082 153.7));
+  --_light-key-layer-bg: var(--light-key-layer-bg, oklch(94.6% 0.033 307.2));
+  --_light-key-layer-border: var(--light-key-layer-border, oklch(62.7% 0.233 303.9));
+  --_light-key-layer-hover-bg: var(--light-key-layer-hover-bg, oklch(86.6% 0.084 306.6));
+  --_light-key-layer-selected-bg: var(--light-key-layer-selected-bg, oklch(78.7% 0.138 306.4));
+  --_light-key-layer-selected-border: var(--light-key-layer-selected-border, oklch(54.1% 0.247 293));
+  --_light-key-layer-selected-hover-bg: var(--light-key-layer-selected-hover-bg, oklch(67.9% 0.212 304.4 / 0.6));
+  --_light-kbd-fg: var(--light-kbd-fg, black);
+  --_light-kbd-border-color: var(--light-kbd-border-color, oklch(73.8% 0 NaN));
+  --_light-kbd-background: var(--light-kbd-background, linear-gradient(180deg, oklch(100% 0 NaN), oklch(100% 0 NaN), oklch(100% 0 NaN), oklch(89.8% 0 NaN)));
+  --_light-diagram-line-textref-color: var(--light-diagram-line-textref-color, oklch(78.6% 0.138 154.5));
+  --_light-diagram-line-selected-color: var(--light-diagram-line-selected-color, oklch(88.6% 0.099 80.9 / 0.6));
+  --_light-link-fg: var(--light-link-fg, oklch(59.5% 0.14 250.3));
+  --_light-text-muted: var(--light-text-muted, oklch(71.4% 0.019 261.3));
 
-  /* Colors that apply to all buttons except keyboard keys
-   */
-  --_button-border-color: var(--button-border-color, oklch(87.2% 0.009 258.3));
+  /* Dark mode color definitions */
+  --_dark-foreground-color: var(--dark-foreground-color, white);
+  --_dark-button-border-color: var(--dark-button-border-color, oklch(44.6% 0.026 256.8));
+  --_dark-key-fg: var(--dark-key-fg, oklch(96.7% 0.003 264.5));
+  --_dark-key-bg: var(--dark-key-bg, oklch(37.3% 0.031 259.7));
+  --_dark-key-border: var(--dark-key-border, oklch(55.1% 0.023 264.4));
+  --_dark-key-hover-bg: var(--dark-key-hover-bg, oklch(44.6% 0.026 256.8));
+  --_dark-key-active-bg: var(--dark-key-active-bg, oklch(68.1% 0.152 58.4));
+  --_dark-key-active-border: var(--dark-key-active-border, oklch(55.5% 0.146 49));
+  --_dark-key-active-hover-bg: var(--dark-key-active-hover-bg, oklch(61.2% 0.14 54.8));
+  --_dark-key-related-active-bg: var(--dark-key-related-active-bg, oklch(43.7% 0.102 53));
+  --_dark-key-related-active-border: var(--dark-key-related-active-border, oklch(68.1% 0.152 58.4));
+  --_dark-key-related-active-hover-bg: var(--dark-key-related-active-hover-bg, oklch(53.7% 0.093 66.5));
+  --_dark-key-diagram-target-bg: var(--dark-key-diagram-target-bg, oklch(38.2% 0.072 154.4));
+  --_dark-key-diagram-target-border: var(--dark-key-diagram-target-border, oklch(77.3% 0.153 163.2));
+  --_dark-key-diagram-target-hover-bg: var(--dark-key-diagram-target-hover-bg, oklch(52.7% 0.137 150.1));
+  --_dark-key-focus-bg: var(--dark-key-focus-bg, oklch(44.6% 0.026 256.8));
+  --_dark-key-active-focus-bg: var(--dark-key-active-focus-bg, oklch(61.2% 0.14 54.8));
+  --_dark-key-related-active-focus-bg: var(--dark-key-related-active-focus-bg, oklch(53.7% 0.093 66.5));
+  --_dark-key-diagram-target-focus-bg: var(--dark-key-diagram-target-focus-bg, oklch(50.2% 0.105 156.3));
+  --_dark-key-layer-bg: var(--dark-key-layer-bg, oklch(38.1% 0.166 305));
+  --_dark-key-layer-border: var(--dark-key-layer-border, oklch(62.7% 0.233 303.9));
+  --_dark-key-layer-hover-bg: var(--dark-key-layer-hover-bg, oklch(43.8% 0.198 303.7));
+  --_dark-key-layer-selected-bg: var(--dark-key-layer-selected-bg, oklch(54.1% 0.247 293));
+  --_dark-key-layer-selected-border: var(--dark-key-layer-selected-border, oklch(62.7% 0.233 303.9));
+  --_dark-key-layer-selected-hover-bg: var(--dark-key-layer-selected-hover-bg, oklch(60.6% 0.219 292.7));
+  --_dark-kbd-fg: var(--dark-kbd-fg, oklch(96.7% 0.003 264.5));
+  --_dark-kbd-border-color: var(--dark-kbd-border-color, oklch(55.1% 0.023 264.4));
+  --_dark-kbd-background: var(--dark-kbd-background, linear-gradient(180deg, oklch(37.3% 0.031 259.7), oklch(37.3% 0.031 259.7), oklch(37.3% 0.031 259.7), oklch(27.8% 0.03 256.8)));
+  --_dark-diagram-line-textref-color: var(--dark-diagram-line-textref-color, oklch(77.3% 0.153 163.2));
+  --_dark-diagram-line-selected-color: var(--dark-diagram-line-selected-color, oklch(76.9% 0.165 70.1 / 0.8));
+  --_dark-link-fg: var(--dark-link-fg, oklch(71.4% 0.143 254.6));
+  --_dark-text-muted: var(--dark-text-muted, oklch(55.1% 0.023 264.4));
 
-  /* Colors that apply to keymap-key buttons
-   */
-  --_key-fg: var(--key-fg, black);
-  --_key-bg: var(--key-bg, oklch(95.9% 0.009 247.9));
-  --_key-border: var(--key-border, oklch(74.6% 0.03 254.7));
-  --_key-hover-bg: var(--key-hover-bg, oklch(86.9% 0.019 250.6));
-  --_key-active-bg: var(--key-active-bg, oklch(80.1% 0.134 68.8));
-  --_key-active-border: var(--key-active-border, oklch(57.9% 0.15 43.8));
-  --_key-active-hover-bg: var(--key-active-hover-bg, oklch(65.3% 0.164 48.4));
-  --_key-related-active-bg: var(
-    --key-related-active-bg,
-    oklch(94.6% 0.05 82.8)
-  );
-  --_key-related-active-border: var(
-    --key-related-active-border,
-    oklch(72.4% 0.153 56.1)
-  );
-  --_key-related-active-hover-bg: var(
-    --key-related-active-hover-bg,
-    oklch(80.1% 0.134 68.8)
-  );
-  --_key-diagram-target-bg: var(
-    --key-diagram-target-bg,
-    oklch(93.1% 0.066 154.9)
-  );
-  --_key-diagram-target-border: var(
-    --key-diagram-target-border,
-    oklch(71% 0.143 154.5)
-  );
-  --_key-diagram-target-hover-bg: var(
-    --key-diagram-target-hover-bg,
-    oklch(78.6% 0.138 154.5)
-  );
-  --_key-focus-bg: var(--key-focus-bg, oklch(92.9% 0.013 255.5));
-  --_key-active-focus-bg: var(--key-active-focus-bg, oklch(76.7% 0.129 69));
-  --_key-related-active-focus-bg: var(
-    --key-related-active-focus-bg,
-    oklch(88.9% 0.066 82.6)
-  );
-  --_key-diagram-target-focus-bg: var(
-    --key-diagram-target-focus-bg,
-    oklch(86.5% 0.082 153.7)
-  );
-  --_key-layer-bg: var(--key-layer-bg, oklch(94.6% 0.033 307.2));
-  --_key-layer-border: var(--key-layer-border, oklch(62.7% 0.233 303.9));
-  --_key-layer-hover-bg: var(--key-layer-hover-bg, oklch(86.6% 0.084 306.6));
-  --_key-layer-selected-bg: var(
-    --key-layer-selected-bg,
-    oklch(78.7% 0.138 306.4)
-  );
-  --_key-layer-selected-border: var(
-    --key-layer-selected-border,
-    oklch(54.1% 0.247 293)
-  );
-  --_key-layer-selected-hover-bg: var(
-    --key-layer-selected-hover-bg,
-    oklch(67.9% 0.212 304.4 / 0.6)
-  );
+  /* Default to light mode colors */
+  --_foreground-color: var(--_light-foreground-color);
+  --_button-border-color: var(--_light-button-border-color);
+  --_key-fg: var(--_light-key-fg);
+  --_key-bg: var(--_light-key-bg);
+  --_key-border: var(--_light-key-border);
+  --_key-hover-bg: var(--_light-key-hover-bg);
+  --_key-active-bg: var(--_light-key-active-bg);
+  --_key-active-border: var(--_light-key-active-border);
+  --_key-active-hover-bg: var(--_light-key-active-hover-bg);
+  --_key-related-active-bg: var(--_light-key-related-active-bg);
+  --_key-related-active-border: var(--_light-key-related-active-border);
+  --_key-related-active-hover-bg: var(--_light-key-related-active-hover-bg);
+  --_key-diagram-target-bg: var(--_light-key-diagram-target-bg);
+  --_key-diagram-target-border: var(--_light-key-diagram-target-border);
+  --_key-diagram-target-hover-bg: var(--_light-key-diagram-target-hover-bg);
+  --_key-focus-bg: var(--_light-key-focus-bg);
+  --_key-active-focus-bg: var(--_light-key-active-focus-bg);
+  --_key-related-active-focus-bg: var(--_light-key-related-active-focus-bg);
+  --_key-diagram-target-focus-bg: var(--_light-key-diagram-target-focus-bg);
+  --_key-layer-bg: var(--_light-key-layer-bg);
+  --_key-layer-border: var(--_light-key-layer-border);
+  --_key-layer-hover-bg: var(--_light-key-layer-hover-bg);
+  --_key-layer-selected-bg: var(--_light-key-layer-selected-bg);
+  --_key-layer-selected-border: var(--_light-key-layer-selected-border);
+  --_key-layer-selected-hover-bg: var(--_light-key-layer-selected-hover-bg);
+  --_kbd-fg: var(--_light-kbd-fg);
+  --_kbd-border-color: var(--_light-kbd-border-color);
+  --_kbd-background: var(--_light-kbd-background);
+  --_diagram-line-textref-color: var(--_light-diagram-line-textref-color);
+  --_diagram-line-selected-color: var(--_light-diagram-line-selected-color);
+  --_link-fg: var(--_light-link-fg);
+  --_text-muted: var(--_light-text-muted);
 
-  /* Colors that apply to kbd elements
-   */
-  --_kbd-fg: var(--kbd-fg, black);
-  --_kbd-border-color: var(--kbd-border-color, oklch(73.8% 0 NaN));
-  --_kbd-background: var(
-    --kbd-background,
-    linear-gradient(
-      180deg,
-      oklch(100% 0 NaN),
-      oklch(100% 0 NaN),
-      oklch(100% 0 NaN),
-      oklch(89.8% 0 NaN)
-    )
-  );
-
-  /* These variables are not used in CSS,
-   * but the JavaScript code that draws the diagram reads them from here and uses them.
-   * We just want to set all the colors in the same place.
-   */
-  --_diagram-line-textref-color: var(
-    --diagram-line-textref-color,
-    oklch(78.6% 0.138 154.5)
-  ); /* Opaque, because this green is pretty light */
-  --_diagram-line-selected-color: var(
-    --diagram-line-selected-color,
-    oklch(88.6% 0.099 80.9 / 0.6)
-  ); /* Slightly transparent, because this orange is pretty dark */
-  --_diagram-debug-center-line-color: var(
-    --diagram-debug-center-line-color,
-    cornflowerblue
-  );
+  /* Debug colors stay the same for both modes */
+  --_diagram-debug-center-line-color: var(--diagram-debug-center-line-color, cornflowerblue);
   --_diagram-debug-keyboard-color: var(--diagram-debug-keyboard-color, khaki);
   --_diagram-debug-left-color: var(--diagram-debug-left-color, lawngreen);
   --_diagram-debug-right-color: var(--diagram-debug-right-color, red);
-
-  /* Other colors
-   */
-  --_link-fg: var(--link-fg, oklch(59.5% 0.14 250.3));
-  --_text-muted: var(--text-muted, oklch(71.4% 0.019 261.3));
 }
 
-/* Dark mode colors */
+/* System dark mode (when no override) */
 @media (prefers-color-scheme: dark) {
-  :host {
-  /* Colors
-   */
-    --_foreground-color: var(--foreground-color, black);
-
-    /* Button colors */
-    --_button-border-color: var(
-      --button-border-color,
-      oklch(44.6% 0.026 256.8)
-    );
-
-    /* Key colors */
-    --_key-fg: var(--key-fg, oklch(96.7% 0.003 264.5));
-    --_key-bg: var(--key-bg, oklch(37.3% 0.031 259.7));
-    --_key-border: var(--key-border, oklch(55.1% 0.023 264.4));
-    --_key-hover-bg: var(--key-hover-bg, oklch(44.6% 0.026 256.8));
-    --_key-active-bg: var(--key-active-bg, oklch(68.1% 0.152 58.4));
-    --_key-active-border: var(--key-active-border, oklch(55.5% 0.146 49));
-    --_key-active-hover-bg: var(--key-active-hover-bg, oklch(61.2% 0.14 54.8));
-    --_key-related-active-bg: var(
-      --key-related-active-bg,
-      oklch(43.7% 0.102 53)
-    );
-    --_key-related-active-border: var(
-      --key-related-active-border,
-      oklch(68.1% 0.152 58.4)
-    );
-    --_key-related-active-hover-bg: var(
-      --key-related-active-hover-bg,
-      oklch(53.7% 0.093 66.5)
-    );
-    --_key-diagram-target-bg: var(
-      --key-diagram-target-bg,
-      oklch(38.2% 0.072 154.4)
-    );
-    --_key-diagram-target-border: var(
-      --key-diagram-target-border,
-      oklch(77.3% 0.153 163.2)
-    );
-    --_key-diagram-target-hover-bg: var(
-      --key-diagram-target-hover-bg,
-      oklch(52.7% 0.137 150.1)
-    );
-    --_key-focus-bg: var(--key-focus-bg, oklch(44.6% 0.026 256.8));
-    --_key-active-focus-bg: var(--key-active-focus-bg, oklch(61.2% 0.14 54.8));
-    --_key-related-active-focus-bg: var(
-      --key-related-active-focus-bg,
-      oklch(53.7% 0.093 66.5)
-    );
-    --_key-diagram-target-focus-bg: var(
-      --key-diagram-target-focus-bg,
-      oklch(50.2% 0.105 156.3)
-    );
-    --_key-layer-bg: var(--key-layer-bg, oklch(38.1% 0.166 305));
-    --_key-layer-border: var(--key-layer-border, oklch(62.7% 0.233 303.9));
-    --_key-layer-hover-bg: var(--key-layer-hover-bg, oklch(43.8% 0.198 303.7));
-    --_key-layer-selected-bg: var(
-      --key-layer-selected-bg,
-      oklch(54.1% 0.247 293)
-    );
-    --_key-layer-selected-border: var(
-      --key-layer-selected-border,
-      oklch(62.7% 0.233 303.9)
-    );
-    --_key-layer-selected-hover-bg: var(
-      --key-layer-selected-hover-bg,
-      oklch(60.6% 0.219 292.7)
-    );
-
-    /* Kbd element colors */
-    --_kbd-fg: var(--kbd-fg, oklch(96.7% 0.003 264.5));
-    --_kbd-border-color: var(--kbd-border-color, oklch(55.1% 0.023 264.4));
-    --_kbd-background: var(
-      --kbd-background,
-      linear-gradient(
-        180deg,
-        oklch(37.3% 0.031 259.7),
-        oklch(37.3% 0.031 259.7),
-        oklch(37.3% 0.031 259.7),
-        oklch(27.8% 0.03 256.8)
-      )
-    );
-
-    /* Diagram colors */
-    --_diagram-line-textref-color: var(
-      --diagram-line-textref-color,
-      oklch(77.3% 0.153 163.2)
-    );
-    --_diagram-line-selected-color: var(
-      --diagram-line-selected-color,
-      oklch(76.9% 0.165 70.1 / 0.8)
-    );
-
-    /* Other colors */
-    --_link-fg: var(--link-fg, oklch(71.4% 0.143 254.6));
-    --_text-muted: var(--text-muted, oklch(55.1% 0.023 264.4));
+  :host:not([color-scheme]) {
+    --_foreground-color: var(--_dark-foreground-color);
+    --_button-border-color: var(--_dark-button-border-color);
+    --_key-fg: var(--_dark-key-fg);
+    --_key-bg: var(--_dark-key-bg);
+    --_key-border: var(--_dark-key-border);
+    --_key-hover-bg: var(--_dark-key-hover-bg);
+    --_key-active-bg: var(--_dark-key-active-bg);
+    --_key-active-border: var(--_dark-key-active-border);
+    --_key-active-hover-bg: var(--_dark-key-active-hover-bg);
+    --_key-related-active-bg: var(--_dark-key-related-active-bg);
+    --_key-related-active-border: var(--_dark-key-related-active-border);
+    --_key-related-active-hover-bg: var(--_dark-key-related-active-hover-bg);
+    --_key-diagram-target-bg: var(--_dark-key-diagram-target-bg);
+    --_key-diagram-target-border: var(--_dark-key-diagram-target-border);
+    --_key-diagram-target-hover-bg: var(--_dark-key-diagram-target-hover-bg);
+    --_key-focus-bg: var(--_dark-key-focus-bg);
+    --_key-active-focus-bg: var(--_dark-key-active-focus-bg);
+    --_key-related-active-focus-bg: var(--_dark-key-related-active-focus-bg);
+    --_key-diagram-target-focus-bg: var(--_dark-key-diagram-target-focus-bg);
+    --_key-layer-bg: var(--_dark-key-layer-bg);
+    --_key-layer-border: var(--_dark-key-layer-border);
+    --_key-layer-hover-bg: var(--_dark-key-layer-hover-bg);
+    --_key-layer-selected-bg: var(--_dark-key-layer-selected-bg);
+    --_key-layer-selected-border: var(--_dark-key-layer-selected-border);
+    --_key-layer-selected-hover-bg: var(--_dark-key-layer-selected-hover-bg);
+    --_kbd-fg: var(--_dark-kbd-fg);
+    --_kbd-border-color: var(--_dark-kbd-border-color);
+    --_kbd-background: var(--_dark-kbd-background);
+    --_diagram-line-textref-color: var(--_dark-diagram-line-textref-color);
+    --_diagram-line-selected-color: var(--_dark-diagram-line-selected-color);
+    --_link-fg: var(--_dark-link-fg);
+    --_text-muted: var(--_dark-text-muted);
   }
+}
+
+/* Explicit dark mode */
+:host([color-scheme="dark"]) {
+  --_foreground-color: var(--_dark-foreground-color);
+  --_button-border-color: var(--_dark-button-border-color);
+  --_key-fg: var(--_dark-key-fg);
+  --_key-bg: var(--_dark-key-bg);
+  --_key-border: var(--_dark-key-border);
+  --_key-hover-bg: var(--_dark-key-hover-bg);
+  --_key-active-bg: var(--_dark-key-active-bg);
+  --_key-active-border: var(--_dark-key-active-border);
+  --_key-active-hover-bg: var(--_dark-key-active-hover-bg);
+  --_key-related-active-bg: var(--_dark-key-related-active-bg);
+  --_key-related-active-border: var(--_dark-key-related-active-border);
+  --_key-related-active-hover-bg: var(--_dark-key-related-active-hover-bg);
+  --_key-diagram-target-bg: var(--_dark-key-diagram-target-bg);
+  --_key-diagram-target-border: var(--_dark-key-diagram-target-border);
+  --_key-diagram-target-hover-bg: var(--_dark-key-diagram-target-hover-bg);
+  --_key-focus-bg: var(--_dark-key-focus-bg);
+  --_key-active-focus-bg: var(--_dark-key-active-focus-bg);
+  --_key-related-active-focus-bg: var(--_dark-key-related-active-focus-bg);
+  --_key-diagram-target-focus-bg: var(--_dark-key-diagram-target-focus-bg);
+  --_key-layer-bg: var(--_dark-key-layer-bg);
+  --_key-layer-border: var(--_dark-key-layer-border);
+  --_key-layer-hover-bg: var(--_dark-key-layer-hover-bg);
+  --_key-layer-selected-bg: var(--_dark-key-layer-selected-bg);
+  --_key-layer-selected-border: var(--_dark-key-layer-selected-border);
+  --_key-layer-selected-hover-bg: var(--_dark-key-layer-selected-hover-bg);
+  --_kbd-fg: var(--_dark-kbd-fg);
+  --_kbd-border-color: var(--_dark-kbd-border-color);
+  --_kbd-background: var(--_dark-kbd-background);
+  --_diagram-line-textref-color: var(--_dark-diagram-line-textref-color);
+  --_diagram-line-selected-color: var(--_dark-diagram-line-selected-color);
+  --_link-fg: var(--_dark-link-fg);
+  --_text-muted: var(--_dark-text-muted);
+}
+
+/* Explicit light mode */
+:host([color-scheme="light"]) {
+  --_foreground-color: var(--_light-foreground-color);
+  --_button-border-color: var(--_light-button-border-color);
+  --_key-fg: var(--_light-key-fg);
+  --_key-bg: var(--_light-key-bg);
+  --_key-border: var(--_light-key-border);
+  --_key-hover-bg: var(--_light-key-hover-bg);
+  --_key-active-bg: var(--_light-key-active-bg);
+  --_key-active-border: var(--_light-key-active-border);
+  --_key-active-hover-bg: var(--_light-key-active-hover-bg);
+  --_key-related-active-bg: var(--_light-key-related-active-bg);
+  --_key-related-active-border: var(--_light-key-related-active-border);
+  --_key-related-active-hover-bg: var(--_light-key-related-active-hover-bg);
+  --_key-diagram-target-bg: var(--_light-key-diagram-target-bg);
+  --_key-diagram-target-border: var(--_light-key-diagram-target-border);
+  --_key-diagram-target-hover-bg: var(--_light-key-diagram-target-hover-bg);
+  --_key-focus-bg: var(--_light-key-focus-bg);
+  --_key-active-focus-bg: var(--_light-key-active-focus-bg);
+  --_key-related-active-focus-bg: var(--_light-key-related-active-focus-bg);
+  --_key-diagram-target-focus-bg: var(--_light-key-diagram-target-focus-bg);
+  --_key-layer-bg: var(--_light-key-layer-bg);
+  --_key-layer-border: var(--_light-key-layer-border);
+  --_key-layer-hover-bg: var(--_light-key-layer-hover-bg);
+  --_key-layer-selected-bg: var(--_light-key-layer-selected-bg);
+  --_key-layer-selected-border: var(--_light-key-layer-selected-border);
+  --_key-layer-selected-hover-bg: var(--_light-key-layer-selected-hover-bg);
+  --_kbd-fg: var(--_light-kbd-fg);
+  --_kbd-border-color: var(--_light-kbd-border-color);
+  --_kbd-background: var(--_light-kbd-background);
+  --_diagram-line-textref-color: var(--_light-diagram-line-textref-color);
+  --_diagram-line-selected-color: var(--_light-diagram-line-selected-color);
+  --_link-fg: var(--_light-link-fg);
+  --_text-muted: var(--_light-text-muted);
 }
 
 /*******************************************************************************
