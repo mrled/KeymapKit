@@ -39,6 +39,10 @@
     Noto Color Emoji
   );
 
+  /* Colors
+   */
+  --_foreground-color: var(--foreground-color, black);
+
   /* Colors that apply to all buttons except keyboard keys
    */
   --_button-border-color: var(--button-border-color, oklch(87.2% 0.009 258.3));
@@ -146,6 +150,10 @@
 /* Dark mode colors */
 @media (prefers-color-scheme: dark) {
   :host {
+  /* Colors
+   */
+    --_foreground-color: var(--foreground-color, black);
+
     /* Button colors */
     --_button-border-color: var(
       --button-border-color,

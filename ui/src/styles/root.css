@@ -3,6 +3,10 @@
 
 :host {
   container-type: inline-size;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--_font-family);
+  color: var(--_foreground-color);
 }
 
 *,
@@ -13,12 +17,6 @@
 
 * {
   margin: 0;
-}
-
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  font-family: var(--_font-family);
 }
 
 h1 {
