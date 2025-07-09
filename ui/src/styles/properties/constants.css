@@ -1,0 +1,170 @@
+/* Constants used elsewhere in the codebase.
+ *
+ * These are not designed to be overridden by users or keyboards.
+ */
+
+/* Colors for prefers-color-scheme: light (and default)
+ *
+ * Derived from user-specified properties.
+ */
+:host {
+  --_foreground-color: var(--_light-foreground-color);
+  --_button-border-color: var(--_light-button-border-color);
+  --_key-fg: var(--_light-key-fg);
+  --_key-bg: var(--_light-key-bg);
+  --_key-border: var(--_light-key-border);
+  --_key-hover-bg: var(--_light-key-hover-bg);
+  --_key-active-bg: var(--_light-key-active-bg);
+  --_key-active-border: var(--_light-key-active-border);
+  --_key-active-hover-bg: var(--_light-key-active-hover-bg);
+  --_key-related-active-bg: var(--_light-key-related-active-bg);
+  --_key-related-active-border: var(--_light-key-related-active-border);
+  --_key-related-active-hover-bg: var(--_light-key-related-active-hover-bg);
+  --_key-diagram-target-bg: var(--_light-key-diagram-target-bg);
+  --_key-diagram-target-border: var(--_light-key-diagram-target-border);
+  --_key-diagram-target-hover-bg: var(--_light-key-diagram-target-hover-bg);
+  --_key-focus-bg: var(--_light-key-focus-bg);
+  --_key-active-focus-bg: var(--_light-key-active-focus-bg);
+  --_key-related-active-focus-bg: var(--_light-key-related-active-focus-bg);
+  --_key-diagram-target-focus-bg: var(--_light-key-diagram-target-focus-bg);
+  --_key-layer-bg: var(--_light-key-layer-bg);
+  --_key-layer-border: var(--_light-key-layer-border);
+  --_key-layer-hover-bg: var(--_light-key-layer-hover-bg);
+  --_key-layer-selected-bg: var(--_light-key-layer-selected-bg);
+  --_key-layer-selected-border: var(--_light-key-layer-selected-border);
+  --_key-layer-selected-hover-bg: var(--_light-key-layer-selected-hover-bg);
+  --_kbd-fg: var(--_light-kbd-fg);
+  --_kbd-border-color: var(--_light-kbd-border-color);
+  --_kbd-background: var(--_light-kbd-background);
+  --_diagram-line-textref-color: var(--_light-diagram-line-textref-color);
+  --_diagram-line-selected-color: var(--_light-diagram-line-selected-color);
+  --_link-fg: var(--_light-link-fg);
+  --_text-muted: var(--_light-text-muted);
+}
+
+/* Colors for prefers-color-scheme: dark
+ *
+ * Derived from user-specified properties.
+ */
+@media (prefers-color-scheme: dark) {
+  :host:not([color-scheme]) {
+    --_foreground-color: var(--_dark-foreground-color);
+    --_button-border-color: var(--_dark-button-border-color);
+    --_key-fg: var(--_dark-key-fg);
+    --_key-bg: var(--_dark-key-bg);
+    --_key-border: var(--_dark-key-border);
+    --_key-hover-bg: var(--_dark-key-hover-bg);
+    --_key-active-bg: var(--_dark-key-active-bg);
+    --_key-active-border: var(--_dark-key-active-border);
+    --_key-active-hover-bg: var(--_dark-key-active-hover-bg);
+    --_key-related-active-bg: var(--_dark-key-related-active-bg);
+    --_key-related-active-border: var(--_dark-key-related-active-border);
+    --_key-related-active-hover-bg: var(--_dark-key-related-active-hover-bg);
+    --_key-diagram-target-bg: var(--_dark-key-diagram-target-bg);
+    --_key-diagram-target-border: var(--_dark-key-diagram-target-border);
+    --_key-diagram-target-hover-bg: var(--_dark-key-diagram-target-hover-bg);
+    --_key-focus-bg: var(--_dark-key-focus-bg);
+    --_key-active-focus-bg: var(--_dark-key-active-focus-bg);
+    --_key-related-active-focus-bg: var(--_dark-key-related-active-focus-bg);
+    --_key-diagram-target-focus-bg: var(--_dark-key-diagram-target-focus-bg);
+    --_key-layer-bg: var(--_dark-key-layer-bg);
+    --_key-layer-border: var(--_dark-key-layer-border);
+    --_key-layer-hover-bg: var(--_dark-key-layer-hover-bg);
+    --_key-layer-selected-bg: var(--_dark-key-layer-selected-bg);
+    --_key-layer-selected-border: var(--_dark-key-layer-selected-border);
+    --_key-layer-selected-hover-bg: var(--_dark-key-layer-selected-hover-bg);
+    --_kbd-fg: var(--_dark-kbd-fg);
+    --_kbd-border-color: var(--_dark-kbd-border-color);
+    --_kbd-background: var(--_dark-kbd-background);
+    --_diagram-line-textref-color: var(--_dark-diagram-line-textref-color);
+    --_diagram-line-selected-color: var(--_dark-diagram-line-selected-color);
+    --_link-fg: var(--_dark-link-fg);
+    --_text-muted: var(--_dark-text-muted);
+  }
+}
+
+/* Colors when the color-scheme attribute is set to dark, regardless of user agent prefers-color-scheme
+ *
+ * Derived from user-specified properties.
+ */
+:host([color-scheme="dark"]) {
+  --_foreground-color: var(--_dark-foreground-color);
+  --_button-border-color: var(--_dark-button-border-color);
+  --_key-fg: var(--_dark-key-fg);
+  --_key-bg: var(--_dark-key-bg);
+  --_key-border: var(--_dark-key-border);
+  --_key-hover-bg: var(--_dark-key-hover-bg);
+  --_key-active-bg: var(--_dark-key-active-bg);
+  --_key-active-border: var(--_dark-key-active-border);
+  --_key-active-hover-bg: var(--_dark-key-active-hover-bg);
+  --_key-related-active-bg: var(--_dark-key-related-active-bg);
+  --_key-related-active-border: var(--_dark-key-related-active-border);
+  --_key-related-active-hover-bg: var(--_dark-key-related-active-hover-bg);
+  --_key-diagram-target-bg: var(--_dark-key-diagram-target-bg);
+  --_key-diagram-target-border: var(--_dark-key-diagram-target-border);
+  --_key-diagram-target-hover-bg: var(--_dark-key-diagram-target-hover-bg);
+  --_key-focus-bg: var(--_dark-key-focus-bg);
+  --_key-active-focus-bg: var(--_dark-key-active-focus-bg);
+  --_key-related-active-focus-bg: var(--_dark-key-related-active-focus-bg);
+  --_key-diagram-target-focus-bg: var(--_dark-key-diagram-target-focus-bg);
+  --_key-layer-bg: var(--_dark-key-layer-bg);
+  --_key-layer-border: var(--_dark-key-layer-border);
+  --_key-layer-hover-bg: var(--_dark-key-layer-hover-bg);
+  --_key-layer-selected-bg: var(--_dark-key-layer-selected-bg);
+  --_key-layer-selected-border: var(--_dark-key-layer-selected-border);
+  --_key-layer-selected-hover-bg: var(--_dark-key-layer-selected-hover-bg);
+  --_kbd-fg: var(--_dark-kbd-fg);
+  --_kbd-border-color: var(--_dark-kbd-border-color);
+  --_kbd-background: var(--_dark-kbd-background);
+  --_diagram-line-textref-color: var(--_dark-diagram-line-textref-color);
+  --_diagram-line-selected-color: var(--_dark-diagram-line-selected-color);
+  --_link-fg: var(--_dark-link-fg);
+  --_text-muted: var(--_dark-text-muted);
+}
+
+/* Colors when the color-scheme attribute is set to light, regardless of user agent prefers-color-scheme
+ *
+ * Derived from user-specified properties.
+ */
+:host([color-scheme="light"]) {
+  --_foreground-color: var(--_light-foreground-color);
+  --_button-border-color: var(--_light-button-border-color);
+  --_key-fg: var(--_light-key-fg);
+  --_key-bg: var(--_light-key-bg);
+  --_key-border: var(--_light-key-border);
+  --_key-hover-bg: var(--_light-key-hover-bg);
+  --_key-active-bg: var(--_light-key-active-bg);
+  --_key-active-border: var(--_light-key-active-border);
+  --_key-active-hover-bg: var(--_light-key-active-hover-bg);
+  --_key-related-active-bg: var(--_light-key-related-active-bg);
+  --_key-related-active-border: var(--_light-key-related-active-border);
+  --_key-related-active-hover-bg: var(--_light-key-related-active-hover-bg);
+  --_key-diagram-target-bg: var(--_light-key-diagram-target-bg);
+  --_key-diagram-target-border: var(--_light-key-diagram-target-border);
+  --_key-diagram-target-hover-bg: var(--_light-key-diagram-target-hover-bg);
+  --_key-focus-bg: var(--_light-key-focus-bg);
+  --_key-active-focus-bg: var(--_light-key-active-focus-bg);
+  --_key-related-active-focus-bg: var(--_light-key-related-active-focus-bg);
+  --_key-diagram-target-focus-bg: var(--_light-key-diagram-target-focus-bg);
+  --_key-layer-bg: var(--_light-key-layer-bg);
+  --_key-layer-border: var(--_light-key-layer-border);
+  --_key-layer-hover-bg: var(--_light-key-layer-hover-bg);
+  --_key-layer-selected-bg: var(--_light-key-layer-selected-bg);
+  --_key-layer-selected-border: var(--_light-key-layer-selected-border);
+  --_key-layer-selected-hover-bg: var(--_light-key-layer-selected-hover-bg);
+  --_kbd-fg: var(--_light-kbd-fg);
+  --_kbd-border-color: var(--_light-kbd-border-color);
+  --_kbd-background: var(--_light-kbd-background);
+  --_diagram-line-textref-color: var(--_light-diagram-line-textref-color);
+  --_diagram-line-selected-color: var(--_light-diagram-line-selected-color);
+  --_link-fg: var(--_light-link-fg);
+  --_text-muted: var(--_light-text-muted);
+}
+
+/* Values derived from properties that keyboards might override.
+ *
+ * Calculated here once for DRY.
+ */
+.keymap-ui-kid-container {
+  --kid-diamarg-width: calc(var(--keyboard-grid-unit) * 2);
+}

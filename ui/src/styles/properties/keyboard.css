@@ -1,0 +1,40 @@
+/* Properties designed to be overridden by keyboards.
+ *
+ * These are not customizable by web pages,
+ * but keyboard elements can override these properties
+ * by including a <style> element in their shadow DOM that specifies them.
+ */
+
+.keymap-ui-kid-container {
+  /* The --keyboard-grid-unit variable is used to scale the size of the whole UI.
+   *
+   * We use @container queries (see next section) to provide a default set of sizes for keyboard keys.
+   * When writing a new keyboard that inherits from KeymapKeyboardElement,
+   * you may include a <style> element that overrides this variable
+   * targeted to :host and/or @container queries,
+   * and it will override the defaults here.
+   * (This is because this stylesheet is imported into the keymap-ui shadow DOM first,
+   * and keyboard elements are added to the same shadow DOM later,
+   * and later styles override earlier ones.)
+   *
+   * This unit MUST only be used for **children** of :host,
+   * because @container queries are used to scale it,
+   * and the :host element sets container-type:inline-size.
+   */
+  --keyboard-grid-unit: 0.75rem;
+}
+
+/* Scale with container queries.
+ * These are relative to the closest ancestor with container-type:inline-size,
+ * which we have set on :host.
+ */
+@container (min-width: 540px) {
+  .keymap-ui-kid-container {
+    --keyboard-grid-unit: 1rem;
+  }
+}
+@container (min-width: 768px) {
+  .keymap-ui-kid-container {
+    --keyboard-grid-unit: 1.25rem;
+  }
+}

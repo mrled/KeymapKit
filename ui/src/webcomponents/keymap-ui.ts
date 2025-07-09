@@ -32,7 +32,9 @@ import {
 // Import CSS files as inline strings.
 // Vite supports the ?inline query parameter to load a file as a string;
 // esbuild doesn't require that parameter but does work if it's there.
-import varsStyleStr from "~/styles/vars.css?inline";
+import propertiesUserStyleStr from "~/styles/properties/user.css?inline";
+import propertiesKeyboardStyleStr from "~/styles/properties/keyboard.css?inline";
+import propertiesConstantsStyleStr from "~/styles/properties/constants.css?inline";
 import rootStyleStr from "~/styles/root.css?inline";
 import diagramStyleStr from "~/styles/diagram.css?inline";
 import keygridStyleStr from "~/styles/keygrid.css?inline";
@@ -268,7 +270,9 @@ export class KeymapUIElement
       // However, that's rare so it's not a priority.
       const styleContents = [
         // Ordered styles
-        varsStyleStr,
+        propertiesUserStyleStr,
+        propertiesKeyboardStyleStr,
+        propertiesConstantsStyleStr,
         rootStyleStr,
         // Alphabetical styles
         diagramStyleStr,
