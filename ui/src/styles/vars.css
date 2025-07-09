@@ -19,6 +19,24 @@
  * User-overridable variables, including for light mode and the default screen size
  */
 :host {
+  /* Fonts
+   */
+  --_key-legend-font: var(--key-legend-font, monospace);
+  --_font-family: var(--font-family,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Helvetica Neue,
+    Arial,
+    Noto Sans,
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol,
+    Noto Color Emoji);
+
   /* Colors that apply to all buttons except keyboard keys
    */
   --_button-border-color: var(--button-border-color, oklch(87.2% 0.009 258.3));
@@ -48,7 +66,6 @@
   --_key-layer-selected-bg: var(--key-layer-selected-bg, oklch(78.7% 0.138 306.4));
   --_key-layer-selected-border: var(--key-layer-selected-border, oklch(54.1% 0.247 293));
   --_key-layer-selected-hover-bg: var(--key-layer-selected-hover-bg, oklch(67.9% 0.212 304.4 / 0.6));
-  --_key-legend-font: var(--key-legend-font, monospace);
 
   /* Colors that apply to kbd elements
    */
