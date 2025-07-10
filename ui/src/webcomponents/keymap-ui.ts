@@ -603,8 +603,9 @@ export class KeymapUIElement
         );
         return;
       }
+      const unsetKey = keyData.unset || !(keyData.name && keyData.info);
       keySelection = keyData.selection || [];
-      proseTitleElement.innerHTML = keyData.unset
+      proseTitleElement.innerHTML = unsetKey
         ? `<span>Unset key</span> <span class="key-id">id: ${keyData.id}</span>`
         : `<span>The <kbd>${keyData.name}</kbd> key</span> <span class="key-id">id: ${keyData.id}</span>`;
       proseTextElements = keyData.info.map((paragraph: string) => {
