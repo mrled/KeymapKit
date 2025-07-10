@@ -504,6 +504,13 @@ export class KeymapUIState {
         return;
       }
       newLayer = newKeymap.layers[layerIdx];
+      // if a guide (or step) is selected, selecting a layer exits the guide
+      if (newGuide && newLayer) {
+        newGuide = null;
+        newGuideStep = null;
+        changedGuide = true;
+        changedGuideStep = true;
+      }
     } else if (changedKeymap) {
       // If we don't specify a layer by index, but the keymap changed,
       // use the first layer of the new keymap.
