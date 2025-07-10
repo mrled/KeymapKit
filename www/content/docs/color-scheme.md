@@ -63,16 +63,16 @@ e.g. black for dark mode and white for light mode.
 You can also change the color scheme dynamically using JavaScript:
 
 ```javascript
-const keymapUi = document.querySelector('keymap-ui');
+const keymapUi = document.querySelector("keymap-ui");
 
 // Switch to dark mode
-keymapUi.setAttribute('color-scheme', 'dark');
+keymapUi.setAttribute("color-scheme", "dark");
 
 // Switch to light mode
-keymapUi.setAttribute('color-scheme', 'light');
+keymapUi.setAttribute("color-scheme", "light");
 
 // Return to system preference
-keymapUi.removeAttribute('color-scheme');
+keymapUi.removeAttribute("color-scheme");
 ```
 
 ### Interactive Example
