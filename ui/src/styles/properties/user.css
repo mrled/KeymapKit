@@ -11,6 +11,29 @@
  * and one or more derived values that are calculated from the base value.
  * For easy customization, override just the base values;
  * for full control, override the derived values as well.
+ *
+ * About color names:
+ * Color names are made up of 4 components.
+ * THEME-key-TYPE-FUNC
+ *   THEME: either "light" or "dark"
+ *   key:   The literal token "key"
+ *   TYPE:  The type of key:
+ *     reg: A key on the board not in one of these other states
+ *     sel: The key the user has selected
+ *     tgt: A diagram target key (e.g. a key that is the target of a diagram line)
+ *          (e.g. a keymap might place all modifiers in the same group so they're easy to find)
+ *     lay: A layer entry key, showing how the current layer is entered
+ *     lsl: A layer entry key that the user has currently selected
+ *   FUNC: The function of the color:
+ *     bg: Background color
+ *     br: Border color
+ *     hv: Hovered over by mouse background color
+ *     fc: Focused on by keyboard background color
+ *     av: Active; mouse click down background color
+ *     li: Diagram line color
+ *         (the color of a line drawn to the key, if any)
+ *
+ * This file is ignored in .prettierignore to keep it from fucking up our nice manual formatting.
  */
 
 /*******************************************************************************
@@ -43,40 +66,40 @@
   --_light-key-fg: var(--light-key-fg, black);
 
   /* Base Key Colors */
-  --_light-key-bg: var(--light-key-bg, oklch(95.9% 0.009 247.9));
-  --_light-key-border: var(--light-key-border, oklch(from var(--_light-key-bg) calc(l - 0.213) calc(c + 0.021) calc(h + 6.8)));
-  --_light-key-hover-bg: var(--light-key-hover-bg, oklch(from var(--_light-key-bg) calc(l - 0.09) calc(c + 0.01) calc(h + 2.7)));
-  --_light-key-focus-bg: var(--light-key-focus-bg, oklch(from var(--_light-key-bg) calc(l - 0.03) calc(c + 0.004) calc(h + 7.6)));
+  --_light-key-reg-bg: var(--light-key-reg-bg, oklch(95.9% 0.009 247.9));
+  --_light-key-reg-br: var(--light-key-reg-br, oklch(from var(--_light-key-reg-bg) calc(l - 0.213) calc(c + 0.021) calc(h + 6.8)));
+  --_light-key-reg-hv: var(--light-key-reg-hv, oklch(from var(--_light-key-reg-bg) calc(l - 0.090) calc(c + 0.010) calc(h + 2.7)));
+  --_light-key-reg-fc: var(--light-key-reg-fc, oklch(from var(--_light-key-reg-bg) calc(l - 0.030) calc(c + 0.004) calc(h + 7.6)));
 
   /* Active Key Colors */
-  --_light-key-active-bg: var(--light-key-active-bg, oklch(80.1% 0.134 68.8));
-  --_light-key-active-border: var(--light-key-active-border, oklch(from var(--_light-key-active-bg) calc(l - 0.222) calc(c + 0.016) calc(h - 25)));
-  --_light-key-active-hover-bg: var(--light-key-active-hover-bg, oklch(from var(--_light-key-active-bg) calc(l - 0.148) calc(c + 0.03) calc(h - 20.4)));
-  --_light-key-active-focus-bg: var(--light-key-active-focus-bg, oklch(from var(--_light-key-active-bg) calc(l - 0.034) calc(c - 0.005) calc(h + 0.2)));
-  --_light-diagram-line-selected-color: var(--light-diagram-line-selected-color, oklch(from var(--_light-key-active-bg) calc(l + 0.085) calc(c - 0.035) calc(h + 12.1) / 0.6));
+  --_light-key-sel-bg: var(--light-key-sel-bg, oklch(80.1% 0.134 68.8));
+  --_light-key-sel-br: var(--light-key-sel-br, oklch(from var(--_light-key-sel-bg) calc(l - 0.222) calc(c + 0.016) calc(h - 25.0)));
+  --_light-key-sel-hv: var(--light-key-sel-hv, oklch(from var(--_light-key-sel-bg) calc(l - 0.148) calc(c + 0.030) calc(h - 20.4)));
+  --_light-key-sel-fc: var(--light-key-sel-fc, oklch(from var(--_light-key-sel-bg) calc(l - 0.034) calc(c - 0.005) calc(h + 00.2)));
+  --_light-key-sel-li: var(--light-key-sel-li, oklch(from var(--_light-key-sel-bg) calc(l + 0.085) calc(c - 0.035) calc(h + 12.1) / 0.6));
 
   /* Related Active Key Colors */
-  --_light-key-related-active-bg: var(--light-key-related-active-bg, oklch(94.6% 0.05 82.8));
-  --_light-key-related-active-border: var(--light-key-related-active-border, oklch(from var(--_light-key-related-active-bg) calc(l - 0.222) calc(c + 0.103) calc(h - 26.7)));
-  --_light-key-related-active-hover-bg: var(--light-key-related-active-hover-bg, oklch(from var(--_light-key-related-active-bg) calc(l - 0.145) calc(c + 0.084) calc(h - 14)));
-  --_light-key-related-active-focus-bg: var(--light-key-related-active-focus-bg, oklch(from var(--_light-key-related-active-bg) calc(l - 0.057) calc(c + 0.016) calc(h - 0.2)));
+  --_light-key-grp-bg: var(--light-key-grp-bg, oklch(94.6% 0.05 82.8));
+  --_light-key-grp-br: var(--light-key-grp-br, oklch(from var(--_light-key-grp-bg) calc(l - 0.222) calc(c + 0.103) calc(h - 26.7)));
+  --_light-key-grp-hv: var(--light-key-grp-hv, oklch(from var(--_light-key-grp-bg) calc(l - 0.145) calc(c + 0.084) calc(h - 14.0)));
+  --_light-key-grp-fc: var(--light-key-grp-fc, oklch(from var(--_light-key-grp-bg) calc(l - 0.057) calc(c + 0.016) calc(h - 00.2)));
 
   /* Diagram Target Key Colors */
-  --_light-key-diagram-target-bg: var(--light-key-diagram-target-bg, oklch(93.1% 0.066 154.9));
-  --_light-key-diagram-target-border: var(--light-key-diagram-target-border, oklch(from var(--_light-key-diagram-target-bg) calc(l - 0.221) calc(c + 0.077) calc(h - 0.4)));
-  --_light-key-diagram-target-hover-bg: var(--light-key-diagram-target-hover-bg, oklch(from var(--_light-key-diagram-target-bg) calc(l - 0.145) calc(c + 0.072) calc(h - 0.4)));
-  --_light-key-diagram-target-focus-bg: var(--light-key-diagram-target-focus-bg, oklch(from var(--_light-key-diagram-target-bg) calc(l - 0.066) calc(c + 0.016) calc(h - 1.2)));
-  --_light-diagram-line-textref-color: var(--light-diagram-line-textref-color, oklch(from var(--_light-key-diagram-target-bg) calc(l - 0.145) calc(c + 0.072) calc(h - 0.4)));
+  --_light-key-tgt-bg: var(--light-key-tgt-bg, oklch(93.1% 0.066 154.9));
+  --_light-key-tgt-br: var(--light-key-tgt-br, oklch(from var(--_light-key-tgt-bg) calc(l - 0.221) calc(c + 0.077) calc(h - 0.4)));
+  --_light-key-tgt-hv: var(--light-key-tgt-hv, oklch(from var(--_light-key-tgt-bg) calc(l - 0.145) calc(c + 0.072) calc(h - 0.4)));
+  --_light-key-tgt-fc: var(--light-key-tgt-fc, oklch(from var(--_light-key-tgt-bg) calc(l - 0.066) calc(c + 0.016) calc(h - 1.2)));
+  --_light-key-tgt-li: var(--light-key-tgt-li, oklch(from var(--_light-key-tgt-bg) calc(l - 0.145) calc(c + 0.072) calc(h - 0.4)));
 
   /* Layer Key Colors */
-  --_light-key-layer-bg: var(--light-key-layer-bg, oklch(94.6% 0.033 307.2));
-  --_light-key-layer-border: var(--light-key-layer-border, oklch(from var(--_light-key-layer-bg) calc(l - 0.319) calc(c + 0.2) calc(h - 3.3)));
-  --_light-key-layer-hover-bg: var(--light-key-layer-hover-bg, oklch(from var(--_light-key-layer-bg) calc(l - 0.08) calc(c + 0.051) calc(h - 0.6)));
+  --_light-key-lay-bg: var(--light-key-lay-bg, oklch(94.6% 0.033 307.2));
+  --_light-key-lay-br: var(--light-key-lay-br, oklch(from var(--_light-key-lay-bg) calc(l - 0.319) calc(c + 0.200) calc(h - 3.3)));
+  --_light-key-lay-hv: var(--light-key-lay-hv, oklch(from var(--_light-key-lay-bg) calc(l - 0.080) calc(c + 0.051) calc(h - 0.6)));
 
   /* Selected Layer Key Colors */
-  --_light-key-layer-selected-bg: var(--light-key-layer-selected-bg, oklch(from var(--_light-key-layer-bg) calc(l - 0.159) calc(c + 0.105) calc(h - 0.8)));
-  --_light-key-layer-selected-border: var(--light-key-layer-selected-border, oklch(from var(--_light-key-layer-bg) calc(l - 0.405) calc(c + 0.214) calc(h - 14.2)));
-  --_light-key-layer-selected-hover-bg: var(--light-key-layer-selected-hover-bg, oklch(from var(--_light-key-layer-bg) calc(l - 0.267) calc(c + 0.179) calc(h - 2.8) / 0.6));
+  --_light-key-lsl-bg: var(--light-key-lsl-bg, oklch(from var(--_light-key-lay-bg) calc(l - 0.159) calc(c + 0.105) calc(h - 00.8)));
+  --_light-key-lsl-br: var(--light-key-lsl-br, oklch(from var(--_light-key-lay-bg) calc(l - 0.405) calc(c + 0.214) calc(h - 14.2)));
+  --_light-key-lsl-hv: var(--light-key-lsl-hv, oklch(from var(--_light-key-lay-bg) calc(l - 0.267) calc(c + 0.179) calc(h - 02.8) / 0.6));
 
   /* Misc light mode colors */
   --_light-kbd-fg: var(--light-kbd-fg, black);
@@ -91,40 +114,40 @@
   --_dark-key-fg: var(--dark-key-fg, oklch(96.7% 0.003 264.5));
 
   /* Base Key Colors */
-  --_dark-key-bg: var(--dark-key-bg, oklch(37.3% 0.031 259.7));
-  --_dark-key-border: var(--dark-key-border, oklch(from var(--_dark-key-bg) calc(l + 0.178) calc(c - 0.008) calc(h + 4.7)));
-  --_dark-key-hover-bg: var(--dark-key-hover-bg, oklch(from var(--_dark-key-bg) calc(l + 0.073) calc(c - 0.005) calc(h - 2.9)));
-  --_dark-key-focus-bg: var(--dark-key-focus-bg, oklch(from var(--_dark-key-bg) calc(l + 0.073) calc(c - 0.005) calc(h - 2.9)));
+  --_dark-key-reg-bg: var(--dark-key-reg-bg, oklch(37.3% 0.031 259.7));
+  --_dark-key-reg-br: var(--dark-key-reg-br, oklch(from var(--_dark-key-reg-bg) calc(l + 0.178) calc(c - 0.008) calc(h + 4.7)));
+  --_dark-key-reg-hv: var(--dark-key-reg-hv, oklch(from var(--_dark-key-reg-bg) calc(l + 0.073) calc(c - 0.005) calc(h - 2.9)));
+  --_dark-key-reg-fc: var(--dark-key-reg-fc, oklch(from var(--_dark-key-reg-bg) calc(l + 0.073) calc(c - 0.005) calc(h - 2.9)));
 
   /* Active Key Colors */
-  --_dark-key-active-bg: var(--dark-key-active-bg, oklch(68.1% 0.152 58.4));
-  --_dark-key-active-border: var(--dark-key-active-border, oklch(from var(--_dark-key-active-bg) calc(l - 0.126) calc(c - 0.006) calc(h - 9.4)));
-  --_dark-key-active-hover-bg: var(--dark-key-active-hover-bg, oklch(from var(--_dark-key-active-bg) calc(l - 0.069) calc(c - 0.012) calc(h - 3.6)));
-  --_dark-key-active-focus-bg: var(--dark-key-active-focus-bg, oklch(from var(--_dark-key-active-bg) calc(l - 0.069) calc(c - 0.012) calc(h - 3.6)));
-  --_dark-diagram-line-selected-color: var(--dark-diagram-line-selected-color, oklch(from var(--_dark-key-active-bg) calc(l + 0.088) calc(c + 0.013) calc(h + 11.7) / 0.8));
+  --_dark-key-sel-bg: var(--dark-key-sel-bg, oklch(68.1% 0.152 58.4));
+  --_dark-key-sel-br: var(--dark-key-sel-br, oklch(from var(--_dark-key-sel-bg) calc(l - 0.126) calc(c - 0.006) calc(h - 09.4)));
+  --_dark-key-sel-hv: var(--dark-key-sel-hv, oklch(from var(--_dark-key-sel-bg) calc(l - 0.069) calc(c - 0.012) calc(h - 03.6)));
+  --_dark-key-sel-fc: var(--dark-key-sel-fc, oklch(from var(--_dark-key-sel-bg) calc(l - 0.069) calc(c - 0.012) calc(h - 03.6)));
+  --_dark-key-sel-li: var(--dark-key-sel-li, oklch(from var(--_dark-key-sel-bg) calc(l + 0.088) calc(c + 0.013) calc(h + 11.7) / 0.8));
 
   /* Related Active Key Colors */
-  --_dark-key-related-active-bg: var(--dark-key-related-active-bg, oklch(43.7% 0.102 53));
-  --_dark-key-related-active-border: var(--dark-key-related-active-border, oklch(from var(--_dark-key-related-active-bg) calc(l + 0.244) calc(c + 0.05) calc(h + 5.4)));
-  --_dark-key-related-active-hover-bg: var(--dark-key-related-active-hover-bg, oklch(from var(--_dark-key-related-active-bg) calc(l + 0.1) calc(c - 0.009) calc(h + 13.5)));
-  --_dark-key-related-active-focus-bg: var(--dark-key-related-active-focus-bg, oklch(from var(--_dark-key-related-active-bg) calc(l + 0.1) calc(c - 0.009) calc(h + 13.5)));
+  --_dark-key-grp-bg: var(--dark-key-grp-bg, oklch(43.7% 0.102 53));
+  --_dark-key-grp-br: var(--dark-key-grp-br, oklch(from var(--_dark-key-grp-bg) calc(l + 0.244) calc(c + 0.050) calc(h + 05.4)));
+  --_dark-key-grp-hv: var(--dark-key-grp-hv, oklch(from var(--_dark-key-grp-bg) calc(l + 0.100) calc(c - 0.009) calc(h + 13.5)));
+  --_dark-key-grp-fc: var(--dark-key-grp-fc, oklch(from var(--_dark-key-grp-bg) calc(l + 0.100) calc(c - 0.009) calc(h + 13.5)));
 
   /* Diagram Target Key Colors */
-  --_dark-key-diagram-target-bg: var(--dark-key-diagram-target-bg, oklch(38.2% 0.072 154.4));
-  --_dark-key-diagram-target-border: var(--dark-key-diagram-target-border, oklch(from var(--_dark-key-diagram-target-bg) calc(l + 0.391) calc(c + 0.081) calc(h + 8.8)));
-  --_dark-key-diagram-target-hover-bg: var(--dark-key-diagram-target-hover-bg, oklch(from var(--_dark-key-diagram-target-bg) calc(l + 0.145) calc(c + 0.065) calc(h - 4.3)));
-  --_dark-key-diagram-target-focus-bg: var(--dark-key-diagram-target-focus-bg, oklch(from var(--_dark-key-diagram-target-bg) calc(l + 0.12) calc(c + 0.033) calc(h + 1.9)));
-  --_dark-diagram-line-textref-color: var(--dark-diagram-line-textref-color, oklch(from var(--_dark-key-diagram-target-bg) calc(l + 0.391) calc(c + 0.081) calc(h + 8.8)));
+  --_dark-key-tgt-bg: var(--dark-key-tgt-bg, oklch(38.2% 0.072 154.4));
+  --_dark-key-tgt-br: var(--dark-key-tgt-br, oklch(from var(--_dark-key-tgt-bg) calc(l + 0.391) calc(c + 0.081) calc(h + 8.8)));
+  --_dark-key-tgt-hv: var(--dark-key-tgt-hv, oklch(from var(--_dark-key-tgt-bg) calc(l + 0.145) calc(c + 0.065) calc(h - 4.3)));
+  --_dark-key-tgt-fc: var(--dark-key-tgt-fc, oklch(from var(--_dark-key-tgt-bg) calc(l + 0.120) calc(c + 0.033) calc(h + 1.9)));
+  --_dark-key-tgt-li: var(--dark-key-tgt-li, oklch(from var(--_dark-key-tgt-bg) calc(l + 0.391) calc(c + 0.081) calc(h + 8.8)));
 
   /* Layer Key Colors */
-  --_dark-key-layer-bg: var(--dark-key-layer-bg, oklch(38.1% 0.166 305));
-  --_dark-key-layer-border: var(--dark-key-layer-border, oklch(from var(--_dark-key-layer-bg) calc(l + 0.246) calc(c + 0.067) calc(h - 1.1)));
-  --_dark-key-layer-hover-bg: var(--dark-key-layer-hover-bg, oklch(from var(--_dark-key-layer-bg) calc(l + 0.057) calc(c + 0.032) calc(h - 1.3)));
+  --_dark-key-lay-bg: var(--dark-key-lay-bg, oklch(38.1% 0.166 305));
+  --_dark-key-lay-br: var(--dark-key-lay-br, oklch(from var(--_dark-key-lay-bg) calc(l + 0.246) calc(c + 0.067) calc(h - 1.1)));
+  --_dark-key-lay-hv: var(--dark-key-lay-hv, oklch(from var(--_dark-key-lay-bg) calc(l + 0.057) calc(c + 0.032) calc(h - 1.3)));
 
   /* Selected Layer Key Colors */
-  --_dark-key-layer-selected-bg: var(--dark-key-layer-selected-bg, oklch(from var(--_dark-key-layer-bg) calc(l + 0.16) calc(c + 0.081) calc(h - 12)));
-  --_dark-key-layer-selected-border: var(--dark-key-layer-selected-border, oklch(from var(--_dark-key-layer-bg) calc(l + 0.246) calc(c + 0.067) calc(h - 1.1)));
-  --_dark-key-layer-selected-hover-bg: var(--dark-key-layer-selected-hover-bg, oklch(from var(--_dark-key-layer-bg) calc(l + 0.225) calc(c + 0.053) calc(h - 12.3)));
+  --_dark-key-lsl-bg: var(--dark-key-lsl-bg, oklch(from var(--_dark-key-lay-bg) calc(l + 0.160) calc(c + 0.081) calc(h - 12.0)));
+  --_dark-key-lsl-br: var(--dark-key-lsl-br, oklch(from var(--_dark-key-lay-bg) calc(l + 0.246) calc(c + 0.067) calc(h - 01.1)));
+  --_dark-key-lsl-hv: var(--dark-key-lsl-hv, oklch(from var(--_dark-key-lay-bg) calc(l + 0.225) calc(c + 0.053) calc(h - 12.3)));
 
   /* Misc dark mode colors */
   --_dark-kbd-fg: var(--dark-kbd-fg, oklch(96.7% 0.003 264.5));

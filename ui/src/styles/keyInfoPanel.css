@@ -90,28 +90,28 @@ keymap-navbar {
         border-radius: 0.125rem;
         font-family: var(--_key-legend-font);
         color: var(--_key-fg);
-        background-color: var(--_key-layer-bg);
-        border: 1px solid var(--_key-layer-border);
+        background-color: var(--_key-lay-bg);
+        border: 1px solid var(--_key-lay-br);
         cursor: pointer;
         outline: none;
         &:hover {
-          background-color: var(--_key-layer-hover-bg);
+          background-color: var(--_key-lay-hv);
         }
         &:focus {
-          background-color: var(--_key-layer-hover-bg);
+          background-color: var(--_key-lay-hv);
         }
         &:active {
-          background-color: var(--_key-layer-selected-bg);
+          background-color: var(--_key-lsl-bg);
         }
       }
       button.layer-tab-button.active {
-        background-color: var(--_key-layer-selected-bg);
-        border-color: var(--_key-layer-selected-border);
+        background-color: var(--_key-lsl-bg);
+        border-color: var(--_key-lsl-br);
         &:hover {
-          background-color: var(--_key-layer-selected-hover-bg);
+          background-color: var(--_key-lsl-hv);
         }
         &:focus {
-          background-color: var(--_key-layer-selected-hover-bg);
+          background-color: var(--_key-lsl-hv);
         }
       }
 
@@ -121,19 +121,19 @@ keymap-navbar {
         border-radius: 0.125rem;
         font-family: var(--_key-legend-font);
         color: var(--_key-fg);
-        background-color: var(--_key-bg);
-        border: 1px solid var(--_key-border);
+        background-color: var(--_key-reg-bg);
+        border: 1px solid var(--_key-reg-br);
         cursor: pointer;
         outline: none;
 
         &:hover {
-          background-color: var(--_key-hover-bg);
+          background-color: var(--_key-reg-hv);
         }
         &:focus {
-          background-color: var(--_key-focus-bg);
+          background-color: var(--_key-reg-fc);
         }
         &:active {
-          background-color: var(--_key-active-bg);
+          background-color: var(--_key-sel-bg);
         }
       }
     }
@@ -196,21 +196,21 @@ button.control-button {
   font-family: var(--_key-legend-font);
   font-size: 85%;
   color: var(--_key-fg);
-  background-color: var(--_key-bg);
-  border: 1px solid var(--_key-border);
+  background-color: var(--_key-reg-bg);
+  border: 1px solid var(--_key-reg-br);
   border-radius: 0.125rem;
   cursor: pointer;
   outline: none;
 
   &:hover {
-    background-color: var(--_key-hover-bg);
+    background-color: var(--_key-reg-hv);
   }
   &:focus {
-    background-color: var(--_key-focus-bg);
+    background-color: var(--_key-reg-fc);
   }
   &:active {
-    background-color: var(--_key-active-bg);
-    border-color: var(--_key-active-border);
+    background-color: var(--_key-sel-bg);
+    border-color: var(--_key-sel-br);
   }
   &:disabled {
     opacity: 0.5;

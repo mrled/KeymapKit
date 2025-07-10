@@ -42,16 +42,16 @@ keymap-key {
   outline: none;
   position: relative;
   color: var(--_key-fg);
-  background-color: var(--_key-bg);
-  border: 1px solid var(--_key-border);
+  background-color: var(--_key-reg-bg);
+  border: 1px solid var(--_key-reg-br);
   cursor: pointer;
 
   &:hover {
-    background-color: var(--_key-hover-bg);
+    background-color: var(--_key-reg-hv);
   }
 
   &:focus {
-    background-color: var(--_key-focus-bg);
+    background-color: var(--_key-reg-fc);
   }
 
   /* The order is important for the three selectors below.
@@ -68,53 +68,53 @@ keymap-key {
    * But if it did happen that wa6, we'd probably want the related-to-active styling to apply.
    */
   &[target-of-indicator="true"] {
-    background-color: var(--_key-diagram-target-bg);
-    border: 1px solid var(--_key-diagram-target-border);
+    background-color: var(--_key-tgt-bg);
+    border: 1px solid var(--_key-tgt-br);
     &:hover {
-      background-color: var(--_key-diagram-target-hover-bg);
+      background-color: var(--_key-tgt-hv);
     }
     &:focus {
-      background-color: var(--_key-diagram-target-focus-bg);
+      background-color: var(--_key-tgt-fc);
     }
   }
   &[related-to-active="true"] {
-    background-color: var(--_key-related-active-bg);
-    border: 1px solid var(--_key-related-active-border);
+    background-color: var(--_key-grp-bg);
+    border: 1px solid var(--_key-grp-br);
     &:hover {
-      background-color: var(--_key-related-active-hover-bg);
+      background-color: var(--_key-grp-hv);
     }
     &:focus {
-      background-color: var(--_key-related-active-focus-bg);
+      background-color: var(--_key-grp-fc);
     }
   }
   &[active="true"] {
-    background-color: var(--_key-active-bg);
-    border: 1px solid var(--_key-active-border);
+    background-color: var(--_key-sel-bg);
+    border: 1px solid var(--_key-sel-br);
     &:hover {
-      background-color: var(--_key-active-hover-bg);
+      background-color: var(--_key-sel-hv);
     }
     &:focus {
-      background-color: var(--_key-active-focus-bg);
+      background-color: var(--_key-sel-fc);
     }
   }
   &[layer-entry-key="true"] {
-    background-color: var(--_key-layer-bg);
-    border: 1px solid var(--_key-layer-border);
+    background-color: var(--_key-lay-bg);
+    border: 1px solid var(--_key-lay-br);
     &:hover {
-      background-color: var(--_key-layer-hover-bg);
+      background-color: var(--_key-lay-hv);
     }
     &:focus {
-      background-color: var(--_key-layer-hover-bg);
+      background-color: var(--_key-lay-hv);
     }
   }
   &[layer-entry-key="true"][selected="true"] {
-    background-color: var(--_key-layer-selected-bg);
-    border: 1px solid var(--_key-layer-selected-border);
+    background-color: var(--_key-lsl-bg);
+    border: 1px solid var(--_key-lsl-br);
     &:hover {
-      background-color: var(--_key-layer-selected-hover-bg);
+      background-color: var(--_key-lsl-hv);
     }
     &:focus {
-      background-color: var(--_key-layer-selected-hover-bg);
+      background-color: var(--_key-lsl-hv);
     }
   }
 

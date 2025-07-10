@@ -20,8 +20,8 @@ export class DiagramLineColors {
   static fromContextRootVars(contextRoot: Element): DiagramLineColors {
     const rootStyle = getComputedStyle(contextRoot);
     return new DiagramLineColors(
-      rootStyle.getPropertyValue("--_diagram-line-textref-color"),
-      rootStyle.getPropertyValue("--_diagram-line-selected-color"),
+      rootStyle.getPropertyValue("--_key-tgt-li"),
+      rootStyle.getPropertyValue("--_key-sel-li"),
       rootStyle.getPropertyValue("--_diagram-debug-center-line-color"),
       rootStyle.getPropertyValue("--_diagram-debug-keyboard-color"),
       rootStyle.getPropertyValue("--_diagram-debug-left-color"),
