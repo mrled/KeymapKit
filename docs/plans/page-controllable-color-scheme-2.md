@@ -12,12 +12,14 @@ Currently, the KeymapKit UI relies solely on `prefers-color-scheme: dark` media 
 ## Current Implementation Analysis
 
 ### Existing Color System
+
 - **CSS Variables**: Uses `--_key-fg`, `--_key-bg`, etc. with user-overridable fallbacks
 - **Media Query**: `@media (prefers-color-scheme: dark)` redefines all color variables
 - **Shadow DOM**: Styles are encapsulated in shadow DOM with concatenated CSS
 - **No Attribute Control**: No HTML attributes for color scheme control
 
 ### Architecture Strengths
+
 - Well-organized CSS variable system with override capability
 - Clean shadow DOM encapsulation
 
@@ -26,11 +28,13 @@ Currently, the KeymapKit UI relies solely on `prefers-color-scheme: dark` media 
 **Approach**: Use CSS data attributes with property switching for cleaner conditional styling.
 
 **Implementation Strategy**:
+
 1. Add `color-scheme` attribute that sets `data-color-scheme` on the host
 2. Use CSS attribute selectors with custom property switches
 3. Leverage CSS `var()` function for conditional values
 
 **CSS Architecture**:
+
 ```css
 :host {
   --_light-key-fg: var(--light-key-fg, oklch(11.6% 0.017 259.7));
@@ -65,12 +69,14 @@ Currently, the KeymapKit UI relies solely on `prefers-color-scheme: dark` media 
 ```
 
 **Pros**:
+
 - Clean separation of light/dark values
 - No CSS duplication
 - Easy to maintain and extend
 - Clear data attribute semantics
 
 **Cons**:
+
 - Requires restructuring existing color variable definitions
 - More verbose CSS initially
 
