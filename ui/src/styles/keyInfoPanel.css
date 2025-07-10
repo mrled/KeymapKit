@@ -90,28 +90,30 @@ keymap-navbar {
         border-radius: 0.125rem;
         font-family: var(--_key-legend-font);
         color: var(--_key-fg);
-        background-color: var(--_key-lay-bg);
-        border: 1px solid var(--_key-lay-br);
+        background-color: var(--_key-reg-bg);
+        border: 1px solid var(--_key-reg-br);
         cursor: pointer;
         outline: none;
+
         &:hover {
-          background-color: var(--_key-lay-hv);
+          background-color: var(--_key-reg-hv);
         }
         &:focus {
-          background-color: var(--_key-lay-hv);
+          background-color: var(--_key-reg-fc);
         }
         &:active {
+          background-color: var(--_key-lay-bg);
+        }
+
+        &.active {
           background-color: var(--_key-lsl-bg);
-        }
-      }
-      button.layer-tab-button.active {
-        background-color: var(--_key-lsl-bg);
-        border-color: var(--_key-lsl-br);
-        &:hover {
-          background-color: var(--_key-lsl-hv);
-        }
-        &:focus {
-          background-color: var(--_key-lsl-hv);
+          border-color: var(--_key-lsl-br);
+          &:hover {
+            background-color: var(--_key-lsl-hv);
+          }
+          &:focus {
+            background-color: var(--_key-lsl-hv);
+          }
         }
       }
 
