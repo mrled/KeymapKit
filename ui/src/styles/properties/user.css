@@ -103,8 +103,8 @@
 
   /* Misc light mode colors */
   --_light-kbd-fg: var(--light-kbd-fg, black);
-  --_light-kbd-border-color: var(--light-kbd-border-color, oklch(73.8% 0 NaN));
-  --_light-kbd-background: var(--light-kbd-background, linear-gradient(180deg, oklch(100% 0 NaN), oklch(100% 0 NaN), oklch(100% 0 NaN), oklch(89.8% 0 NaN)));
+  --_light-kbd-border-color: var(--light-kbd-border-color, oklch(73.8% 0 0));
+  --_light-kbd-background: var(--light-kbd-background, linear-gradient(180deg, oklch(100% 0 0), oklch(100% 0 0), oklch(100% 0 0), oklch(89.8% 0 0)));
   --_light-link-fg: var(--light-link-fg, oklch(59.5% 0.14 250.3));
   --_light-text-muted: var(--light-text-muted, oklch(71.4% 0.019 261.3));
 
