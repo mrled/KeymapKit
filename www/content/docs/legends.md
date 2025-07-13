@@ -24,12 +24,6 @@ different from the key name like `cmd`.
   This might be something simple like an HTML entity such as `&pi;`,
   it might be an entire embedded `<svg>`,
   or it could be any other valid HTML.
-  You could even embed a bitmap with a
-  [data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/data).
-  When using an HTML legend, you are responsible for making sure the result fits properly in the key area,
-  and you can use `<style>` tags and/or `style=` attributes to constrain the size if necessary.
-  - Note that unlike passing an image with `imagePath` (below),
-    colors are not automatically inverted in dark mode.
 - If `imagePath` is passed, use an image on the webserver instead of text.
   Images passed this way automatically have their colors inverted when in dark mode.
 
@@ -37,6 +31,22 @@ A key with any type of legend can add an optional property called `imageAttribut
 which is displayed after the key info in the UI.
 (This is designed for use with `imagePath` and `htmlLegend` keys,
 but technically works on the other tyeps too.)
+
+### Images in `htmlLegend` vs `imagePath`
+
+`imagePath` can take the path to any image on your webserver.
+Its image are constrained to fit in the keyboard key,
+and have their colors inverted when in dark mode.
+It's designed to be simple and do the right thing most of the time.
+
+`htmlLegend` can contain any HTML,
+including an `<img>` tag with a URI to your webserver (or even another webserver for hotlinking),
+an `<img>` tag with a [data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/data),
+or an `<svg>` element.
+Its contents are not size constrained and may overflow,
+and images do not automatically invert colors in dark mode,
+although an `<svg>` may use `currentColor` and non-image elements will inherit CSS `color`.
+It's designed for maximum flexibility, even if that requires the layout designer to do a bit more work.
 
 ## Demo
 
