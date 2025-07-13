@@ -6,9 +6,16 @@ title: KeymapKit
   <ul>
     {% for item in items %}
       <li>
-        <a href="{{ item.url }}">{{ item.title }}</a>
-        {% if item.children %}
-          {{ renderNav(item.children) }}
+        {% if item.url %}
+          <a href="{{ item.url }}">{{ item.title }}</a>
+          {% if item.children %}
+            {{ renderNav(item.children) }}
+          {% endif %}
+        {% else %}
+          {{ item.title }}
+          {% if item.children %}
+            {{ renderNav(item.children) }}
+          {% endif %}
         {% endif %}
       </li>
     {% endfor %}
