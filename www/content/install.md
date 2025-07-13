@@ -3,7 +3,7 @@ layout: site.njk
 title: Installation
 eleventyNavigation:
   title: Installation
-  parent: docs
+  parent: index
   order: 10
 ---
 

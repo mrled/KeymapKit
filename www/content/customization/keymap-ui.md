@@ -3,7 +3,7 @@ layout: site.njk
 title: keymap-ui Configuration
 eleventyNavigation:
   title: keymap-ui Configuration
-  parent: docs
+  parent: customization
   order: 35
 ---
 

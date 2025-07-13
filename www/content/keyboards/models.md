@@ -1,10 +1,10 @@
 ---
 layout: site.njk
-title: Supported Keyboards
+title: Keyboard Models
 eleventyNavigation:
-  title: Supported Keyboards
-  parent: docs
-  order: 40
+  title: Models
+  parent: keyboards
+  order: 10
 ---
 
 KeymapKit comes with support for the following keyboards:
@@ -18,9 +18,3 @@ KeymapKit comes with support for the following keyboards:
 You can write your own keyboard model by instantiating a
 [KeyboardModel](https://github.com/mrled/KeymapKit/blob/master/models/src/lib/KeyboardModel.ts)
 and subclassing [KeymapKeyboardElement](https://github.com/mrled/KeymapKit/blob/master/ui/src/webcomponents/keymap-keyboard.ts).
-
-Take a look at the
-[Planck keyboard walkthrough]({{ "docs/keyboard-planck-walkthrough.md" | inputPathToUrl }})
-for a detailed look at the Planck as an example,
-and the [ErgoDox & Advantage360]({{ "docs/keyboard-ergodox-adv360.md" | inputPathToUrl }})
-for how to build more complex boards.

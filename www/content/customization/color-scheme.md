@@ -3,7 +3,7 @@ layout: site.njk
 title: Color Scheme Control
 eleventyNavigation:
   title: Color Scheme Control
-  parent: docs
+  parent: customization
   order: 40
 ---
 

@@ -2,8 +2,8 @@
 layout: site.njk
 title: Complex Layout
 eleventyNavigation:
-  title: Complex Layout
-  parent: docs
+  title: Complex
+  parent: layouts
   order: 30
 ---
 

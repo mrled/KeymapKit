@@ -3,7 +3,7 @@ layout: site.njk
 title: Layers
 eleventyNavigation:
   title: Layers
-  parent: docs
+  parent: layouts
   order: 30
 ---
 

@@ -3,7 +3,7 @@ layout: site.njk
 title: Planck Walkthrough
 eleventyNavigation:
   title: Planck Walkthrough
-  parent: docs
+  parent: keyboards
   order: 50
 ---
 

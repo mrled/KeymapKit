@@ -2,8 +2,8 @@
 layout: site.njk
 title: Simple Layout
 eleventyNavigation:
-  title: Simple Layout
-  parent: docs
+  title: Simple
+  parent: layouts
   order: 20
 ---
 
@@ -166,7 +166,7 @@ If there is enough width on the screen,
 the ID is also displayed when clicking on any key.
 (On narrow screens like phones, this is hidden so it doesn't consume horizontal screen space.)
 
-### THe source of IDs
+### The source of IDs
 
 Each keyboard has one or more keygrids,
 and any number of keys.

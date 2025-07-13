@@ -3,7 +3,7 @@ layout: site.njk
 title: ErgoDox & Advantage360
 eleventyNavigation:
   title: ErgoDox & Advantage360
-  parent: docs
+  parent: keyboards
   order: 55
 ---
 

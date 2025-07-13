@@ -28,7 +28,7 @@ It's designed to help you share your keymaps with others on your own website. Yo
 If you also want to talk about specific key placement or provide details about your layout on your own website, KeymapKit is for you. You can provide a detailed explanation of each key, group keys together to describe them in a group (e.g. all QWERTY keys), and users can click around on the board to explore. You can write a guided tour of your map, similar to <a href="https://blog.zsa.io/2004-layout-tours/">tours in Oryx</a>, without needing approval from anyone.
 
 See an example of everything you can do on
-the [Complex Layout]({{ "docs/layout-complex.md" | inputPathToUrl }}) page.
+the [Complex Layout]({{ "layouts/complex.md" | inputPathToUrl }}) page.
 
 To use it, install with npm as <code>npm install @keymapkit/ui</code>, define a layout in JavaScript, instantiate the web component on your page, and pass it your defined layout. If KeymapKit doesn't come with a built-in model for your keyboard, you can define your own model. KeymapKit currently ships models of ErgoDox and Planck boards. If you want to see a model for a different board, please <a href="https://github.com/mrled/KeymapKit/issues">open an issue</a>, or implement it yourself and publish it as a separate package on NPM (and let me know so I can link to it here).
 

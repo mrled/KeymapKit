@@ -3,7 +3,7 @@ layout: site.njk
 title: Key Legends
 eleventyNavigation:
   title: Key Legends
-  parent: docs
+  parent: layouts
   order: 33
 ---
 
