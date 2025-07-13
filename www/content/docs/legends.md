@@ -8,8 +8,9 @@ eleventyNavigation:
 ---
 
 A "legend" on a physical keyboard is the character printed on the key.
-In KeymapKit, keys will usually have a very short legend like `⌘`,
-different from the key name like `cmd`.
+In KeymapKit, keys that aren't letters, numbers, or punctuation
+will usually have a very short legend like `⌘` or `cmd`,
+different from the key name like `command`.
 
 - By default, the `name` is used for the legend.
   Very common for plain letter and number keys.
