@@ -137,20 +137,15 @@ keymap-key {
     height: 1rem;
   }
 
+  &[legend-image] > img {
+    filter: var(--_key-img-filter);
+  }
+
   /* HTML legend container (for SVG and other HTML content) */
   & > div {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-}
-
-/* Invert image colors in dark mode for keys with legend-image attribute */
-@media (prefers-color-scheme: dark) {
-  keymap-key {
-    &[legend-image] > img {
-      filter: invert(1);
-    }
   }
 }
 

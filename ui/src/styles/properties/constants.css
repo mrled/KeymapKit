@@ -42,6 +42,8 @@
   --_key-lsl-br: var(--_light-key-lsl-br);
   --_key-lsl-hv: var(--_light-key-lsl-hv);
 
+  --_key-img-filter: none;
+
   --_kbd-fg: var(--_light-kbd-fg);
   --_kbd-border-color: var(--_light-kbd-border-color);
   --_kbd-background: var(--_light-kbd-background);
@@ -81,6 +83,7 @@
     --_key-lsl-bg: var(--_dark-key-lsl-bg);
     --_key-lsl-br: var(--_dark-key-lsl-br);
     --_key-lsl-hv: var(--_dark-key-lsl-hv);
+    --_key-img-filter: invert(1);
     --_kbd-fg: var(--_dark-kbd-fg);
     --_kbd-border-color: var(--_dark-kbd-border-color);
     --_kbd-background: var(--_dark-kbd-background);
@@ -121,6 +124,7 @@
   --_key-lsl-bg: var(--_dark-key-lsl-bg);
   --_key-lsl-br: var(--_dark-key-lsl-br);
   --_key-lsl-hv: var(--_dark-key-lsl-hv);
+  --_key-img-filter: invert(1);
   --_kbd-fg: var(--_dark-kbd-fg);
   --_kbd-border-color: var(--_dark-kbd-border-color);
   --_kbd-background: var(--_dark-kbd-background);
@@ -160,6 +164,7 @@
   --_key-lsl-bg: var(--_light-key-lsl-bg);
   --_key-lsl-br: var(--_light-key-lsl-br);
   --_key-lsl-hv: var(--_light-key-lsl-hv);
+  --_key-img-filter: none;
   --_kbd-fg: var(--_light-kbd-fg);
   --_kbd-border-color: var(--_light-kbd-border-color);
   --_kbd-background: var(--_light-kbd-background);
