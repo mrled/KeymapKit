@@ -57,16 +57,14 @@ nav#sidebar {
     padding: 0;
     margin: 0;
     li {
-      padding-left: 0.35rem;
-      margin-bottom: 0.125rem;
-      a {
-        display: block;
-        padding: 0.25rem 0.5rem;
-        text-decoration: none;
-        line-height: 1.4;
-        &:hover {
-          background-color: var(--color-hover-bg);
-        }
+      /* margin: 0.5rem 0; */
+      display: block;
+      /* padding: 0 0.5rem; */
+      margin: 0.5rem;
+      text-decoration: none;
+      line-height: 1.2;
+      a:hover {
+        background-color: var(--color-hover-bg);
       }
     }
   }
