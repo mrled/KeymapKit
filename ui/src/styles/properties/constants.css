@@ -55,7 +55,7 @@
  * Derived from user-specified properties.
  */
 @media (prefers-color-scheme: dark) {
-  :host:not([color-scheme]) {
+  :host {
     --_foreground-color: var(--_dark-foreground-color);
     --_button-border-color: var(--_dark-button-border-color);
     --_key-fg: var(--_dark-key-fg);
