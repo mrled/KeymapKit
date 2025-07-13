@@ -55,6 +55,12 @@ Here's a demo of all of these different ways to show a legend.
 
 <div id="keymap-container"></div>
 
+<div style="margin-top: 1rem;">
+  <button onclick="setColorScheme('light')">Light Mode</button>
+  <button onclick="setColorScheme('dark')">Dark Mode</button>
+  <button onclick="setColorScheme('system')">System Preference</button>
+</div>
+
 <script type="module">
 import { KeymapTitleScreenLayoutLegends } from "/KeymapKit/keymaps/title-screen-layout-legends.js";
 
@@ -65,6 +71,27 @@ keymapUi.setAttribute("keymap-id", "title-screen-map-legends");
 keymapUi.setAttribute("query-prefix", "keymap");
 let keymapContainer = document.querySelector("#keymap-container")
 keymapContainer.appendChild(keymapUi);
+
+window.setColorScheme = function(scheme) {
+  const keymap = document.getElementById("keymap-title");
+  switch (scheme) {
+    case "system": {
+      keymapContainer.style = "";
+      keymap.removeAttribute("color-scheme");
+      break;
+    }
+    case "light": {
+      keymapContainer.style = "background-color: white;";
+      keymap.setAttribute("color-scheme", "light");
+      break;
+    }
+    case "dark": {
+      keymapContainer.style = "background-color: black;";
+      keymap.setAttribute("color-scheme", "dark");
+      break;
+    }
+  }
+};
 </script>
 
 ## Legend suggestions
