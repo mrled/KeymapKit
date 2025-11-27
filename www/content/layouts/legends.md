@@ -31,7 +31,7 @@ different from the key name like `command`.
 A key with any type of legend can add an optional property called `imageAttribution`,
 which is displayed after the key info in the UI.
 (This is designed for use with `imagePath` and `htmlLegend` keys,
-but technically works on the other tyeps too.)
+but technically works on the other types too.)
 
 ### Images in `htmlLegend` vs `imagePath`
 
