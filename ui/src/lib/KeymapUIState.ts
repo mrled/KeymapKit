@@ -504,8 +504,9 @@ export class KeymapUIState {
         return;
       }
       newLayer = newKeymap.layers[layerIdx];
-      // if a guide (or step) is selected, selecting a layer exits the guide
-      if (newGuide && newLayer) {
+      // Selecting a layer exits the guide, unless the guide is also explicitly
+      // specified (for example, when restoring both from browser history).
+      if (newGuide && newLayer && !specifiedGuide) {
         newGuide = null;
         newGuideStep = null;
         changedGuide = true;
