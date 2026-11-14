@@ -488,8 +488,9 @@ export class KeymapUIState {
         newGuideStep = newGuide.steps[guideStepIdx];
       }
     } else if (newGuide !== null) {
-      // If we don't specify a guide step but a guide is selected, go to the first step.
-      newGuideStep = newGuide.steps[0];
+      // Start at the first step only when a guide is explicitly selected.
+      // Unrelated updates must preserve the current step and its layer.
+      newGuideStep = specifiedGuide ? newGuide.steps[0] : oldGuideStep;
     } else {
       newGuideStep = null;
     }
