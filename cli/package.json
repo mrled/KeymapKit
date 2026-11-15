@@ -3,6 +3,11 @@
   "description": "CLI tools for KeymapKit",
   "author": "Micah R Ledbetter",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrled/KeymapKit.git",
+    "directory": "cli"
+  },
   "version": "1.0.7",
   "private": false,
   "type": "module",

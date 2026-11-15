@@ -3,6 +3,11 @@
   "description": "The Kinesis Advantage360 keyboard model for KeymapKit",
   "author": "Micah R Ledbetter",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrled/KeymapKit.git",
+    "directory": "keyboard.advantage360"
+  },
   "version": "1.0.6",
   "private": false,
   "type": "module",

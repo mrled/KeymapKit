@@ -3,6 +3,11 @@
   "description": "The presentation layer for your keyboard",
   "author": "Micah R Ledbetter",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrled/KeymapKit.git",
+    "directory": "ui"
+  },
   "version": "1.0.21",
   "private": false,
   "type": "module",

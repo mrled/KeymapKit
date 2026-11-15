@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      id-token: write
 
     steps:
       - name: Checkout code
@@ -51,7 +52,7 @@ jobs:
           VERSION="${{ steps.extract.outputs.version }}"
 
           # Get the actual package name from package.json
-          PACKAGE_JSON_NAME=$(version=$(node -p "require('./$WORKSPACE/package.json').name"))
+          PACKAGE_JSON_NAME=$(node -p "require('./$WORKSPACE/package.json').name")
           echo "package_name=$PACKAGE_JSON_NAME" >> $GITHUB_OUTPUT
 
           # If the package name is @keymapkit/ui, the tarball name will be keymapkit-ui-VERSION.tgz
@@ -115,9 +116,9 @@ jobs:
           draft: false
           prerelease: false
 
+      # npm authenticates using GitHub's OIDC identity, not a stored npm token.
       - name: Publish to NPM
         run: |
-          npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
           VERSION="${{ steps.extract.outputs.version }}"
 
           # Check if version is a prerelease (contains -, like 1.0.0-rc.1)
