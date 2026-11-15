@@ -30,8 +30,6 @@
     "@keymapkit/ui": "*"
   },
   "devDependencies": {
-    "dts-bundle-generator": "^10.0.0",
-    "esbuild": "^0.28.2",
-    "typescript": "~6.0.3"
+    "dts-bundle-generator": "^10.0.0"
   }
 }

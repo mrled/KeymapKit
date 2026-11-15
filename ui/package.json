@@ -28,7 +28,6 @@
   },
   "devDependencies": {
     "@keymapkit/models": "*",
-    "@types/node": "^26.6.6",
     "dts-bundle-generator": "^10.0.0"
   }
 }

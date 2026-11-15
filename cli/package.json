@@ -34,7 +34,6 @@
   "devDependencies": {
     "@jest/globals": "^30.5.2",
     "@keymapkit/models": "*",
-    "@types/jest": "^30.0.0",
     "@types/jsdom": "^30.0.0",
     "@types/node": "^26.6.6",
     "jest": "^30.5.2",
