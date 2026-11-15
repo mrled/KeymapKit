@@ -26,6 +26,12 @@ npx @keymapkit/cli blank @keymapkit/keyboard.ergodox KeyboardModelErgodox
 
 ## Development
 
+Use Node.js 24.15.0 or newer on the 24.x line, or Node.js 26 or newer.
+The CLI itself also supports Node.js 22.22.2 or newer on the 22.x line.
+
+TypeScript is kept on 6.0.x until the lint, test, and declaration-generation
+tools support TypeScript 7.
+
 Use the make file
 
 ```console

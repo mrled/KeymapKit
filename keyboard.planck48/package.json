@@ -23,15 +23,15 @@
   ],
   "scripts": {
     "build": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --external:@keymapkit/ui --outfile=dist/keyboard.planck48.js index.ts",
-    "postbuild": "tsc --project tsconfig.json && dts-bundle-generator --project=tsconfig.json --no-banner --sort --export-referenced-types=false --disable-symlinks-following --out-file=dist/keyboard.planck48.d.ts index.ts",
+    "postbuild": "tsc --project tsconfig.json && dts-bundle-generator --project=tsconfig.json --no-banner --sort --disable-symlinks-following --out-file=dist/keyboard.planck48.d.ts index.ts",
     "keymapkit.watch": "esbuild --bundle --sourcemap --format=esm --loader:.css=text --minify --external:@keymapkit/ui --outfile=../www/static/keymapkit/keyboard.planck48.js index.ts --watch=forever"
   },
   "dependencies": {
     "@keymapkit/ui": "*"
   },
   "devDependencies": {
-    "dts-bundle-generator": "^9.5.1",
-    "esbuild": "^0.25.5",
-    "typescript": "^5.8.3"
+    "dts-bundle-generator": "^10.0.0",
+    "esbuild": "^0.28.2",
+    "typescript": "~6.0.3"
   }
 }
